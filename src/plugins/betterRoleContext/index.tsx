@@ -75,7 +75,7 @@ function RoleMembersIcon() {
 const settings = definePluginSettings({
     roleIconFileFormat: {
         type: OptionType.SELECT,
-        description: "File format to use when viewing role icons",
+        description: "檢視身分組圖示時使用的檔案格式",
         options: [
             {
                 label: "png",
@@ -103,7 +103,7 @@ export function buildExtraRoleContextMenuItems(role: Role, guild: Guild, popoutR
             <Menu.MenuItem
                 key="vc-edit-role"
                 id="vc-edit-role"
-                label="Edit Role"
+                label="編輯身分組"
                 action={async () => {
                     await GuildSettingsActions.open(guild.id, "ROLES");
                     GuildSettingsActions.selectRole(role.id);
@@ -116,7 +116,7 @@ export function buildExtraRoleContextMenuItems(role: Role, guild: Guild, popoutR
             <Menu.MenuItem
                 key="vc-copy-role-color"
                 id="vc-copy-role-color"
-                label="Copy Role Color"
+                label="複製身分組顏色"
                 action={() => copyToClipboard(role.colorString!)}
                 icon={AppearanceIcon}
                 leadingAccessory={{ type: "icon", icon: AppearanceIcon }}
@@ -129,7 +129,7 @@ export function buildExtraRoleContextMenuItems(role: Role, guild: Guild, popoutR
             <Menu.MenuItem
                 key="vc-view-role-icon"
                 id="vc-view-role-icon"
-                label="View Role Icon"
+                label="檢視身分組圖示"
                 action={() => {
                     openImageModal({
                         url: `${location.protocol}//${window.GLOBAL_ENV.CDN_HOST}/role-icons/${role.id}/${role.icon}.${settings.store.roleIconFileFormat}`,
@@ -145,7 +145,7 @@ export function buildExtraRoleContextMenuItems(role: Role, guild: Guild, popoutR
             <Menu.MenuItem
                 key="vc-view-role-members"
                 id="vc-view-role-members"
-                label="View Role Members"
+                label="檢視身分組成員"
                 render={() => (
                     <Popout
                         position="right"
@@ -163,7 +163,7 @@ export function buildExtraRoleContextMenuItems(role: Role, guild: Guild, popoutR
                                 role="menuitem"
                                 {...popoutProps}
                             >
-                                <div className={MenuItemClasses.label}>View Role Members</div>
+                                <div className={MenuItemClasses.label}>檢視身分組成員</div>
                                 {/* FIXME: update to new icon style */}
                                 <div className={MenuItemClasses.iconContainer}>
                                     <RoleMembersIcon />
@@ -194,7 +194,7 @@ export function openRoleContextMenu(event: React.MouseEvent<HTMLElement>, { guil
             <Menu.Menu
                 navId="vc-better-role-context-member-list"
                 onClose={ContextMenuApi.closeContextMenu}
-                aria-label="Role Actions"
+                aria-label="身分組操作"
             >
                 {before}
                 {after}

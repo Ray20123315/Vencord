@@ -55,7 +55,7 @@ export const enum TimestampMode {
 export const settings = definePluginSettings({
     enablePresence: {
         type: OptionType.BOOLEAN,
-        description: "Whether to show the presence",
+        description: "是否顯示自訂活動狀態",
         default: true,
         onChange: v => setRpc(!v)
     },
@@ -234,7 +234,7 @@ export default definePlugin({
         return (
             <Menu.MenuCheckboxItem
                 id="custom-rpc-toggle-toolbox"
-                label="Show Custom RPC"
+                label="顯示自訂 RPC"
                 checked={enablePresence}
                 action={() => {
                     settings.store.enablePresence = !enablePresence;
@@ -269,8 +269,8 @@ export default definePlugin({
                 {!enablePresence && (
                     <Card variant="warning">
                         <Flex flexDirection="column" gap=".5em" alignItems="flex-start">
-                            <Heading tag="h4" weight="bold">Custom RPC disabled</Heading>
-                            <Paragraph>The "Enable Presence" setting is disabled, so your presence won't show. If this was unintentional, enable it below.</Paragraph>
+                            <Heading tag="h4" weight="bold">自訂 RPC 已停用</Heading>
+                            <Paragraph>「啟用活動狀態」設定已停用，因此不會顯示你的活動狀態。若非刻意停用，請在下方啟用。</Paragraph>
                             <Button
                                 variant="overlayPrimary"
                                 onClick={() => settings.store.enablePresence = true}
@@ -283,8 +283,8 @@ export default definePlugin({
                 {!gameActivityEnabled && (
                     <Card variant="danger">
                         <Flex flexDirection="column" gap=".5em" alignItems="flex-start">
-                            <Heading tag="h4" weight="bold">Activity Sharing disabled</Heading>
-                            <Paragraph>Activity Sharing isn't enabled, so people won't be able to see your custom rich presence!</Paragraph>
+                            <Heading tag="h4" weight="bold">活動分享已停用</Heading>
+                            <Paragraph>尚未啟用活動分享，因此其他人無法看到你的自訂 Rich Presence！</Paragraph>
 
                             <Button
                                 variant="overlayPrimary"
@@ -298,14 +298,14 @@ export default definePlugin({
 
                 <Flex flexDirection="column" gap=".5em">
                     <Paragraph>
-                        Go to the <Link href="https://discord.com/developers/applications">Discord Developer Portal</Link> to create an application and
+                        前往 <Link href="https://discord.com/developers/applications">Discord Developer Portal</Link> 建立應用程式，並
                         get the application ID.
                     </Paragraph>
                     <Paragraph>
                         Upload images in the Rich Presence tab to get the image keys.
                     </Paragraph>
                     <Paragraph>
-                        If you want to use an image link, download your image and reupload the image to <Link href="https://imgur.com">Imgur</Link> and get the image link by right-clicking the image and selecting "Copy image address".
+                        若要使用圖片連結，請先下載圖片並重新上傳至 <Link href="https://imgur.com">Imgur</Link> and 在圖片上按右鍵並選擇「複製圖片網址」以取得連結。
                     </Paragraph>
                     <Paragraph>
                         You can't see your own buttons on your profile, but everyone else can see it fine.

@@ -29,7 +29,7 @@ import alignedChatInputFix from "./alignedChatInputFix.css?managed";
 const settings = definePluginSettings({
     format: {
         type: OptionType.SELECT,
-        description: "The timer format. This can be any valid moment.js format",
+        description: "計時器格式，可使用任何有效的 moment.js 格式",
         options: [
             {
                 label: "30d 23:00:42",

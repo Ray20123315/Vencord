@@ -38,12 +38,12 @@ const BlobMask = findComponentByCodeLazy("!1,lowerBadgeSize:");
 const settings = definePluginSettings({
     backgroundCheck: {
         type: OptionType.BOOLEAN,
-        description: "Check for new sessions in the background, and display notifications when they are detected",
+        description: "在背景檢查新工作階段，並在偵測到時顯示通知",
         default: false,
         restartNeeded: true
     },
     checkInterval: {
-        description: "How often to check for new sessions in the background (if enabled), in minutes",
+        description: "啟用時在背景檢查新工作階段的間隔（分鐘）",
         type: OptionType.NUMBER,
         default: 20,
         min: 1,

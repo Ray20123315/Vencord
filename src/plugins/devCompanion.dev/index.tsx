@@ -65,7 +65,7 @@ interface FindData {
 
 const settings = definePluginSettings({
     notifyOnAutoConnect: {
-        description: "Whether to notify when Dev Companion has automatically connected.",
+        description: "Dev Companion 自動連線時是否顯示通知。",
         type: OptionType.BOOLEAN,
         default: true
     }
@@ -98,7 +98,7 @@ function initWs(isManual = false) {
         logger.info("Connected to WebSocket");
 
         (settings.store.notifyOnAutoConnect || isManual) && showNotification({
-            title: "Dev Companion Connected",
+            title: "Dev Companion 已連線",
             body: "Connected to WebSocket",
             noPersist: true
         });
@@ -109,10 +109,10 @@ function initWs(isManual = false) {
 
         hasErrored = true;
 
-        logger.error("Dev Companion Error:", e);
+        logger.error("Dev Companion 發生錯誤:", e);
 
         showNotification({
-            title: "Dev Companion Error",
+            title: "Dev Companion 發生錯誤",
             body: (e as ErrorEvent).message || "No Error Message",
             color: "var(--status-danger, red)",
             noPersist: true,
@@ -122,10 +122,10 @@ function initWs(isManual = false) {
     ws.addEventListener("close", e => {
         if (!wasConnected || hasErrored) return;
 
-        logger.info("Dev Companion Disconnected:", e.code, e.reason);
+        logger.info("Dev Companion 已中斷連線:", e.code, e.reason);
 
         showNotification({
-            title: "Dev Companion Disconnected",
+            title: "Dev Companion 已中斷連線",
             body: e.reason || "No Reason provided",
             color: "var(--status-danger, red)",
             noPersist: true,

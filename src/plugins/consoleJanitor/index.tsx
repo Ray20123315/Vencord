@@ -58,7 +58,7 @@ function AllowLevelSetting({ settingKey }: AllowLevelSettingProps) {
 
 const AllowLevelSettings = ErrorBoundary.wrap(() => {
     return (
-        <SettingsSection name="Filter List" id="filterList" description="Always allow loggers of these types">
+        <SettingsSection name="篩選清單" id="filterList" description="一律允許以下類型的日誌記錄器">
             <div style={{ display: "flex", flexDirection: "row" }}>
                 {Object.keys(settings.store.allowLevel).map(key => (
                     <AllowLevelSetting key={key} settingKey={key as keyof AllowLevels} />
@@ -71,19 +71,19 @@ const AllowLevelSettings = ErrorBoundary.wrap(() => {
 const settings = definePluginSettings({
     disableLoggers: {
         type: OptionType.BOOLEAN,
-        description: "Disables Discords loggers",
+        description: "停用 Discord 的日誌記錄器",
         default: false,
         restartNeeded: true
     },
     disableSpotifyLogger: {
         type: OptionType.BOOLEAN,
-        description: "Disable the Spotify logger, which leaks account information and access token",
+        description: "停用可能洩漏帳號資訊與存取權杖的 Spotify 日誌記錄器",
         default: true,
         restartNeeded: true
     },
     whitelistedLoggers: {
         type: OptionType.STRING,
-        description: "Semicolon (;) separated list of loggers to allow even if others are hidden",
+        description: "即使隱藏其他日誌，仍要允許的日誌記錄器清單，以分號（;）分隔",
         default: "GatewaySocket; Routing/Utils",
         multiline: true,
         onChange(newVal: string) {

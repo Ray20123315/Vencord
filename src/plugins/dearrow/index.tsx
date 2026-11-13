@@ -119,7 +119,7 @@ function DearrowButton({ component }: { component: Component<Props>; }) {
                         width="24px"
                         height="24px"
                         viewBox="0 0 36 36"
-                        aria-label="Toggle Dearrow"
+                        aria-label="切換 Dearrow"
                         className="vc-dearrow-icon"
                     >
                         <path
@@ -144,23 +144,23 @@ function DearrowButton({ component }: { component: Component<Props>; }) {
 
 const settings = definePluginSettings({
     hideButton: {
-        description: "Hides the Dearrow button from YouTube embeds",
+        description: "隱藏 YouTube 嵌入影片上的 Dearrow 按鈕",
         type: OptionType.BOOLEAN,
         default: false,
         restartNeeded: true
     },
     replaceElements: {
-        description: "Choose which elements of the embed will be replaced",
+        description: "選擇要替換的嵌入影片元素",
         type: OptionType.SELECT,
         restartNeeded: true,
         options: [
-            { label: "Everything (Titles & Thumbnails)", value: ReplaceElements.ReplaceAllElements, default: true },
-            { label: "Titles", value: ReplaceElements.ReplaceTitlesOnly },
-            { label: "Thumbnails", value: ReplaceElements.ReplaceThumbnailsOnly },
+            { label: "全部（標題與縮圖）", value: ReplaceElements.ReplaceAllElements, default: true },
+            { label: "標題", value: ReplaceElements.ReplaceTitlesOnly },
+            { label: "縮圖", value: ReplaceElements.ReplaceThumbnailsOnly },
         ],
     },
     dearrowByDefault: {
-        description: "Dearrow videos automatically",
+        description: "自動為影片套用 Dearrow",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: false
