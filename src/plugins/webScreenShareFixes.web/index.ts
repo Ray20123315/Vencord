@@ -11,7 +11,7 @@ import { FluxDispatcher } from "@webpack/common";
 export default definePlugin({
     name: "WebScreenShareFixes",
     authors: [Devs.Kaitlyn],
-    description: "Removes 2500kbps bitrate cap on chromium and vesktop clients and fixes CPU usage growing endlessly while screensharing.",
+    description: "移除 Chromium 與 Vesktop 客戶端的 2500 kbps 位元率限制，並修正螢幕分享時 CPU 使用量持續增加的問題。",
     tags: ["Voice"],
     enabledByDefault: true,
     start() {

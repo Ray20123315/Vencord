@@ -36,7 +36,7 @@ export const settings = definePluginSettings({
 
 export default definePlugin({
     name: "SuperReactionTweaks",
-    description: "Customize the limit of Super Reactions playing at once, and super react by default",
+    description: "自訂同時播放的超級表情回應數量上限，並預設使用超級回應。",
     tags: ["Reactions", "Emotes"],
     authors: [Devs.FieryFlames, Devs.ant0n],
     patches: [

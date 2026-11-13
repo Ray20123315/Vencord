@@ -22,7 +22,7 @@ import definePlugin from "@utils/types";
 
 export default definePlugin({
     name: "Unindent",
-    description: "Trims leading indentation from codeblocks",
+    description: "移除程式碼區塊開頭的縮排。",
     tags: ["Chat", "Utility"],
     authors: [Devs.Ven],
 

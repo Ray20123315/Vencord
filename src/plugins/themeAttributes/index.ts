@@ -13,7 +13,7 @@ import { UserStore } from "@webpack/common";
 
 export default definePlugin({
     name: "ThemeAttributes",
-    description: "Adds data attributes to various elements for theming purposes",
+    description: "為不同介面元素加入資料屬性，方便主題樣式調整。",
     tags: ["Appearance", "Customisation"],
     authors: [Devs.Ven, Devs.Board],
 
