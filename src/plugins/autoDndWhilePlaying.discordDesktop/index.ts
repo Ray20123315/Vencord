@@ -17,23 +17,23 @@ const StatusSettings = getUserSettingLazy<string>("status", "status")!;
 const settings = definePluginSettings({
     statusToSet: {
         type: OptionType.SELECT,
-        description: "Status to set while playing a game",
+        description: "遊玩遊戲時要設定的狀態",
         options: [
             {
-                label: "Online",
+                label: "上線",
                 value: "online",
             },
             {
-                label: "Idle",
+                label: "閒置",
                 value: "idle",
             },
             {
-                label: "Do Not Disturb",
+                label: "勿擾",
                 value: "dnd",
                 default: true
             },
             {
-                label: "Invisible",
+                label: "隱形",
                 value: "invisible",
             }
         ]

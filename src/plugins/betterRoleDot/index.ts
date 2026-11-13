@@ -24,13 +24,13 @@ import definePlugin, { OptionType } from "@utils/types";
 const settings = definePluginSettings({
     bothStyles: {
         type: OptionType.BOOLEAN,
-        description: "Show both role dot and coloured names",
+        description: "同時顯示身分組圓點與彩色名稱",
         restartNeeded: true,
         default: false,
     },
     copyRoleColorInProfilePopout: {
         type: OptionType.BOOLEAN,
-        description: "Allow click on role dot in profile popout to copy role color",
+        description: "允許點選個人資料彈出視窗中的身分組圓點以複製身分組顏色",
         restartNeeded: true,
         default: false
     }

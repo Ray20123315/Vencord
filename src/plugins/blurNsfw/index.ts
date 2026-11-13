@@ -28,14 +28,14 @@ let style: HTMLStyleElement;
 const settings = definePluginSettings({
     blurAmount: {
         type: OptionType.NUMBER,
-        description: "Blur Amount (in pixels)",
+        description: "模糊程度（像素）",
         default: 10,
         min: 0,
         onChange: setCss
     },
     ignoredChannels: {
         type: OptionType.STRING,
-        description: "List of channel IDs to not blur attachments in, separated by a space or comma",
+        description: "不需要模糊附件的頻道 ID 清單，以空格或逗號分隔",
         default: "",
         multiline: true,
     }

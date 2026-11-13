@@ -32,39 +32,39 @@ function calculateNameColorForUser(id?: string) {
 
 const settings = definePluginSettings({
     lightness: {
-        description: "Lightness, in %. Change if the colors are too light or too dark",
+        description: "亮度（%）。如果顏色過亮或過暗可在此調整",
         type: OptionType.NUMBER,
         default: 70,
         min: 0,
         max: 100
     },
     saturation: {
-        description: "Saturation, in %. Change if the colors are too vibrant or dull",
+        description: "飽和度（%）。如果顏色太鮮豔或太灰暗可在此調整",
         type: OptionType.NUMBER,
         default: 100,
         min: 0,
         max: 100
     },
     seed: {
-        description: "Changing this will shuffle everyone's username color to a new color",
+        description: "修改此項目會重新分配所有人的使用者名稱顏色",
         type: OptionType.STRING,
         default: "",
     },
     memberListColors: {
-        description: "Replace role colors in the member list",
+        description: "取代成員清單中的身分組顏色",
         restartNeeded: true,
         type: OptionType.BOOLEAN,
         default: true
     },
     applyColorOnlyToUsersWithoutColor: {
-        description: "Apply colors only to users who don't have a predefined color",
+        description: "僅為沒有預設顏色的使用者套用顏色",
         restartNeeded: false,
         type: OptionType.BOOLEAN,
         default: false
     },
     applyColorOnlyInDms: {
         displayName: "Apply Color Only In DMs",
-        description: "Apply colors only in direct messages; do not apply colors in servers.",
+        description: "只在私訊中套用顏色，不在伺服器中套用。",
         restartNeeded: false,
         type: OptionType.BOOLEAN,
         default: false

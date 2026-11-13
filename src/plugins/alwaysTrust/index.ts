@@ -24,13 +24,13 @@ const settings = definePluginSettings({
     domain: {
         type: OptionType.BOOLEAN,
         default: true,
-        description: "Remove the untrusted domain popup when opening links",
+        description: "開啟連結時移除不受信任網域的警告視窗",
         restartNeeded: true
     },
     file: {
         type: OptionType.BOOLEAN,
         default: true,
-        description: "Remove the 'Potentially Dangerous Download' popup when opening links",
+        description: "開啟連結時移除「可能有危險的下載內容」警告視窗",
         restartNeeded: true
     }
 });

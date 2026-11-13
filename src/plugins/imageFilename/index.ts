@@ -13,7 +13,7 @@ const GifHostRegex = /^(.+?\.)?(tenor|giphy|imgur)\.com$/i;
 
 const settings = definePluginSettings({
     showFullUrl: {
-        description: "Show the full URL of the image instead of just the file name. Always enabled for GIFs because they usually have no meaningful file name",
+        description: "顯示圖片完整網址，而不只顯示檔名。GIF 通常沒有具辨識性的檔名，因此一律啟用。",
         type: OptionType.BOOLEAN,
         default: false,
     },

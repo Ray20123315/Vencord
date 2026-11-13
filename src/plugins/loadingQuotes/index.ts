@@ -27,28 +27,28 @@ const noQuotesQuote = "Did you really disable all loading quotes? What a buffoon
 
 const settings = definePluginSettings({
     replaceEvents: {
-        description: "Should this plugin also apply during events with special event themed quotes? (e.g. Halloween)",
+        description: "在有特殊活動主題文字的期間（例如萬聖節），是否仍啟用此插件？",
         type: OptionType.BOOLEAN,
         default: true
     },
     enablePluginPresetQuotes: {
-        description: "Enable the quotes preset by this plugin",
+        description: "啟用此插件預設的載入文字",
         type: OptionType.BOOLEAN,
         default: true
     },
     enableDiscordPresetQuotes: {
-        description: "Enable Discord's preset quotes (including event quotes, during events)",
+        description: "啟用 Discord 預設的載入文字（包含活動期間的專屬文字）",
         type: OptionType.BOOLEAN,
         default: false
     },
     additionalQuotes: {
-        description: "Additional custom quotes to possibly appear, separated by the below delimiter",
+        description: "額外的自訂載入文字，使用下方分隔符號區隔",
         type: OptionType.STRING,
         default: "",
         multiline: true
     },
     additionalQuotesDelimiter: {
-        description: "Delimiter for additional quotes",
+        description: "額外載入文字使用的分隔符號",
         type: OptionType.STRING,
         default: "|",
     },

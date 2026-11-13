@@ -12,7 +12,7 @@ import { FluxDispatcher } from "@webpack/common";
 
 const settings = definePluginSettings({
     idleTimeout: {
-        description: "Minutes before Discord goes idle (0 to disable auto-idle)",
+        description: "Discord 自動進入閒置狀態前的分鐘數（0 為停用自動閒置）",
         type: OptionType.SLIDER,
         markers: makeRange(0, 60, 5),
         default: 10,
@@ -20,7 +20,7 @@ const settings = definePluginSettings({
         restartNeeded: true // Because of the setInterval patch
     },
     remainInIdle: {
-        description: "When you come back to Discord, remain idle until you confirm you want to go online",
+        description: "返回 Discord 後維持閒置，直到你確認要恢復上線",
         type: OptionType.BOOLEAN,
         default: true
     }
@@ -69,7 +69,7 @@ export default definePlugin({
             noticesQueue.some(([, noticeMessage]) => noticeMessage === backOnlineMessage)
         ) return;
 
-        showNotice(backOnlineMessage, "Exit idle", () => {
+        showNotice(backOnlineMessage, "結束閒置", () => {
             popNotice();
             FluxDispatcher.dispatch({
                 type: "IDLE",

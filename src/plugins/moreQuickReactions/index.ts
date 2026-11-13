@@ -10,7 +10,7 @@ import definePlugin, { OptionType } from "@utils/types";
 
 const settings = definePluginSettings({
     reactionCount: {
-        description: "Number of reactions (0-42)",
+        description: "表情回應數量（0～42）",
         type: OptionType.NUMBER,
         default: 5,
         min: 0,

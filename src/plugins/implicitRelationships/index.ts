@@ -27,7 +27,7 @@ const settings = definePluginSettings(
         sortByAffinity: {
             type: OptionType.BOOLEAN,
             default: true,
-            description: "Whether to sort implicit relationships by their affinity to you.",
+            description: "是否依與你的親近程度排序隱含關係。",
             restartNeeded: true
         },
     }

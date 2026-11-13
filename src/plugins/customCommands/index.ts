@@ -62,7 +62,7 @@ export function registerTagCommand(tag: Tag) {
             })),
             {
                 name: "ephemeral",
-                description: "Whether the response should only be visible to you",
+                description: "是否只讓你自己看到回覆",
                 type: ApplicationCommandOptionType.BOOLEAN,
                 required: false
             }
@@ -107,28 +107,28 @@ export default definePlugin({
     commands: [
         {
             name: "tags",
-            description: "Manage all custom commands",
+            description: "管理所有自訂指令",
             inputType: ApplicationCommandInputType.BUILT_IN,
             options: [
                 {
                     name: "create",
-                    description: "Create a new tag",
+                    description: "建立新標籤",
                     type: ApplicationCommandOptionType.SUB_COMMAND,
                 },
                 {
                     name: "list",
-                    description: "List all your tags",
+                    description: "列出你的所有標籤",
                     type: ApplicationCommandOptionType.SUB_COMMAND,
                     options: []
                 },
                 {
                     name: "delete",
-                    description: "Remove a tag by name",
+                    description: "依名稱移除標籤",
                     type: ApplicationCommandOptionType.SUB_COMMAND,
                     options: [
                         {
                             name: "tag-name",
-                            description: "The name of the tag",
+                            description: "標籤名稱",
                             type: ApplicationCommandOptionType.STRING,
                             required: true
                         }

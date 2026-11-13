@@ -31,7 +31,7 @@ export default definePlugin({
     commands: [
         {
             name: "create friend invite",
-            description: "Generates a friend invite link.",
+            description: "產生好友邀請連結。",
             inputType: ApplicationCommandInputType.BUILT_IN,
 
             execute: async (args, ctx) => {
@@ -48,7 +48,7 @@ export default definePlugin({
         },
         {
             name: "view friend invites",
-            description: "View a list of all generated friend invites.",
+            description: "查看所有已產生的好友邀請連結。",
             inputType: ApplicationCommandInputType.BUILT_IN,
             execute: async (_, ctx) => {
                 const invites = await FriendInvites.getAllFriendInvites();
@@ -67,7 +67,7 @@ export default definePlugin({
         },
         {
             name: "revoke friend invites",
-            description: "Revokes all generated friend invites.",
+            description: "撤銷所有已產生的好友邀請連結。",
             inputType: ApplicationCommandInputType.BUILT_IN,
             execute: async (_, ctx) => {
                 await FriendInvites.revokeFriendInvites();

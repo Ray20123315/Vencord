@@ -36,22 +36,22 @@ const focusChanged = () => !WindowStore.isFocused() && (isDeletePressed = false)
 const settings = definePluginSettings({
     enableDeleteOnClick: {
         type: OptionType.BOOLEAN,
-        description: "Enable delete on click while holding backspace",
+        description: "啟用按住 Backspace 並點選訊息即可刪除",
         default: true
     },
     enableDoubleClickToEdit: {
         type: OptionType.BOOLEAN,
-        description: "Enable double click to edit",
+        description: "啟用按兩下以編輯訊息",
         default: true
     },
     enableDoubleClickToReply: {
         type: OptionType.BOOLEAN,
-        description: "Enable double click to reply",
+        description: "啟用按兩下以回覆訊息",
         default: true
     },
     requireModifier: {
         type: OptionType.BOOLEAN,
-        description: "Only do double click actions when shift/ctrl is held",
+        description: "僅在按住 Shift／Ctrl 時執行雙擊操作",
         default: false
     }
 });

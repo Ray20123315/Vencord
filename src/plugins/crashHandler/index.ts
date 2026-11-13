@@ -43,12 +43,12 @@ const { ModalStack, DraftManager } = proxyLazyWebpack(() => {
 const settings = definePluginSettings({
     attemptToPreventCrashes: {
         type: OptionType.BOOLEAN,
-        description: "Whether to attempt to prevent Discord crashes.",
+        description: "是否嘗試防止 Discord 當機。",
         default: true
     },
     attemptToNavigateToHome: {
         type: OptionType.BOOLEAN,
-        description: "Whether to attempt to navigate to the home when preventing Discord crashes.",
+        description: "嘗試避免 Discord 當機時，是否返回首頁。",
         default: false
     }
 });
@@ -99,7 +99,7 @@ export default definePlugin({
                     try {
                         showNotification({
                             color: "#eed202",
-                            title: "Discord has crashed!",
+                            title: "Discord 發生當機！",
                             body: "Awn :( Discord has crashed two times rapidly, not attempting to recover.",
                             noPersist: true
                         });
@@ -134,7 +134,7 @@ export default definePlugin({
         try {
             showNotification({
                 color: "#eed202",
-                title: "Discord has crashed!",
+                title: "Discord 發生當機！",
                 body: "Attempting to recover...",
                 noPersist: true
             });
