@@ -80,26 +80,26 @@ interface SettingsLayoutBuilder {
 const settings = definePluginSettings({
     settingsLocation: {
         type: OptionType.SELECT,
-        description: "Where to put the Vencord settings section",
+        description: "Vencord 設定區塊的顯示位置",
         options: [
-            { label: "At the very top", value: "top" },
-            { label: "Above the Nitro section", value: "aboveNitro", default: true },
-            { label: "Below the Nitro section", value: "belowNitro" },
-            { label: "Above Activity Settings", value: "aboveActivity" },
-            { label: "Below Activity Settings", value: "belowActivity" },
-            { label: "At the very bottom", value: "bottom" },
+            { label: "最上方", value: "top" },
+            { label: "Nitro 區塊上方", value: "aboveNitro", default: true },
+            { label: "Nitro 區塊下方", value: "belowNitro" },
+            { label: "活動設定上方", value: "aboveActivity" },
+            { label: "活動設定下方", value: "belowActivity" },
+            { label: "最下方", value: "bottom" },
         ] as { label: string; value: SettingsLocation; default?: boolean; }[]
     },
     includeVencordInfoWhenCopying: {
         type: OptionType.BOOLEAN,
-        description: "Also copy Vencord info (Vencord, Electron, Chromium) when clicking the version info in the bottom left area of the Settings page",
+        description: "點選設定頁面左下角的版本資訊時，一併複製 Vencord、Electron 和 Chromium 的版本資訊",
         default: true
     }
 });
 
 export default definePlugin({
     name: "Settings",
-    description: "新增設定介面與除錯資訊。",
+    description: "新增設定介面與除錯資訊",
     authors: [Devs.Ven, Devs.Megu],
     required: true,
 
@@ -171,45 +171,45 @@ export default definePlugin({
             buildEntry({
                 key: "vencord_main",
                 title: "Vencord",
-                panelTitle: "Vencord Settings",
+                panelTitle: "Vencord 設定",
                 Component: VencordTab,
                 Icon: MainSettingsIcon
             }),
             buildEntry({
                 key: "vencord_plugins",
-                title: "Plugins",
+                title: "插件",
                 Component: PluginsTab,
                 Icon: PluginsIcon
             }),
             buildEntry({
                 key: "vencord_themes",
-                title: "Themes",
+                title: "主題",
                 Component: ThemesTab,
                 Icon: PaintbrushIcon
             }),
             !IS_UPDATER_DISABLED && UpdaterTab && buildEntry({
                 key: "vencord_updater",
-                title: "Updater",
-                panelTitle: "Vencord Updater",
+                title: "更新工具",
+                panelTitle: "Vencord 更新工具",
                 Component: UpdaterTab,
                 Icon: UpdaterIcon
             }),
             buildEntry({
                 key: "vencord_cloud",
-                title: "Cloud",
-                panelTitle: "Vencord Cloud",
+                title: "雲端",
+                panelTitle: "Vencord 雲端",
                 Component: CloudTab,
                 Icon: CloudIcon
             }),
             buildEntry({
                 key: "vencord_backup_restore",
-                title: "Backup & Restore",
+                title: "備份與還原",
                 Component: BackupAndRestoreTab,
                 Icon: BackupRestoreIcon
             }),
             !IS_STANDALONE && PatchHelperTab && buildEntry({
                 key: "vencord_patch_helper",
-                title: "Patch Helper",
+                title: "修補工具",
                 Component: PatchHelperTab,
                 Icon: PatchHelperIcon
             }),
@@ -231,7 +231,7 @@ export default definePlugin({
         const vencordSection: SettingsLayoutNode = {
             key: "vencord_section",
             type: LayoutTypes.SECTION,
-            useTitle: () => "Vencord Settings",
+            useTitle: () => "Vencord 設定",
             buildLayout: () => vencordEntries
         };
 

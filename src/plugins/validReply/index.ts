@@ -32,7 +32,7 @@ const createMessageRecord = findByCodeLazy(".createFromServer(", ".isBlockedForM
 
 export default definePlugin({
     name: "ValidReply",
-    description: 'Fixes "Message could not be loaded" upon hovering over the reply',
+    description: '修正滑鼠停留在回覆訊息上時顯示「無法載入訊息」的問題。',
     tags: ["Chat", "Utility"],
     authors: [Devs.newwares],
     patches: [

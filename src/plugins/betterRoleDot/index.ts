@@ -40,7 +40,7 @@ export default definePlugin({
     name: "BetterRoleDot",
     authors: [Devs.Ven, Devs.AutumnVN],
     description:
-        "Copy role colour on RoleDot (accessibility setting) click. Also allows using both RoleDot and coloured names simultaneously",
+        "點選 RoleDot（無障礙設定）即可複製身分組顏色，並允許同時顯示 RoleDot 與彩色名稱。",
     tags: ["Roles", "Appearance"],
     settings,
 
