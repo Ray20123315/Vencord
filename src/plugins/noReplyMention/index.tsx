@@ -38,22 +38,22 @@ const settings = definePluginSettings({
         multiline: true
     },
     shouldPingListed: {
-        description: "Behaviour",
+        description: "行為",
         type: OptionType.SELECT,
         options: [
             {
-                label: "Do not ping the listed users / roles",
+                label: "不要提及清單中的使用者／身分組",
                 value: false,
             },
             {
-                label: "Only ping the listed users / roles",
+                label: "只提及清單中的使用者／身分組",
                 value: true,
                 default: true,
             },
         ],
     },
     inverseShiftReply: {
-        description: "Invert Discord's shift replying behaviour (enable to make shift reply mention user)",
+        description: "反轉 Discord 按住 Shift 回覆時的行為（啟用後 Shift 回覆將提及使用者）",
         type: OptionType.BOOLEAN,
         default: false,
     }

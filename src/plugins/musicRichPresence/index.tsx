@@ -79,7 +79,7 @@ function setActivity(activity: Activity | null) {
 
 export const settings = definePluginSettings({
     scrobblerBackend: {
-        description: "The scrobbler backend to use.",
+        description: "要使用的播放紀錄服務。",
         type: OptionType.SELECT,
         options: [
             {
@@ -98,133 +98,133 @@ export const settings = definePluginSettings({
         ] as const
     },
     instanceBaseURL: {
-        description: "The base url of your ListenBrainz instance.",
+        description: "ListenBrainz 執行個體的基底網址。",
         type: OptionType.STRING,
         placeholder: "https://example.org",
         onChange: invalidateListenBrainzCache
     },
     instanceAPIBaseUrl: {
-        description: "The base url of your ListenBrainz API.",
+        description: "ListenBrainz API 的基底網址。",
         type: OptionType.STRING,
         placeholder: "https://api.example.org",
         onChange: invalidateListenBrainzCache
     },
     apiKey: {
         displayName: "API Key",
-        description: "Last.fm API key. Not required but highly recommended to avoid rate limiting with our shared key",
+        description: "Last.fm API 金鑰。非必填，但強烈建議設定，避免共用金鑰受到速率限制",
         type: OptionType.STRING,
     },
     username: {
-        description: "Username",
+        description: "使用者名稱",
         type: OptionType.STRING,
     },
     shareUsername: {
-        description: "Show link to scrobbler profile",
+        description: "顯示播放紀錄服務個人資料連結",
         type: OptionType.BOOLEAN,
         default: false,
     },
     clickableLinks: {
-        description: "Make track, artist and album names clickable links",
+        description: "讓歌曲、演出者及專輯名稱可點選以開啟連結",
         type: OptionType.BOOLEAN,
         default: true,
     },
     hideWithSpotify: {
-        description: "Hide presence if Spotify is running",
+        description: "Spotify 執行時隱藏活動狀態",
         type: OptionType.BOOLEAN,
         default: true,
     },
     hideWithActivity: {
-        description: "Hide presence if you have any other presence",
+        description: "有其他活動狀態時隱藏此活動狀態",
         type: OptionType.BOOLEAN,
         default: false,
     },
     statusName: {
-        description: "Custom status text. You can use the following variables: {artist} | {album} | {title}",
+        description: "自訂狀態文字。可使用下列變數：{artist} | {album} | {title}",
         type: OptionType.STRING,
         default: "some music",
     },
     statusDisplayType: {
-        description: "Show the track / artist name in the member list",
+        description: "在成員清單顯示歌曲／演出者名稱",
         type: OptionType.SELECT,
         options: [
             {
-                label: "Don't show (shows generic listening message)",
+                label: "不顯示（改用一般聆聽訊息）",
                 value: "off"
             },
             {
-                label: "Show artist name",
+                label: "顯示演出者名稱",
                 value: "artist",
                 default: true
             },
             {
-                label: "Show track name",
+                label: "顯示歌曲名稱",
                 value: "track"
             }
         ]
     },
     nameFormat: {
-        description: "Show name of song and artist in status name",
+        description: "在狀態名稱中顯示歌曲與演出者名稱",
         type: OptionType.SELECT,
         options: [
             {
-                label: "Use custom status name",
+                label: "使用自訂狀態名稱",
                 value: NameFormat.StatusName,
                 default: true
             },
             {
-                label: "Use music service name (falls back to custom status text)",
+                label: "使用音樂服務名稱（無法取得時使用自訂狀態文字）",
                 value: NameFormat.ServiceName
             },
             {
-                label: "Use format 'artist - song'",
+                label: "使用『演出者 - 歌曲』格式",
                 value: NameFormat.ArtistFirst
             },
             {
-                label: "Use format 'song - artist'",
+                label: "使用『歌曲 - 演出者』格式",
                 value: NameFormat.SongFirst
             },
             {
-                label: "Use artist name only",
+                label: "僅使用演出者名稱",
                 value: NameFormat.ArtistOnly
             },
             {
-                label: "Use song name only",
+                label: "僅使用歌曲名稱",
                 value: NameFormat.SongOnly
             },
             {
-                label: "Use album name (falls back to custom status text if song has no album)",
+                label: "使用專輯名稱（歌曲沒有專輯時改用自訂狀態文字）",
                 value: NameFormat.AlbumName
             }
         ],
     },
     useListeningStatus: {
-        description: 'Show "Listening to" status instead of "Playing"',
+        description: '使用「正在聆聽」狀態，而不是「正在遊玩」',
         type: OptionType.BOOLEAN,
         default: false,
     },
     missingArt: {
-        description: "When album or album art is missing",
+        description: "沒有專輯資訊或封面時",
         type: OptionType.SELECT,
         options: [
             {
-                label: "Use large scrobbler logo",
+                label: "顯示大型播放紀錄服務標誌",
                 value: "logo",
                 default: true
             },
             {
-                label: "Use generic placeholder",
+                label: "使用一般預設圖片",
                 value: "placeholder"
             }
         ],
     },
     showLogo: {
         displayName: "Show Scrobbler Logo",
-        description: "Show the scrobbler service logo by the album cover",
+        description: "在專輯封面旁顯示播放紀錄服務標誌",
         type: OptionType.BOOLEAN,
         default: true,
     },
     showAlbumCover: {
-        description: "Show album cover. Disabling this will display a placeholder. Useful if your music has inappropriate art",
+        description: "顯示專輯封面。停用後改顯示預設圖片，適用於封面包含不適當內容的情況",
         type: OptionType.BOOLEAN,
         default: true,
     }
@@ -249,16 +249,16 @@ function CustomInstanceAboutComponent() {
     if (!instanceAPIBaseUrl || !instanceBaseURL)
         return (
             <Card variant="danger">
-                <Heading className={Margins.bottom8}>Invalid ListenBrainz compatible instance</Heading>
-                <Paragraph>Provide both the <b>API Base URL</b> and the <b>Instance Base URL</b> for your custom ListenBrainz instance or switch back to ListenBrainz/Last.FM</Paragraph>
+                <Heading className={Margins.bottom8}>無效的 ListenBrainz 相容執行個體</Heading>
+                <Paragraph>請提供自訂 ListenBrainz 執行個體的 <b>API 基底網址</b> 和 <b>執行個體基底網址</b>，或切換回 ListenBrainz／Last.fm</Paragraph>
             </Card>
         );
 
     if (!cspAllowed)
         return (
             <Card variant="warning">
-                <Heading className={Margins.bottom8}>Allow Vencord to connect to ListenBrainz instance</Heading>
-                <Paragraph>To use your custom ListenBrainz instance, you must first allow Vencord to connect to it.</Paragraph>
+                <Heading className={Margins.bottom8}>允許 Vencord 連線至 ListenBrainz 執行個體</Heading>
+                <Paragraph>使用自訂 ListenBrainz 執行個體前，必須先允許 Vencord 連線。</Paragraph>
                 <Button
                     size="small"
                     className={Margins.top8}
@@ -296,9 +296,9 @@ export default definePlugin({
             return (
                 <Card>
                     <Heading tag="h4" className={Margins.bottom20}>Last.FM</Heading>
-                    <Heading className={Margins.bottom8}>How to create an API key</Heading>
-                    <Paragraph>Set <strong>Application name</strong> and <strong>Application description</strong> to anything and leave the rest blank.</Paragraph>
-                    <LinkButton size="small" href="https://www.last.fm/api/account/create" className={Margins.top8}>Create API Key</LinkButton>
+                    <Heading className={Margins.bottom8}>如何建立 API 金鑰</Heading>
+                    <Paragraph>自行填寫<strong>應用程式名稱</strong>與<strong>應用程式說明</strong>，其餘欄位保持空白。</Paragraph>
+                    <LinkButton size="small" href="https://www.last.fm/api/account/create" className={Margins.top8}>建立 API 金鑰</LinkButton>
                 </Card>
             );
 

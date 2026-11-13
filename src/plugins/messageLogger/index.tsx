@@ -57,66 +57,66 @@ const MessageClasses = findCssClassesLazy("edited", "communicationDisabled", "is
 const settings = definePluginSettings({
     deleteStyle: {
         type: OptionType.SELECT,
-        description: "The style of deleted messages",
+        description: "已刪除訊息的顯示樣式",
         default: "text",
         options: [
-            { label: "Red text", value: "text", default: true },
-            { label: "Red overlay", value: "overlay" }
+            { label: "紅色文字", value: "text", default: true },
+            { label: "紅色遮罩", value: "overlay" }
         ],
         onChange: () => addDeleteStyle()
     },
     logDeletes: {
         type: OptionType.BOOLEAN,
-        description: "Whether to log deleted messages",
+        description: "是否記錄已刪除的訊息",
         default: true,
     },
     collapseDeleted: {
         type: OptionType.BOOLEAN,
-        description: "Whether to collapse deleted messages, similar to blocked messages",
+        description: "是否像已封鎖訊息一樣收合已刪除的訊息",
         default: false,
         restartNeeded: true,
     },
     logEdits: {
         type: OptionType.BOOLEAN,
-        description: "Whether to log edited messages",
+        description: "是否記錄已編輯的訊息",
         default: true,
     },
     logDeletedAttachments: {
         type: OptionType.BOOLEAN,
-        description: "Whether to log deleted attachments",
+        description: "是否記錄已刪除的附件",
         default: true,
         restartNeeded: true,
     },
     inlineEdits: {
         type: OptionType.BOOLEAN,
-        description: "Whether to display edit history as part of message content",
+        description: "是否在訊息內容中顯示編輯歷程",
         default: true
     },
     ignoreBots: {
         type: OptionType.BOOLEAN,
-        description: "Whether to ignore messages by bots",
+        description: "是否忽略機器人的訊息",
         default: true
     },
     ignoreSelf: {
         type: OptionType.BOOLEAN,
-        description: "Whether to ignore messages by yourself",
+        description: "是否忽略自己的訊息",
         default: false
     },
     ignoreUsers: {
         type: OptionType.STRING,
-        description: "Comma-separated list of user IDs to ignore",
+        description: "要忽略的使用者 ID，以逗號分隔",
         default: "",
         multiline: true
     },
     ignoreChannels: {
         type: OptionType.STRING,
-        description: "Comma-separated list of channel IDs to ignore",
+        description: "要忽略的頻道 ID，以逗號分隔",
         default: "",
         multiline: true
     },
     ignoreGuilds: {
         type: OptionType.STRING,
-        description: "Comma-separated list of guild IDs to ignore",
+        description: "要忽略的伺服器 ID，以逗號分隔",
         default: "",
         multiline: true
     },
@@ -204,7 +204,7 @@ const patchMessageContextMenu: NavContextMenuPatchCallback = (children, { messag
             <Menu.MenuItem
                 id={TOGGLE_DELETE_STYLE_ID}
                 key={TOGGLE_DELETE_STYLE_ID}
-                label="Toggle Deleted Highlight"
+                label="切換已刪除訊息醒目提示"
                 leadingAccessory={{ type: "icon", icon: EyeIcon }}
                 action={() => domElement.classList.toggle("messagelogger-deleted")}
             />
@@ -215,7 +215,7 @@ const patchMessageContextMenu: NavContextMenuPatchCallback = (children, { messag
         <Menu.MenuItem
             id={REMOVE_HISTORY_ID}
             key={REMOVE_HISTORY_ID}
-            label="Clear Message History"
+            label="清除訊息歷程"
             leadingAccessory={{ type: "icon", icon: HistoryIcon }}
             color="danger"
             action={() => {
@@ -233,7 +233,7 @@ const patchChannelContextMenu: NavContextMenuPatchCallback = (children, { channe
     group.push(
         <Menu.MenuItem
             id="vc-ml-clear-channel"
-            label="Clear Message Log"
+            label="清除訊息紀錄"
             color="danger"
             action={() => {
                 messages.forEach(msg => {
@@ -284,7 +284,7 @@ export default definePlugin({
                 return null;
 
             return {
-                label: "Clear history",
+                label: "清除歷程",
                 icon: HistoryIcon,
                 onClick: () => {
                     const latest = MessageStore.getMessage(message.channel_id, message.id) as MLMessage | undefined;

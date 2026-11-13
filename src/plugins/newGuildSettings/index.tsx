@@ -39,42 +39,42 @@ const isOptInEnabledForGuild = findByCodeLazy(".COMMUNITY)||", ".isOptInEnabled(
 
 const settings = definePluginSettings({
     guild: {
-        description: "Mute Guild automatically",
+        description: "自動將伺服器靜音",
         type: OptionType.BOOLEAN,
         default: true
     },
     messages: {
-        description: "Server Notification Settings",
+        description: "伺服器通知設定",
         type: OptionType.SELECT,
         options: [
-            { label: "All messages", value: 0 },
-            { label: "Only @mentions", value: 1 },
-            { label: "Nothing", value: 2 },
-            { label: "Server default", value: 3, default: true }
+            { label: "所有訊息", value: 0 },
+            { label: "僅 @ 提及", value: 1 },
+            { label: "不通知", value: 2 },
+            { label: "伺服器預設", value: 3, default: true }
         ],
     },
     everyone: {
-        description: "Suppress @everyone and @here",
+        description: "抑制 @everyone 與 @here 通知",
         type: OptionType.BOOLEAN,
         default: true
     },
     role: {
-        description: "Suppress All Role @mentions",
+        description: "抑制所有身分組 @ 提及通知",
         type: OptionType.BOOLEAN,
         default: true
     },
     highlights: {
-        description: "Suppress Highlights automatically",
+        description: "自動抑制重點通知",
         type: OptionType.BOOLEAN,
         default: true
     },
     events: {
-        description: "Mute New Events automatically",
+        description: "自動將新活動靜音",
         type: OptionType.BOOLEAN,
         default: true
     },
     showAllChannels: {
-        description: "Show all channels automatically",
+        description: "自動顯示所有頻道",
         type: OptionType.BOOLEAN,
         default: true
     }
@@ -86,7 +86,7 @@ const makeContextMenuPatch: (shouldAddIcon: boolean) => NavContextMenuPatchCallb
     const group = findGroupChildrenByChildId("privacy", children);
     group?.push(
         <Menu.MenuItem
-            label="Apply NewGuildSettings"
+            label="套用 NewGuildSettings"
             id="vc-newguildsettings-apply"
             icon={shouldAddIcon ? CogWheel : void 0}
             leadingAccessory={shouldAddIcon ? { type: "icon", icon: CogWheel } : void 0}

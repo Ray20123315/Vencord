@@ -12,18 +12,18 @@ const settings = definePluginSettings({
     defaultLayout: {
         type: OptionType.SELECT,
         options: [
-            { label: "List", value: 1, default: true },
-            { label: "Gallery", value: 2 }
+            { label: "清單", value: 1, default: true },
+            { label: "圖庫", value: 2 }
         ],
-        description: "Which layout to use as default"
+        description: "預設使用的版面配置"
     },
     defaultSortOrder: {
         type: OptionType.SELECT,
         options: [
-            { label: "Recently Active", value: 0, default: true },
-            { label: "Date Posted", value: 1 }
+            { label: "最近活躍", value: 0, default: true },
+            { label: "發文日期", value: 1 }
         ],
-        description: "Which sort order to use as default"
+        description: "預設使用的排序方式"
     }
 });
 
