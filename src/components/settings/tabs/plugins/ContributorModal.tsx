@@ -13,7 +13,7 @@ import { Span } from "@components/Span";
 import { DevsById } from "@utils/constants";
 import { classNameFactory } from "@utils/css";
 import { fetchUserProfile } from "@utils/discord";
-import { classes, pluralise } from "@utils/misc";
+import { classes } from "@utils/misc";
 import { RenderModalProps, User } from "@vencord/discord-types";
 import { Modal, openModal, showToast, useEffect, useMemo, UserProfileStore, useStateFromStores } from "@webpack/common";
 
@@ -52,7 +52,7 @@ function ContributorModal({ user, modalProps }: { user: User; modalProps: Render
             .sort((a, b) => Number(a.required ?? false) - Number(b.required ?? false));
     }, [user.id, user.username]);
 
-    const ContributedHyperLink = <Link href="https://vencord.dev/source">contributed</Link>;
+    const ContributedHyperLink = <Link href="https://vencord.dev/source">貢獻</Link>;
 
     return (
         <Modal
@@ -86,12 +86,12 @@ function ContributorModal({ user, modalProps }: { user: User; modalProps: Render
                 plugins.length
                     ? (
                         <Paragraph>
-                            This person has {ContributedHyperLink} to {pluralise(plugins.length, "plugin")}!
+                            這位開發者已{ContributedHyperLink}了 {plugins.length} 個插件！
                         </Paragraph>
                     )
                     : (
                         <Paragraph>
-                            This person has not made any plugins. They likely {ContributedHyperLink} to Vencord in other ways!
+                            這位開發者尚未開發任何插件，但可能透過其他方式為 Vencord {ContributedHyperLink}！
                         </Paragraph>
                     )
             }
@@ -103,7 +103,7 @@ function ContributorModal({ user, modalProps }: { user: User; modalProps: Render
                             key={p.name}
                             plugin={p}
                             disabled={p.required ?? false}
-                            onRestartNeeded={() => showToast({ text: "Restart to apply changes!" })}
+                            onRestartNeeded={() => showToast({ text: "請重新啟動以套用變更！" })}
                         />
                     )}
                 </div>

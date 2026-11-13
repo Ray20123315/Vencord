@@ -24,7 +24,7 @@ export default function DonateButton({ variant, ...props }: Omit<ButtonProps, "c
         ...props,
         onClick: () => VencordNative.native.openExternal("https://github.com/sponsors/Vendicated"),
         className: "vc-donate-button",
-        children: <><Heart />Donate</>
+        children: <><Heart />贊助</>
     };
 
     return variant

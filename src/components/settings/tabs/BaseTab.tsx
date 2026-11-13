@@ -33,7 +33,7 @@ export const handleSettingsTabError = onlyOnce(handleComponentFailed);
 export function wrapTab(component: ComponentType<any>, tab: string) {
     const wrapped = ErrorBoundary.wrap(component, {
         displayName: `${tab}SettingsTab`,
-        message: `Failed to render the ${tab} tab. If this issue persists, try using the installer to reinstall!`,
+        message: `無法顯示「${tab}」分頁。如果問題持續發生，請嘗試透過安裝程式重新安裝！`,
         onError: handleSettingsTabError,
     });
 
@@ -48,7 +48,7 @@ export function openSettingsTabModal(Tab: ComponentType<any>) {
             <Modal
                 {...props}
                 size="lg"
-                title={Tab.displayName?.replace("SettingsTab", "") || "Settings"}
+                title={Tab.displayName?.replace("SettingsTab", "") || "設定"}
             >
                 <Tab />
             </Modal>

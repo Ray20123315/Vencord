@@ -37,7 +37,7 @@ import { classes } from "@utils/misc";
 import { PluginTarget } from "@utils/pluginTargets";
 import { promptToRestart } from "@utils/promptToRestart";
 import { useAwaiter, useCleanupEffect } from "@utils/react";
-import { PluginTag, PluginTags } from "@utils/types";
+import { PluginTag, PluginTagLabels, PluginTags } from "@utils/types";
 import { lodash, React, SearchableSelect, Select, TextInput, Tooltip, useMemo, useRef, useState } from "@webpack/common";
 import { JSX } from "react";
 
@@ -60,7 +60,7 @@ function ReloadRequiredCard({ required }: { required: boolean; }) {
                             立即重新啟動以套用新插件及其設定
                         </Paragraph>
                         <Button onClick={() => location.reload()} className={cl("restart-button")}>
-                            Restart
+                            重新啟動
                         </Button>
                     </>
                 )
@@ -297,7 +297,7 @@ function PluginSettings() {
                         placeholder="依類型篩選"
                     />
                     <SearchableSelect
-                        options={PluginTags.map(tag => ({ label: tag, value: tag }))}
+                        options={PluginTags.map(tag => ({ label: PluginTagLabels[tag], value: tag }))}
                         value={searchValue.tags}
                         onChange={tags => setSearchValue(prev => ({ ...prev, tags }))}
                         closeOnSelect={false}

@@ -67,6 +67,31 @@ export const PluginTags = [
 
 export type PluginTag = typeof PluginTags[number];
 
+// Only localize the labels; plugin tags remain unchanged for filtering and compatibility.
+export const PluginTagLabels: Record<PluginTag, string> = {
+    Accessibility: "無障礙功能",
+    Activity: "活動",
+    Appearance: "外觀",
+    Chat: "聊天",
+    Commands: "指令",
+    Console: "主控台",
+    Customisation: "自訂",
+    Developers: "開發工具",
+    Emotes: "表情符號",
+    Friends: "好友",
+    Fun: "趣味",
+    Media: "媒體",
+    Notifications: "通知",
+    Organisation: "整理",
+    Privacy: "隱私",
+    Reactions: "表情回應",
+    Roles: "身分組",
+    Servers: "伺服器",
+    Shortcuts: "快捷鍵",
+    Utility: "實用工具",
+    Voice: "語音"
+};
+
 export type ReplaceFn = (match: string, ...groups: string[]) => string;
 
 export interface PatchReplacement {
