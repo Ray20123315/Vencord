@@ -38,7 +38,7 @@ const settings = definePluginSettings({
 export default definePlugin({
     name: "ShowHiddenThings",
     searchTerms: ["ShowTimeouts", "ShowInvitesPaused", "ShowModView", "DisableDiscoveryFilters"],
-    description: "Displays various hidden & moderator-only things regardless of permissions.",
+    description: "不論權限為何，都顯示各種隱藏或僅管理員可見的項目。",
     tags: ["Servers", "Utility"],
     authors: [Devs.Dolfies],
     settings,

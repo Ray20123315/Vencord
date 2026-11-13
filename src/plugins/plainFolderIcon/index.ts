@@ -23,7 +23,7 @@ import definePlugin from "@utils/types";
 
 export default definePlugin({
     name: "PlainFolderIcon",
-    description: "Dont show the small guild icons in folders",
+    description: "不要在資料夾中顯示小型伺服器圖示。",
     tags: ["Appearance", "Customisation"],
     authors: [Devs.botato],
 
