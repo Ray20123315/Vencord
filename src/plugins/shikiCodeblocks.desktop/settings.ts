@@ -33,7 +33,7 @@ export type ShikiSettings = typeof settings.store;
 export const settings = definePluginSettings({
     theme: {
         type: OptionType.SELECT,
-        description: "Default themes",
+        description: "預設主題",
         options: themeNames.map(themeName => ({
             label: wordsToTitle(wordsFromPascal(themeName)),
             value: themes[themeName],
@@ -43,7 +43,7 @@ export const settings = definePluginSettings({
     },
     customTheme: {
         type: OptionType.STRING,
-        description: "A link to a custom vscode theme",
+        description: "自訂 VS Code 主題的連結",
         placeholder: themes.MaterialCandy,
         onChange: value => {
             shiki.setTheme(value || settings.store.theme);
@@ -52,42 +52,42 @@ export const settings = definePluginSettings({
     tryDiscordHighlighter: {
         type: OptionType.SELECT,
         displayName: "Try Discord's highlighter",
-        description: "Use the more lightweight default Discord highlighter and theme.",
+        description: "使用較輕量的 Discord 預設語法醒目提示與主題。",
         options: [
             {
-                label: "Never",
+                label: "永不",
                 value: HighlighterSetting.Never,
             },
             {
-                label: "Prefer Shiki instead of Discord's highlighter",
+                label: "優先使用 Shiki，而非 Discord 語法醒目提示",
                 value: HighlighterSetting.Secondary,
                 default: true,
             },
             {
-                label: "Prefer Discord's highlighter instead of Shiki",
+                label: "優先使用 Discord 語法醒目提示，而非 Shiki",
                 value: HighlighterSetting.Primary,
             },
             {
-                label: "Always",
+                label: "一律",
                 value: HighlighterSetting.Always,
             },
         ],
     },
     useDevIcon: {
         type: OptionType.SELECT,
-        description: "How to show language icons on codeblocks",
+        description: "程式碼區塊語言圖示的顯示方式",
         options: [
             {
-                label: "Disabled",
+                label: "停用",
                 value: DeviconSetting.Disabled,
             },
             {
-                label: "Colorless",
+                label: "無色彩",
                 value: DeviconSetting.Greyscale,
                 default: true,
             },
             {
-                label: "Colored",
+                label: "彩色",
                 value: DeviconSetting.Color,
             },
         ],
@@ -98,7 +98,7 @@ export const settings = definePluginSettings({
     },
     bgOpacity: {
         type: OptionType.SLIDER,
-        description: "Background opacity",
+        description: "背景透明度",
         markers: [0, 20, 40, 60, 80, 100],
         default: 100,
         stickToMarkers: false,

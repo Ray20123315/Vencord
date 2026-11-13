@@ -91,14 +91,14 @@ export function NewCategoryModal({ categoryId, modalProps, initialChannelId }: P
                 }}
             >
                 <section>
-                    <Heading className={Margins.bottom8}>Name</Heading>
+                    <Heading className={Margins.bottom8}>名稱</Heading>
                     <TextInput
                         value={name}
                         onChange={e => setName(e)}
                     />
                 </section>
                 <section>
-                    <Heading className={Margins.bottom8}>Color</Heading>
+                    <Heading className={Margins.bottom8}>顏色</Heading>
                     <ColorPickerWithSwatches
                         className={cl("color-picker")}
                         key={category.id}

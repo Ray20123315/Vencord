@@ -76,7 +76,7 @@ interface GrantedByTooltipProps {
 function GrantedByTooltip({ roleName, roleColor }: GrantedByTooltipProps) {
     return (
         <>
-            <Paragraph weight="medium">Granted By</Paragraph>
+            <Paragraph weight="medium">授予來源</Paragraph>
             <FakeRole text={roleName} color={roleColor} />
         </>
     );
@@ -103,7 +103,7 @@ function UserPermissionsComponent({ guild, guildMember, closePopout }: { guild: 
                 permissions: Object.values(PermissionsBits).reduce((prev, curr) => prev | curr, 0n)
             });
 
-            const OWNER = getIntlMessage("GUILD_OWNER") ?? "Server Owner";
+            const OWNER = getIntlMessage("GUILD_OWNER") ?? "伺服器擁有者";
             userPermissions.push({
                 permission: OWNER,
                 roleName: "Owner",
@@ -136,9 +136,9 @@ function UserPermissionsComponent({ guild, guildMember, closePopout }: { guild: 
 
     return <div>
         <div className={cl("user-header-container")}>
-            <Heading tag="h4">Permissions</Heading>
+            <Heading tag="h4">權限</Heading>
             <div className={cl("user-header-btns")}>
-                <Tooltip text={`Sorting by ${permissionsSortOrder === PermissionsSortOrder.HighestRole ? "Highest Role" : "Lowest Role"}`}>
+                <Tooltip text={`依${permissionsSortOrder === PermissionsSortOrder.HighestRole ? "最高身分組" : "最低身分組"}排序`}>
                     {tooltipProps => (
                         <div
                             {...tooltipProps}

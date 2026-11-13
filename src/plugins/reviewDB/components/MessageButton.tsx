@@ -64,7 +64,7 @@ export function ReportButton({ onClick }: { onClick(): void; }) {
 
 export function BlockButton({ onClick, isBlocked }: { onClick(): void; isBlocked: boolean; }) {
     return (
-        <Tooltip text={`${isBlocked ? "Unblock" : "Block"} user`}>
+        <Tooltip text={`${isBlocked ? "解除封鎖" : "封鎖"}使用者`}>
             {props => (
                 <div
                     {...props}

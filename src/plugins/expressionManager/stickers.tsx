@@ -114,15 +114,15 @@ async function doClone(guildId: string, sticker: PartialSticker) {
             }
         });
 
-        showToast({ text: `Successfully cloned ${sticker.name} to ${GuildStore.getGuild(guildId)?.name ?? "your server"}!`, variant: "success" });
+        showToast({ text: `已成功將 ${sticker.name} 複製至 ${GuildStore.getGuild(guildId)?.name ?? "你的伺服器"}！`, variant: "success" });
     } catch (e: any) {
-        let message = "Something went wrong (check console!)";
+        let message = "發生錯誤（請查看主控台）";
         try {
             message = JSON.parse(e.text).message;
         } catch { }
 
         logger.error(`Failed to clone ${sticker.name} to guild ${guildId}`, e);
-        showToast({ text: `Failed to clone: ${message}`, variant: "critical" });
+        showToast({ text: `複製失敗：${message}`, variant: "critical" });
     }
 }
 
@@ -157,7 +157,7 @@ export function CloneModal({ sticker }: { sticker: PartialSticker; }) {
 
     return (
         <>
-            <Heading tag="h4" className={Margins.bottom8}>Custom Name</Heading>
+            <Heading tag="h4" className={Margins.bottom8}>自訂名稱</Heading>
             <CheckedTextInput
                 initialValue={name}
                 onChange={v => {
@@ -231,7 +231,7 @@ function openCloneStickerModal(stickerData: PartialSticker) {
                             height={24}
                             width={24}
                         />
-                        <Heading>Clone {sticker.name}</Heading>
+                        <Heading>複製 {sticker.name}</Heading>
                     </Flex>
                 }
             >
@@ -263,7 +263,7 @@ export function buildStickerLinkItems(sticker: StickerItem, ParentComponent = Me
             <Menu.MenuItem
                 id="vc-copy-sticker-link"
                 key="vc-copy-sticker-link"
-                label="Copy Sticker Link"
+                label="複製貼圖連結"
                 leadingAccessory={{ type: "icon", icon: LinkIcon }}
                 action={() => copyWithToast(formatStickerURL(sticker, 512), "Link copied!")}
             />
@@ -271,7 +271,7 @@ export function buildStickerLinkItems(sticker: StickerItem, ParentComponent = Me
             <Menu.MenuItem
                 id="vc-open-sticker-link"
                 key="vc-open-sticker-link"
-                label="Open Sticker Link"
+                label="開啟貼圖連結"
                 leadingAccessory={{ type: "icon", icon: LinkIcon }}
                 trailingIndicator={{ type: "icon", icon: TopRightArrow }}
                 action={() => VencordNative.native.openExternal(formatStickerURL(sticker, 512))}

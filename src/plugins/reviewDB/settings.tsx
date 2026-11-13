@@ -36,29 +36,29 @@ export const settings = definePluginSettings({
     },
     notifyReviews: {
         type: OptionType.BOOLEAN,
-        description: "Notify about new reviews on startup",
+        description: "啟動時通知新評論",
         default: true,
     },
     showWarning: {
         type: OptionType.BOOLEAN,
-        description: "Display warning to be respectful at the top of the reviews list",
+        description: "在評論清單頂端顯示尊重他人的提醒",
         default: true,
     },
     hideTimestamps: {
         type: OptionType.BOOLEAN,
-        description: "Hide timestamps on reviews",
+        description: "隱藏評論時間戳記",
         default: false,
     },
     hideBlockedUsers: {
         type: OptionType.BOOLEAN,
-        description: "Hide reviews from blocked users",
+        description: "隱藏已封鎖使用者的評論",
         default: true,
     },
     buttons: {
         type: OptionType.COMPONENT,
         component: () => (
             <div className={cl("button-grid")} >
-                <Button onClick={openBlockModal}>Manage Blocked Users</Button>
+                <Button onClick={openBlockModal}>管理已封鎖的使用者</Button>
 
                 <Button
                     variant="positive"

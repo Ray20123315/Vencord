@@ -82,7 +82,7 @@ function RolesAndUsersPermissionsComponent({ permissions, guild, modalProps, hea
         >
             {!selectedItem && (
                 <div className={cl("modal-no-perms")}>
-                    <Paragraph size="lg">No permissions to display!</Paragraph>
+                    <Paragraph size="lg">沒有可顯示的權限！</Paragraph>
                 </div>
             )}
 
@@ -143,9 +143,9 @@ function RolesAndUsersPermissionsComponent({ permissions, guild, modalProps, hea
                                         <Paragraph size="md" className={cl("modal-list-item-text")}>
                                             {
                                                 permission.type === PermissionOverwriteType.ROLE
-                                                    ? role?.name ?? "Unknown Role"
+                                                    ? role?.name ?? "未知身分組"
                                                     : permission.type === PermissionOverwriteType.MEMBER
-                                                        ? (user != null && getUniqueUsername(user)) ?? "Unknown User"
+                                                        ? (user != null && getUniqueUsername(user)) ?? "未知使用者"
                                                         : (
                                                             <Flex gap="0.2em">
                                                                 @owner
@@ -223,7 +223,7 @@ function RoleContextMenu({ guild, roleId, onClose }: { guild: Guild; roleId: str
         <Menu.Menu
             navId={cl("role-context-menu")}
             onClose={ContextMenuApi.closeContextMenu}
-            aria-label="Role Options"
+            aria-label="身分組選項"
         >
             {before}
 
@@ -267,7 +267,7 @@ function UserContextMenu({ userId }: { userId: string; }) {
         <Menu.Menu
             navId={cl("user-context-menu")}
             onClose={ContextMenuApi.closeContextMenu}
-            aria-label="User Options"
+            aria-label="使用者選項"
         >
             <Menu.MenuItem
                 id={cl("copy-user-id")}

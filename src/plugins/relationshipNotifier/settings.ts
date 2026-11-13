@@ -22,32 +22,32 @@ import { OptionType } from "@utils/types";
 export default definePluginSettings({
     notices: {
         type: OptionType.BOOLEAN,
-        description: "Also show a notice at the top of your screen when removed (use this if you don't want to miss any notifications).",
+        description: "被移除時也在畫面頂端顯示通知（如果不想錯過通知，建議啟用）。",
         default: false
     },
     offlineRemovals: {
         type: OptionType.BOOLEAN,
-        description: "Notify you when starting discord if you were removed while offline.",
+        description: "若離線期間遭到移除，啟動 Discord 時通知你。",
         default: true
     },
     friends: {
         type: OptionType.BOOLEAN,
-        description: "Notify when a friend removes you",
+        description: "好友將你移除時通知",
         default: true
     },
     friendRequestCancels: {
         type: OptionType.BOOLEAN,
-        description: "Notify when a friend request is cancelled",
+        description: "好友邀請被取消時通知",
         default: true
     },
     servers: {
         type: OptionType.BOOLEAN,
-        description: "Notify when removed from a server",
+        description: "遭伺服器移除時通知",
         default: true
     },
     groups: {
         type: OptionType.BOOLEAN,
-        description: "Notify when removed from a group chat",
+        description: "遭群組聊天移除時通知",
         default: true
     }
 });

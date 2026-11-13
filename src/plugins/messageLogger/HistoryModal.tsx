@@ -40,7 +40,7 @@ export function HistoryModal({ modalProps, message }: { modalProps: RenderModalP
         <Modal
             {...modalProps}
             size="lg"
-            title="Message Edit History"
+            title="訊息編輯歷程"
         >
             <TabBar
                 type="top"

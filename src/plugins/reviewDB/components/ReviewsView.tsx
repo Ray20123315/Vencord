@@ -139,7 +139,7 @@ export function ReviewsInputComponent(
         <>
             <div onClick={() => {
                 if (!token) {
-                    showToast({ text: "Opening authorization window..." });
+                    showToast({ text: "正在開啟授權視窗…" });
                     authorize();
                 }
             }}>

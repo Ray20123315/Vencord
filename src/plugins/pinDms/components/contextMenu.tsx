@@ -19,14 +19,14 @@ function createPinMenuItem(channelId: string) {
     return (
         <Menu.MenuItem
             id="vc-pin-dm"
-            label="Pin DMs"
+            label="釘選私訊"
         >
 
             {!pinned && (
                 <>
                     <Menu.MenuItem
                         id="vc-add-category"
-                        label="Add Category"
+                        label="新增分類"
                         color="brand"
                         action={() => openCategoryModal(null, channelId)}
                     />
@@ -49,7 +49,7 @@ function createPinMenuItem(channelId: string) {
                 <>
                     <Menu.MenuItem
                         id="vc-unpin-dm"
-                        label="Unpin DM"
+                        label="取消釘選私訊"
                         color="danger"
                         action={() => removeChannelFromCategory(channelId)}
                     />
@@ -58,7 +58,7 @@ function createPinMenuItem(channelId: string) {
                         settings.store.pinOrder === PinOrder.Custom && canMoveChannelInDirection(channelId, -1) && (
                             <Menu.MenuItem
                                 id="move-up"
-                                label="Move Up"
+                                label="上移"
                                 action={() => moveChannel(channelId, -1)}
                             />
                         )
@@ -68,7 +68,7 @@ function createPinMenuItem(channelId: string) {
                         settings.store.pinOrder === PinOrder.Custom && canMoveChannelInDirection(channelId, 1) && (
                             <Menu.MenuItem
                                 id="move-down"
-                                label="Move Down"
+                                label="下移"
                                 action={() => moveChannel(channelId, 1)}
                             />
                         )

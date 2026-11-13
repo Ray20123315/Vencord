@@ -65,9 +65,9 @@ function BlockedUsersList() {
     if (pending)
         return null;
     if (error)
-        return <Paragraph>Failed to fetch blocks: ${String(error)}</Paragraph>;
+        return <Paragraph>取得封鎖清單失敗：${String(error)}</Paragraph>;
     if (!blocks.length)
-        return <Paragraph>No blocked users.</Paragraph>;
+        return <Paragraph>沒有已封鎖的使用者。</Paragraph>;
 
     return (
         <>
@@ -87,10 +87,10 @@ export function openBlockModal() {
     openModal(modalProps => (
         <Modal
             {...modalProps}
-            title="Blocked Users"
+            title="已封鎖使用者"
         >
             <div className={cl("block-modal")}>
-                {Auth.token ? <BlockedUsersList /> : <Paragraph>You are not logged into ReviewDB!</Paragraph>}
+                {Auth.token ? <BlockedUsersList /> : <Paragraph>你尚未登入 ReviewDB！</Paragraph>}
             </div>
         </Modal>
     ));

@@ -38,7 +38,7 @@ const BotTagClasses = findCssClassesLazy("botTagVerified", "botTagRegular", "bot
 
 const dateFormat = new Intl.DateTimeFormat();
 
-const ensureToken = async () => await getToken() || showToast({ text: "You must be logged in to perform this action!", variant: "critical" });
+const ensureToken = async () => await getToken() || showToast({ text: "必須先登入才能執行此操作！", variant: "critical" });
 
 export default function ReviewComponent({ review, refetch, profileId }: { review: Review; refetch(): void; profileId: string; }) {
     const [showAll, setShowAll] = useState(false);
@@ -59,8 +59,8 @@ export default function ReviewComponent({ review, refetch, profileId }: { review
         if (!await ensureToken()) return;
 
         await confirmAction({
-            title: "Are you sure?",
-            subtitle: "Do you really want to delete this review?",
+            title: "確定要繼續嗎？",
+            subtitle: "確定要刪除這則評論嗎？",
             confirmText: "Delete",
             cancelText: "Nevermind",
             async onConfirm() {
@@ -74,8 +74,8 @@ export default function ReviewComponent({ review, refetch, profileId }: { review
         if (!await ensureToken()) return;
 
         await confirmAction({
-            title: "Are you sure?",
-            subtitle: "Do you really want to report this review?",
+            title: "確定要繼續嗎？",
+            subtitle: "確定要檢舉這則評論嗎？",
             confirmText: "Report",
             cancelText: "Nevermind",
             async onConfirm() {
@@ -93,8 +93,8 @@ export default function ReviewComponent({ review, refetch, profileId }: { review
             return unblockUser(review.sender.discordID);
 
         await confirmAction({
-            title: "Are you sure?",
-            subtitle: "Do you really want to block this user? They will be unable to leave further reviews on your profile. You can unblock users in the plugin settings.",
+            title: "確定要繼續嗎？",
+            subtitle: "確定要封鎖此使用者嗎？對方將無法在你的個人資料中新增評論。你可以在插件設定中解除封鎖。",
             confirmText: "Block",
             cancelText: "Nevermind",
             async onConfirm() {
@@ -107,7 +107,7 @@ export default function ReviewComponent({ review, refetch, profileId }: { review
         if (isVoting) return;
 
         if (review.sender.discordID === Auth.user?.discordID) {
-            return showToast({ text: "You cannot vote on your own review.", variant: "critical" });
+            return showToast({ text: "無法為自己的評論投票。", variant: "critical" });
         }
 
         setIsVoting(true);
@@ -202,7 +202,7 @@ export default function ReviewComponent({ review, refetch, profileId }: { review
             {isAuthorBlocked && (
                 <ReviewBadge
                     name="You have blocked this user"
-                    description="You have blocked this user"
+                    description="你已封鎖這位使用者"
                     icon="/assets/aaee57e0090991557b66.svg"
                     type={0}
                     onClick={() => openBlockModal()}
@@ -222,7 +222,7 @@ export default function ReviewComponent({ review, refetch, profileId }: { review
                         <>
                             {Parser.parseGuildEventDescription(review.comment.substring(0, 200))}...
                             <br />
-                            <a onClick={() => setShowAll(true)}>Read more</a>
+                            <a onClick={() => setShowAll(true)}>閱讀更多</a>
                         </>
                     )
                     : Parser.parseGuildEventDescription(review.comment)}
