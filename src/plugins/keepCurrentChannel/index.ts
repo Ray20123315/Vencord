@@ -42,7 +42,7 @@ let previousCache: PreviousChannel | undefined;
 
 export default definePlugin({
     name: "KeepCurrentChannel",
-    description: "Attempt to navigate to the channel you were in before switching accounts or loading Discord.",
+    description: "切換帳號或載入 Discord 後，嘗試返回原本所在的頻道。",
     tags: ["Utility", "Organisation"],
     authors: [Devs.Nuckyz],
 

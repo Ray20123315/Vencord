@@ -48,7 +48,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "NoBlockedMessages",
-    description: "Hides all blocked/ignored messages from chat completely",
+    description: "在聊天中完全隱藏已封鎖或忽略的使用者訊息。",
     authors: [Devs.rushii, Devs.Samu, Devs.jamesbt365],
     tags: ["Accessibility", "Chat"],
     settings,

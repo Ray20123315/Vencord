@@ -21,7 +21,7 @@ import definePlugin from "@utils/types";
 
 export default definePlugin({
     name: "iLoveSpam",
-    description: "Do not hide messages from 'likely spammers'",
+    description: "不要隱藏被標記為「疑似垃圾訊息傳送者」的訊息。",
     tags: ["Utility", "Chat"],
     authors: [Devs.botato, Devs.Nyako],
     patches: [

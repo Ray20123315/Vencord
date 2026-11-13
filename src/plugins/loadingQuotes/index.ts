@@ -56,7 +56,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "LoadingQuotes",
-    description: "Replace Discords loading quotes",
+    description: "替換 Discord 載入畫面中的文字。",
     tags: ["Appearance", "Fun", "Customisation"],
     authors: [Devs.Ven, Devs.KraXen72, Devs.UlyssesZhan],
 

@@ -20,7 +20,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "MoreQuickReactions",
-    description: "Increases the number of reactions available in the Quick React hover menu",
+    description: "增加訊息懸浮快捷回應選單中的表情符號數量。",
     authors: [Devs.iamme],
     tags: ["Emotes", "Reactions", "Customisation", "Shortcuts"],
     settings,

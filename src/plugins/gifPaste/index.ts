@@ -23,7 +23,7 @@ import { ExpressionPickerStore } from "@webpack/common";
 
 export default definePlugin({
     name: "GifPaste",
-    description: "Makes picking a gif in the gif picker insert a link into the chatbox instead of instantly sending it",
+    description: "在 GIF 選擇器中選取 GIF 時，將連結插入輸入框而非立即傳送。",
     tags: ["Media", "Chat"],
     authors: [Devs.Ven],
 
