@@ -102,7 +102,7 @@ function ServersIndicator() {
 
 export default definePlugin({
     name: "ServerListIndicators",
-    description: "Add online friend count or server count in the server list",
+    description: "在伺服器清單中顯示上線好友數或伺服器數量。",
     tags: ["Servers", "Appearance"],
     authors: [Devs.Rini],
     dependencies: ["ServerListAPI"],

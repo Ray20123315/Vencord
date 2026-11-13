@@ -71,7 +71,7 @@ const userContextPatch: NavContextMenuPatchCallback = (children, { user }: { use
 
 export default definePlugin({
     name: "ReviewDB",
-    description: "Review other users (Adds a new settings to profiles)",
+    description: "評論其他使用者，並在個人資料中新增評論設定。",
     tags: ["Friends", "Servers"],
     authors: [Devs.mantikafasi, Devs.Ven],
 

@@ -28,7 +28,7 @@ const makePatch: (showIcon: boolean) => NavContextMenuPatchCallback = showIcon =
 
 export default definePlugin({
     name: "ServerInfo",
-    description: "Allows you to view info about a server",
+    description: "查看伺服器資訊。",
     tags: ["Servers", "Utility"],
     authors: [Devs.Ven, Devs.Nuckyz],
     dependencies: ["DynamicImageModalAPI"],

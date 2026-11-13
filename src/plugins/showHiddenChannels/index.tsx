@@ -70,7 +70,7 @@ function isUncategorized(objChannel: { channel: Channel; comparator: number; }) 
 
 export default definePlugin({
     name: "ShowHiddenChannels",
-    description: "Show channels that you do not have access to view.",
+    description: "顯示你沒有檢視權限的頻道。",
     tags: ["Servers", "Utility"],
     authors: [Devs.BigDuck, Devs.AverageReactEnjoyer, Devs.D3SOX, Devs.Ven, Devs.Nuckyz, Devs.Nickyux, Devs.Rini],
     settings,

@@ -100,7 +100,7 @@ const logger = new Logger("RoleColorEverywhere");
 export default definePlugin({
     name: "RoleColorEverywhere",
     authors: [Devs.KingFish, Devs.lewisakura, Devs.AutumnVN, Devs.Kyuuhachi, Devs.jamesbt365],
-    description: "Adds the top role color anywhere possible",
+    description: "在可使用的介面位置顯示使用者最高身分組的顏色。",
     tags: ["Roles", "Appearance"],
     settings,
 

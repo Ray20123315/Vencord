@@ -56,7 +56,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "ShowMeYourName",
-    description: "Display usernames next to nicks, or no nicks at all",
+    description: "在暱稱旁顯示使用者名稱，或完全隱藏暱稱。",
     tags: ["Appearance", "Customisation"],
     authors: [Devs.Rini, Devs.TheKodeToad, Devs.rae],
     patches: [

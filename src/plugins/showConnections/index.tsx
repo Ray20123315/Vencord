@@ -155,7 +155,7 @@ function CompactConnectionComponent({ connection, theme }: { connection: Connect
 
 export default definePlugin({
     name: "ShowConnections",
-    description: "Show connected accounts in user popouts and the DM sidebar",
+    description: "在使用者資料彈出視窗與私訊側邊欄顯示已連結帳號。",
     tags: ["Friends", "Appearance"],
     authors: [Devs.TheKodeToad],
     settings,
