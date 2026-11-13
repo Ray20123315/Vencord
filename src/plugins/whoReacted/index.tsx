@@ -129,7 +129,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "WhoReacted",
-    description: "Renders the avatars of users who reacted to a message",
+    description: "顯示對訊息加入表情回應的使用者頭像。",
     tags: ["Reactions", "Chat", "Appearance"],
     authors: [Devs.Ven, Devs.KannaDev, Devs.newwares, Devs.paige],
     settings,
