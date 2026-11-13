@@ -53,13 +53,13 @@ function ThemesTab() {
                     className="vc-settings-tab-bar-item"
                     id={ThemeTab.LOCAL}
                 >
-                    Local Themes
+                    本機主題
                 </TabBar.Item>
                 <TabBar.Item
                     className="vc-settings-tab-bar-item"
                     id={ThemeTab.ONLINE}
                 >
-                    Online Themes
+                    線上主題
                 </TabBar.Item>
             </TabBar>
 
@@ -67,10 +67,10 @@ function ThemesTab() {
                 <CspErrorCard />
 
                 <Card variant="warning">
-                    <Heading className={Margins.bottom8}>Theme Performance</Heading>
+                    <Heading className={Margins.bottom8}>主題效能提醒</Heading>
                     <Paragraph>
-                        Themes and custom CSS have the potential to cause major lag! If you experience performance issues, try
-                        disabling your themes and CSS to see if they're the cause. The most common cause of lag is the <code>:has()</code> operator.
+                        主題與自訂 CSS 可能造成明顯延遲。如果遇到效能問題，請嘗試
+                        停用主題與 CSS，確認是否為問題來源。最常造成延遲的是 <code>:has()</code> 運算子。
                     </Paragraph>
                 </Card>
 
@@ -85,10 +85,10 @@ function UserscriptThemesTab() {
     return (
         <SettingsTab>
             <Card variant="danger">
-                <Heading className={Margins.bottom8}>Themes are not supported on the Userscript!</Heading>
+                <Heading className={Margins.bottom8}>Userscript 不支援主題！</Heading>
 
                 <Paragraph>
-                    You can instead install themes with the <Link href={getStylusWebStoreUrl()}>Stylus extension</Link>!
+                    你可以改用 <Link href={getStylusWebStoreUrl()}>Stylus 擴充功能</Link>!
                 </Paragraph>
             </Card>
         </SettingsTab>
@@ -96,5 +96,5 @@ function UserscriptThemesTab() {
 }
 
 export default IS_USERSCRIPT
-    ? wrapTab(UserscriptThemesTab, "Themes")
-    : wrapTab(ThemesTab, "Themes");
+    ? wrapTab(UserscriptThemesTab, "主題")
+    : wrapTab(ThemesTab, "主題");

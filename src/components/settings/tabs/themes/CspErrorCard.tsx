@@ -46,14 +46,14 @@ export function CspErrorCard() {
 
     return (
         <ErrorCard>
-            <Heading className={Margins.bottom8}>Blocked Resources</Heading>
-            <Paragraph>Some images, styles, or fonts were blocked because they come from disallowed domains.</Paragraph>
-            <Paragraph>It is highly recommended to move them to GitHub or Imgur. But you may also allow domains if you fully trust them.</Paragraph>
+            <Heading className={Margins.bottom8}>遭封鎖的資源</Heading>
+            <Paragraph>部分圖片、樣式或字型來自未允許的網域，因此遭到封鎖。</Paragraph>
+            <Paragraph>強烈建議將資源移至 GitHub 或 Imgur；如果你完全信任來源，也可以允許對應網域。</Paragraph>
             <Paragraph>
                 After allowing a domain, you have to fully close (from tray / task manager) and restart {IS_DISCORD_DESKTOP ? "Discord" : "Vesktop"} to apply the change.
             </Paragraph>
 
-            <Heading className={classes(Margins.top16, Margins.bottom8)}>Blocked URLs</Heading>
+            <Heading className={classes(Margins.top16, Margins.bottom8)}>遭封鎖的網址</Heading>
             <div className="vc-settings-csp-list">
                 {errors.map((url, i) => (
                     <div key={url}>
@@ -72,9 +72,9 @@ export function CspErrorCard() {
                 <>
                     <Divider className={classes(Margins.top8, Margins.bottom16)} />
                     <Paragraph>
-                        Imgur links should be direct links in the form of <code>https://i.imgur.com/...</code>
+                        Imgur 連結應使用以下格式的直接連結： <code>https://i.imgur.com/...</code>
                     </Paragraph>
-                    <Paragraph>To obtain a direct link, right-click the image and select "Copy image address".</Paragraph>
+                    <Paragraph>如需取得直接連結，請在圖片上按右鍵並選擇「複製圖片網址」。</Paragraph>
                 </>
             )}
         </ErrorCard>

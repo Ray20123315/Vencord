@@ -127,22 +127,22 @@ export function LocalThemesTab() {
     return (
         <Flex flexDirection="column" gap="1em">
             <Card>
-                <Heading className={Margins.bottom8}>Find Themes:</Heading>
+                <Heading className={Margins.bottom8}>尋找主題：</Heading>
                 <Flex gap="0.4em" flexDirection="column" justifyContent="flex-start" className={Margins.bottom8}>
-                    <span>&ndash; <Link href="https://betterdiscord.app/themes">BetterDiscord theme list</Link></span>
+                    <span>&ndash; <Link href="https://betterdiscord.app/themes">BetterDiscord 主題列表</Link></span>
                     <span>&ndash; <Link href="https://github.com/search?q=discord+theme">GitHub</Link></span>
                 </Flex>
-                <Paragraph>If using the BD site, click on "Download" and place the downloaded .theme.css file into your themes folder.</Paragraph>
+                <Paragraph>若使用 BetterDiscord 網站，請點選「Download」，再將下載的 .theme.css 檔案放入主題資料夾。</Paragraph>
             </Card>
 
             <Card>
-                <Heading className={Margins.bottom8}>External Resources</Heading>
-                <Paragraph>For security reasons, loading resources (styles, fonts, images, ...) from most sites is blocked.</Paragraph>
-                <Paragraph>Make sure all your assets are hosted on GitHub, GitLab, Codeberg, Imgur, Discord or Google Fonts.</Paragraph>
+                <Heading className={Margins.bottom8}>外部資源</Heading>
+                <Paragraph>基於安全考量，已封鎖大多數網站的外部資源（樣式、字型、圖片等）。</Paragraph>
+                <Paragraph>請確保所有資源都託管於 GitHub、GitLab、Codeberg、Imgur、Discord 或 Google Fonts。</Paragraph>
             </Card>
 
             <section>
-                <Heading className={Margins.bottom8}>Local Themes</Heading>
+                <Heading className={Margins.bottom8}>本機主題</Heading>
                 <QuickActionCard>
                     <>
                         {IS_WEB ?
@@ -150,7 +150,7 @@ export function LocalThemesTab() {
                                 <QuickAction
                                     text={
                                         <span>
-                                            Upload Theme
+                                            上傳主題
                                             <FileInput
                                                 ref={fileInputRef}
                                                 onChange={async e => {
@@ -167,25 +167,25 @@ export function LocalThemesTab() {
                                 />
                             ) : (
                                 <QuickAction
-                                    text="Open Themes Folder"
+                                    text="開啟主題資料夾"
                                     action={() => VencordNative.themes.openFolder()}
                                     Icon={FolderIcon}
                                 />
                             )}
                         <QuickAction
-                            text="Load missing Themes"
+                            text="重新載入遺漏的主題"
                             action={refreshLocalThemes}
                             Icon={RestartIcon}
                         />
                         <QuickAction
-                            text="Edit QuickCSS"
+                            text="編輯 QuickCSS"
                             action={() => VencordNative.quickCss.openEditor()}
                             Icon={PaintbrushIcon}
                         />
 
                         {isPluginEnabled(ClientThemePlugin.name) && (
                             <QuickAction
-                                text="Edit ClientTheme"
+                                text="編輯 ClientTheme"
                                 action={() => openPluginModal(ClientThemePlugin)}
                                 Icon={PencilIcon}
                             />

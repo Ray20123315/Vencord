@@ -37,19 +37,19 @@ export function OnlineThemesTab() {
                 </Paragraph>
             </Card>
             <Card>
-                <Heading className={Margins.bottom8}>Paste links to css files here</Heading>
-                <Paragraph>One link per line</Paragraph>
-                <Paragraph>You can prefix lines with @light or @dark to toggle them based on your Discord theme</Paragraph>
-                <Paragraph>Make sure to use direct links to files (raw or github.io)!</Paragraph>
+                <Heading className={Margins.bottom8}>在這裡貼上 CSS 檔案連結</Heading>
+                <Paragraph>每行一個連結</Paragraph>
+                <Paragraph>可在每行開頭加上 @light 或 @dark，依 Discord 的主題模式切換</Paragraph>
+                <Paragraph>請使用檔案的直接連結（raw 或 github.io）！</Paragraph>
             </Card>
 
             <section>
-                <Heading className={Margins.bottom8}>Online Themes</Heading>
+                <Heading className={Margins.bottom8}>線上主題</Heading>
                 <TextArea
                     value={themeText}
                     onChange={setThemeText}
                     className={"vc-settings-theme-links"}
-                    placeholder="Enter Theme Links..."
+                    placeholder="輸入主題連結…"
                     spellCheck={false}
                     onBlur={onBlur}
                     rows={10}

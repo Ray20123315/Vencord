@@ -31,31 +31,31 @@ function BackupAndRestoreTab() {
         <SettingsTab>
             <Flex flexDirection="column" gap="0.5em">
                 <Card variant="warning">
-                    <Heading tag="h4">Warning</Heading>
-                    <Paragraph>Importing a settings file will overwrite your current settings.</Paragraph>
+                    <Heading tag="h4">警告</Heading>
+                    <Paragraph>匯入設定檔會覆蓋目前的設定。</Paragraph>
                 </Card>
 
                 <Paragraph size="md" className={Margins.bottom8}>
-                    You can import and export your Vencord settings as a JSON file.
-                    This allows you to easily transfer your settings to another device,
-                    or recover your settings after reinstalling Vencord or Discord.
+                    你可以將 Vencord 設定匯入或匯出為 JSON 檔案。
+                    這樣便能輕鬆將設定移至其他裝置，
+                    或在重新安裝 Vencord 或 Discord 後還原設定。
                 </Paragraph>
 
-                <Heading tag="h4">Settings Export contains:</Heading>
+                <Heading tag="h4">匯出的設定包含：</Heading>
                 <Text size="md" className={Margins.bottom8}>
                     <ul>
-                        <li>&mdash; Custom QuickCSS</li>
-                        <li>&mdash; Theme Links</li>
-                        <li>&mdash; Plugin Settings</li>
+                        <li>&mdash; 自訂 QuickCSS</li>
+                        <li>&mdash; 主題連結</li>
+                        <li>&mdash; 插件設定</li>
                     </ul>
                 </Text>
 
                 <Flex>
                     <Button onClick={() => uploadSettingsBackup()}>
-                        Import Settings
+                        匯入設定
                     </Button>
                     <Button onClick={downloadSettingsBackup}>
-                        Export Settings
+                        匯出設定
                     </Button>
                 </Flex>
             </Flex>
@@ -63,4 +63,4 @@ function BackupAndRestoreTab() {
     );
 }
 
-export default wrapTab(BackupAndRestoreTab, "Backup & Restore");
+export default wrapTab(BackupAndRestoreTab, "備份與還原");

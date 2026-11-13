@@ -30,7 +30,7 @@ export function UIElementsButton() {
             <Card className={cl("button")} defaultPadding>
                 <div className={cl("button-description")}>
                     <Paragraph size="md" weight="semibold">
-                        Manage plugin UI elements
+                        管理插件介面元素
                     </Paragraph>
                     <Paragraph size="xs">
                         Allows you to hide buttons you don't like
@@ -94,17 +94,17 @@ function UIElementsModal(props: RenderModalProps) {
     const { uiElements } = useSettings(["uiElements.*"]);
 
     return (
-        <Modal {...props} size="md" title="Manage plugin UI elements">
+        <Modal {...props} size="md" title="管理插件介面元素">
             <div className={cl("modal-content")}>
                 <Section
-                    title="Chatbar Buttons"
-                    description="These are the buttons on the right side of the chat input bar"
+                    title="聊天輸入列按鈕"
+                    description="這些按鈕位於聊天輸入列右側"
                     buttonMap={ChatBarButtonMap}
                     settings={uiElements.chatBarButtons}
                 />
                 <Section
-                    title="Message Popover Buttons"
-                    description="These are the floating buttons on the right when you hover over a message"
+                    title="訊息懸浮按鈕"
+                    description="滑鼠停留在訊息上方時，出現在右側的懸浮按鈕"
                     buttonMap={MessagePopoverButtonMap}
                     settings={uiElements.messagePopoverButtons}
                 />

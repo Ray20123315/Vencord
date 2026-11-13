@@ -12,7 +12,7 @@ import { Link } from "@components/Link";
 import { Paragraph } from "@components/Paragraph";
 import { Margins } from "@utils/margins";
 import { classes } from "@utils/misc";
-import { promptToRestart } from "@utils/promptToRestart";
+import { promptTo重新啟動 } from "@utils/promptTo重新啟動";
 import { changes, checkForUpdates, update, updateError } from "@utils/updater";
 import { React, showToast, useState } from "@webpack/common";
 
@@ -62,7 +62,7 @@ export function Newer(props: CommonProps) {
     return (
         <>
             <Paragraph className={Margins.bottom8}>
-                Your local copy has more recent commits. Please stash or reset them.
+                你的本機版本包含較新的提交，請先暫存或重設這些變更。
             </Paragraph>
             <Changes {...props} updates={changes} />
         </>
@@ -80,14 +80,14 @@ export function Updatable(props: CommonProps) {
         <>
             {!updates && updateError ? (
                 <>
-                    <Paragraph>Failed to check updates. Check the console for more info</Paragraph>
+                    <Paragraph>檢查更新失敗。詳細資訊請查看主控台</Paragraph>
                     <ErrorCard style={{ padding: "1em" }}>
-                        <p>{updateError.stderr || updateError.stdout || "An unknown error occurred"}</p>
+                        <p>{updateError.stderr || updateError.stdout || "發生未知錯誤"}</p>
                     </ErrorCard>
                 </>
             ) : (
                 <Paragraph className={Margins.bottom8}>
-                    {isOutdated ? (updates.length === 1 ? "There is 1 Update" : `There are ${updates.length} Updates`) : "Up to Date!"}
+                    {isOutdated ? (updates.length === 1 ? "有 1 項更新" : `有 ${updates.length} 項更新`) : "已是最新版本！"}
                 </Paragraph>
             )}
 
@@ -101,16 +101,16 @@ export function Updatable(props: CommonProps) {
                             if (await update()) {
                                 setUpdates([]);
 
-                                promptToRestart("relaunch", {
-                                    title: "Update Success!",
-                                    subtitle: "Successfully updated. Restart now to apply the changes?",
-                                    confirmText: "Restart",
-                                    cancelText: "Not now!"
+                                promptTo重新啟動("relaunch", {
+                                    title: "更新成功！",
+                                    subtitle: "已成功更新。要立即重新啟動以套用變更嗎？",
+                                    confirmText: "重新啟動",
+                                    cancelText: "稍後再說！"
                                 });
                             }
                         })}
                     >
-                        Update Now
+                        立即更新
                     </Button>
                 )}
                 <Button
@@ -123,11 +123,11 @@ export function Updatable(props: CommonProps) {
                         } else {
                             setUpdates([]);
 
-                            showToast({ text: "No updates found!", position: "bottom" });
+                            showToast({ text: "沒有找到更新！", position: "bottom" });
                         }
                     })}
                 >
-                    Check for Updates
+                    檢查更新
                 </Button>
             </Flex>
         </>
