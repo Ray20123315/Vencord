@@ -21,7 +21,7 @@ let cachedCategories: TrendingCategoriesData | null = null;
 const settings = definePluginSettings({
     provider: {
         type: OptionType.SELECT,
-        description: "The provider to use. You can also change this directly in the GIF picker",
+        description: "要使用的 GIF 來源，也可以直接在 GIF 選擇器中變更",
         options: [
             { label: "Tenor", value: "tenor", default: true },
             { label: "Giphy", value: "giphy" },
@@ -182,7 +182,7 @@ export default definePlugin({
             <div className="vc-tenorGifSearch-wrapper">
                 <Component placeholder={placeholder} aria-label={ariaLabel} ref={ref} {...props} />
                 <Select
-                    placeholder="Provider"
+                    placeholder="來源服務"
                     options={settings.def.provider.options}
                     isSelected={v => v === provider}
                     select={v => {

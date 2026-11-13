@@ -49,15 +49,15 @@ const ShowCurrentGame = getUserSettingLazy<boolean>("status", "showCurrentGame")
 const settings = definePluginSettings({
     oldIcon: {
         type: OptionType.BOOLEAN,
-        description: "Use the old icon style before Discord icon redesign",
+        description: "使用 Discord 圖示重新設計前的舊版樣式",
         default: false
     },
     location: {
         type: OptionType.SELECT,
-        description: "Where to show the game activity toggle button",
+        description: "遊戲活動切換按鈕的顯示位置",
         options: [
-            { label: "Next to Mute/Deafen", value: "PANEL", default: true },
-            { label: "Vencord Toolbox", value: "TOOLBOX" }
+            { label: "靜音／關閉收音按鈕旁", value: "PANEL", default: true },
+            { label: "Vencord 工具箱", value: "TOOLBOX" }
         ],
         get hidden() {
             return !isPluginEnabled(VencordToolboxPlugin.name);
@@ -133,7 +133,7 @@ function GameActivityToggleButton(props: { nameplate?: any; }) {
                 <Menu.Menu navId="vc-gameActivityToggle-menu" onClose={closePopout}>
                     <Menu.MenuCheckboxItem
                         id="vc-toggle-spotify"
-                        label="Share Spotify Activity"
+                        label="分享 Spotify 活動"
                         checked={shareSpotifyActivity}
                         action={async () => {
                             ConnectedAccountActions.setShowActivity(spotifyAccount.type, spotifyAccount.id, !shareSpotifyActivity);
@@ -183,7 +183,7 @@ export default definePlugin({
         return (
             <Menu.MenuCheckboxItem
                 id="game-activity-toggle-toolbox"
-                label="Enable Game Activity"
+                label="啟用遊戲活動"
                 checked={showCurrentGame}
                 action={() => ShowCurrentGame.updateSetting(old => !old)}
             />

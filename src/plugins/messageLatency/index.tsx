@@ -35,23 +35,23 @@ export default definePlugin({
     settings: definePluginSettings({
         latency: {
             type: OptionType.NUMBER,
-            description: "Threshold in seconds for latency indicator",
+            description: "顯示延遲指示器的門檻（秒）",
             default: 2,
             min: 0
         },
         detectDiscordKotlin: {
             type: OptionType.BOOLEAN,
-            description: "Detect old Discord Android clients",
+            description: "偵測舊版 Discord Android 客戶端",
             default: true
         },
         showMillis: {
             type: OptionType.BOOLEAN,
-            description: "Show milliseconds",
+            description: "顯示毫秒",
             default: false
         },
         ignoreSelf: {
             type: OptionType.BOOLEAN,
-            description: "Don't add indicator to your own messages",
+            description: "不要在自己的訊息上顯示指示器",
             default: false
         }
     }),

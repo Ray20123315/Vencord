@@ -85,18 +85,18 @@ function recalculateActivities() {
 function ImportCustomRPCComponent() {
     return (
         <Flex flexDirection="column">
-            <Paragraph>Import the application id of the CustomRPC plugin to the filter list</Paragraph>
+            <Paragraph>將 CustomRPC 插件的應用程式 ID 匯入篩選清單</Paragraph>
             <div>
                 <Button
                     onClick={() => {
                         const id = CustomRpcPlugin.settings.store.appID;
                         if (!id) {
-                            return showToast({ text: "CustomRPC application ID is not set.", variant: "critical" });
+                            return showToast({ text: "尚未設定 CustomRPC 應用程式 ID。", variant: "critical" });
                         }
 
                         const isAlreadyAdded = idsListPushID?.(id);
                         if (isAlreadyAdded) {
-                            showToast({ text: "CustomRPC application ID is already added.", variant: "critical" });
+                            showToast({ text: "已加入 CustomRPC 應用程式 ID。", variant: "critical" });
                         }
                     }}
                 >
@@ -135,8 +135,8 @@ function IdsListComponent(props: { setValue: (value: string) => void; }) {
 
     return (
         <section>
-            <Heading className={Margins.bottom8}>Filter List</Heading>
-            <Paragraph className={Margins.bottom8}>Comma separated list of activity IDs to filter (Useful for filtering specific RPC activities and CustomRPC</Paragraph>
+            <Heading className={Margins.bottom8}>篩選清單</Heading>
+            <Paragraph className={Margins.bottom8}>以逗號分隔要篩選的活動 ID（適合篩選特定 RPC 活動和 CustomRPC</Paragraph>
             <TextArea
                 type="text"
                 value={idsList}
@@ -191,7 +191,7 @@ const registeredGameOverflowContextMenuPatch: NavContextMenuPatchCallback = (chi
     children.push(
         <Menu.MenuCheckboxItem
             id="ignore-activities-toggle-activity"
-            label="Enable Activity"
+            label="啟用活動"
             checked={!isCurrentlyIgnored}
             action={handleToggleActivity}
         />
@@ -205,15 +205,15 @@ const settings = definePluginSettings({
     },
     listMode: {
         type: OptionType.SELECT,
-        description: "Change the mode of the filter list",
+        description: "變更篩選清單的模式",
         options: [
             {
-                label: "Whitelist",
+                label: "白名單",
                 value: FilterMode.Whitelist,
                 default: true
             },
             {
-                label: "Blacklist",
+                label: "黑名單",
                 value: FilterMode.Blacklist,
             }
         ],
@@ -231,31 +231,31 @@ const settings = definePluginSettings({
     },
     ignorePlaying: {
         type: OptionType.BOOLEAN,
-        description: "Ignore all playing activities (These are usually game and RPC activities)",
+        description: "忽略所有遊玩活動（通常是遊戲與 RPC 活動）",
         default: false,
         onChange: recalculateActivities
     },
     ignoreStreaming: {
         type: OptionType.BOOLEAN,
-        description: "Ignore all streaming activities",
+        description: "忽略所有直播活動",
         default: false,
         onChange: recalculateActivities
     },
     ignoreListening: {
         type: OptionType.BOOLEAN,
-        description: "Ignore all listening activities (These are usually Spotify activities)",
+        description: "忽略所有聆聽活動（通常是 Spotify 活動）",
         default: false,
         onChange: recalculateActivities
     },
     ignoreWatching: {
         type: OptionType.BOOLEAN,
-        description: "Ignore all watching activities",
+        description: "忽略所有觀看活動",
         default: false,
         onChange: recalculateActivities
     },
     ignoreCompeting: {
         type: OptionType.BOOLEAN,
-        description: "Ignore all competing activities (These are normally special game activities)",
+        description: "忽略所有競賽活動（通常是特殊遊戲活動）",
         default: false,
         onChange: recalculateActivities
     },

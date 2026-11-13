@@ -33,37 +33,37 @@ import managedStyle from "./styles.css?managed";
 export const settings = definePluginSettings({
     saveZoomValues: {
         type: OptionType.BOOLEAN,
-        description: "Whether to save zoom and lens size values",
+        description: "是否儲存縮放倍率與放大鏡尺寸",
         default: true,
     },
 
     invertScroll: {
         type: OptionType.BOOLEAN,
-        description: "Invert scroll",
+        description: "反轉捲動方向",
         default: true,
     },
 
     nearestNeighbour: {
         type: OptionType.BOOLEAN,
-        description: "Use Nearest Neighbour Interpolation when scaling images",
+        description: "縮放圖片時使用最近鄰插值法",
         default: false,
     },
 
     square: {
         type: OptionType.BOOLEAN,
-        description: "Make the lens square",
+        description: "使用方形放大鏡",
         default: false,
     },
 
     zoom: {
-        description: "Zoom of the lens",
+        description: "放大鏡倍率",
         type: OptionType.SLIDER,
         markers: [1, 5, 10, 20, 30, 40, 50],
         default: 2,
         stickToMarkers: false,
     },
     size: {
-        description: "Radius / Size of the lens",
+        description: "放大鏡半徑／尺寸",
         type: OptionType.SLIDER,
         markers: [50, 100, 250, 500, 750, 1000],
         default: 100,
@@ -71,7 +71,7 @@ export const settings = definePluginSettings({
     },
 
     zoomSpeed: {
-        description: "How fast the zoom / lens size changes",
+        description: "縮放倍率／放大鏡尺寸的變化速度",
         type: OptionType.SLIDER,
         markers: [0.1, 0.5, 1, 2, 3, 4, 5],
         default: 0.5,
@@ -92,7 +92,7 @@ const imageContextMenuPatch: NavContextMenuPatchCallback = (children, props) => 
         <Menu.MenuGroup id="image-zoom">
             <Menu.MenuCheckboxItem
                 id="vc-square"
-                label="Square Lens"
+                label="方形放大鏡"
                 checked={square}
                 action={() => {
                     settings.store.square = !square;
@@ -100,7 +100,7 @@ const imageContextMenuPatch: NavContextMenuPatchCallback = (children, props) => 
             />
             <Menu.MenuCheckboxItem
                 id="vc-nearest-neighbour"
-                label="Nearest Neighbour"
+                label="最近鄰插值"
                 checked={nearestNeighbour}
                 action={() => {
                     settings.store.nearestNeighbour = !nearestNeighbour;
@@ -108,7 +108,7 @@ const imageContextMenuPatch: NavContextMenuPatchCallback = (children, props) => 
             />
             <Menu.MenuControlItem
                 id="vc-zoom"
-                label="Zoom"
+                label="縮放"
                 control={(props, ref) => (
                     <Menu.MenuSliderControl
                         ref={ref}
@@ -123,7 +123,7 @@ const imageContextMenuPatch: NavContextMenuPatchCallback = (children, props) => 
             />
             <Menu.MenuControlItem
                 id="vc-size"
-                label="Lens Size"
+                label="放大鏡尺寸"
                 control={(props, ref) => (
                     <Menu.MenuSliderControl
                         ref={ref}
@@ -137,7 +137,7 @@ const imageContextMenuPatch: NavContextMenuPatchCallback = (children, props) => 
             />
             <Menu.MenuControlItem
                 id="vc-zoom-speed"
-                label="Zoom Speed"
+                label="縮放速度"
                 control={(props, ref) => (
                     <Menu.MenuSliderControl
                         ref={ref}

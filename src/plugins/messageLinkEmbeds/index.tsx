@@ -75,46 +75,46 @@ const messageFetchQueue = new Queue();
 
 const settings = definePluginSettings({
     messageBackgroundColor: {
-        description: "Background color for messages in rich embeds",
+        description: "豐富嵌入訊息的背景顏色",
         type: OptionType.BOOLEAN
     },
     automodEmbeds: {
-        description: "Use automod embeds instead of rich embeds (smaller but less info)",
+        description: "使用 AutoMod 嵌入訊息取代豐富嵌入（尺寸較小，但資訊較少）",
         type: OptionType.SELECT,
         options: [
             {
-                label: "Always use automod embeds",
+                label: "一律使用 AutoMod 嵌入",
                 value: "always"
             },
             {
-                label: "Prefer automod embeds, but use rich embeds if some content can't be shown",
+                label: "優先使用 AutoMod 嵌入，但無法顯示完整內容時改用豐富嵌入",
                 value: "prefer"
             },
             {
-                label: "Never use automod embeds",
+                label: "永不使用 AutoMod 嵌入",
                 value: "never",
                 default: true
             }
         ]
     },
     listMode: {
-        description: "Whether to use ID list as blacklist or whitelist",
+        description: "將 ID 清單作為黑名單或白名單",
         type: OptionType.SELECT,
         options: [
             {
-                label: "Blacklist",
+                label: "黑名單",
                 value: "blacklist",
                 default: true
             },
             {
-                label: "Whitelist",
+                label: "白名單",
                 value: "whitelist"
             }
         ]
     },
     idList: {
         displayName: "ID List",
-        description: "Guild/channel/user IDs to blacklist or whitelist (separate with comma)",
+        description: "要列入黑名單或白名單的伺服器／頻道／使用者 ID（以逗號分隔）",
         type: OptionType.STRING,
         default: "",
         multiline: true,

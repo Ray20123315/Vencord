@@ -17,7 +17,7 @@ const settings = definePluginSettings({
     showAtSymbol: {
         type: OptionType.BOOLEAN,
         displayName: "Show @ Symbol",
-        description: "Whether the the @ symbol should be displayed on user mentions",
+        description: "提及使用者時是否顯示 @ 符號",
         default: true
     }
 });

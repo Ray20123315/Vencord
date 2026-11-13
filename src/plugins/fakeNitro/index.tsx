@@ -83,13 +83,13 @@ const DEFAULT_STICKER_SIZE = 160;
 
 const settings = definePluginSettings({
     enableEmojiBypass: {
-        description: "Allows sending fake emojis (also bypasses missing permission to use custom emojis)",
+        description: "允許傳送模擬表情符號（也能略過缺少自訂表情符號使用權限的限制）",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true
     },
     emojiSize: {
-        description: "Size of the emojis when sending",
+        description: "傳送表情符號時使用的尺寸",
         type: OptionType.SELECT,
         default: DEFAULT_EMOJI_SIZE,
         options: mediaSizes.map(size => ({
@@ -98,19 +98,19 @@ const settings = definePluginSettings({
         }))
     },
     transformEmojis: {
-        description: "Whether to transform fake emojis into real ones",
+        description: "是否將模擬表情符號轉換為真正的表情符號",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true
     },
     enableStickerBypass: {
-        description: "Allows sending fake stickers (also bypasses missing permission to use stickers)",
+        description: "允許傳送模擬貼圖（也能略過貼圖使用權限限制）",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true
     },
     stickerSize: {
-        description: "Size of the stickers when sending",
+        description: "傳送貼圖時使用的尺寸",
         type: OptionType.SELECT,
         default: DEFAULT_STICKER_SIZE,
         options: mediaSizes.map(size => ({
@@ -119,34 +119,34 @@ const settings = definePluginSettings({
         }))
     },
     transformStickers: {
-        description: "Whether to transform fake stickers into real ones",
+        description: "是否將模擬貼圖轉換為真正的貼圖",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true
     },
     transformCompoundSentence: {
-        description: "Whether to transform fake stickers and emojis in compound sentences (sentences with more content than just the fake emoji or sticker link)",
+        description: "是否在含有其他文字的訊息中轉換模擬貼圖與表情符號（不只有表情符號或貼圖連結的訊息）",
         type: OptionType.BOOLEAN,
         default: false
     },
     enableStreamQualityBypass: {
-        description: "Allow streaming in nitro quality",
+        description: "允許以 Nitro 畫質進行直播",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true
     },
     useHyperLinks: {
-        description: "Whether to use hyperlinks when sending fake emojis and stickers",
+        description: "傳送模擬表情符號及貼圖時是否使用超連結",
         type: OptionType.BOOLEAN,
         default: true
     },
     hyperLinkText: {
-        description: "What text the hyperlink should use. {{NAME}} will be replaced with the emoji/sticker name.",
+        description: "超連結顯示的文字。{{NAME}} 會替換為表情符號或貼圖名稱。",
         type: OptionType.STRING,
         default: "{{NAME}}"
     },
     disableEmbedPermissionCheck: {
-        description: "Whether to disable the embed permission check when sending fake emojis and stickers",
+        description: "傳送模擬表情符號及貼圖時是否停用嵌入權限檢查",
         type: OptionType.BOOLEAN,
         default: false
     }
@@ -174,7 +174,7 @@ function CannotEmbedNoticeModal({ modalProps, resolve }: { modalProps: RenderMod
     return (
         <ConfirmModal
             {...modalProps}
-            title="Hold on!"
+            title="請注意！"
             subtitle="You are trying to send/edit a message that contains a FakeNitro emoji or sticker, however you do not have permissions to embed links in the current channel. Are you sure you want to send this message? Your FakeNitro items will appear as a link only."
             confirmText="Send Anyway"
             cancelText="Cancel"
@@ -807,7 +807,7 @@ export default definePlugin({
                         openModal(props => (
                             <ConfirmModal
                                 {...props}
-                                title="Hold on!"
+                                title="請注意！"
                                 confirmText="OK"
                                 variant="primary"
                             >

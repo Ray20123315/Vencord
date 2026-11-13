@@ -38,19 +38,19 @@ export const ThreadMemberListStore = findStoreLazy("ThreadMemberListStore") as F
 export const settings = definePluginSettings({
     toolTip: {
         type: OptionType.BOOLEAN,
-        description: "Show member count on the server tooltip",
+        description: "在伺服器工具提示中顯示成員數量",
         default: true,
         restartNeeded: true
     },
     memberList: {
         type: OptionType.BOOLEAN,
-        description: "Show member count in the member list",
+        description: "在成員清單中顯示成員數量",
         default: true,
         restartNeeded: true
     },
     voiceActivity: {
         type: OptionType.BOOLEAN,
-        description: "Show voice activity with member count in the member list",
+        description: "在成員清單的人數旁顯示語音活動",
         default: true
     }
 });

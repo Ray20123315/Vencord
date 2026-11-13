@@ -31,10 +31,10 @@ const settings = definePluginSettings({
     greetMode: {
         type: OptionType.SELECT,
         options: [
-            { label: "Greet (you can only greet 3 times)", value: GreetMode.Greet, default: true },
-            { label: "Normal Message (you can greet spam)", value: GreetMode.NormalMessage }
+            { label: "打招呼（最多 3 次）", value: GreetMode.Greet, default: true },
+            { label: "一般訊息（可重複打招呼）", value: GreetMode.NormalMessage }
         ],
-        description: "Choose the greet mode"
+        description: "選擇打招呼模式"
     }
 }).withPrivateSettings<{
     multiGreetChoices?: string[];
@@ -75,10 +75,10 @@ function GreetMenu({ channel, message }: { message: Message, channel: Channel; }
         <Menu.Menu
             navId="greet-sticker-picker"
             onClose={() => FluxDispatcher.dispatch({ type: "CONTEXT_MENU_CLOSE" })}
-            aria-label="Greet Sticker Picker"
+            aria-label="招呼貼圖選擇器"
         >
             <Menu.MenuGroup
-                label="Greet Mode"
+                label="打招呼模式"
             >
                 {Object.values(GreetMode).map(mode => (
                     <Menu.MenuRadioItem
@@ -95,7 +95,7 @@ function GreetMenu({ channel, message }: { message: Message, channel: Channel; }
             <Menu.MenuSeparator />
 
             <Menu.MenuGroup
-                label="Greet Stickers"
+                label="招呼貼圖"
             >
                 {WELCOME_STICKERS.map(sticker => (
                     <Menu.MenuItem
@@ -112,7 +112,7 @@ function GreetMenu({ channel, message }: { message: Message, channel: Channel; }
                     <Menu.MenuSeparator />
 
                     <Menu.MenuItem
-                        label="Unholy Multi-Greet"
+                        label="連續打招呼"
                         id="unholy-multi-greet"
                     >
                         {WELCOME_STICKERS.map(sticker => {
@@ -137,7 +137,7 @@ function GreetMenu({ channel, message }: { message: Message, channel: Channel; }
                         <Menu.MenuSeparator />
                         <Menu.MenuItem
                             id="multi-greet-submit"
-                            label="Send Greets"
+                            label="傳送招呼"
                             action={() => greet(channel, message, multiGreetChoices!)}
                             disabled={multiGreetChoices.length === 0}
                         />

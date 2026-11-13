@@ -75,11 +75,11 @@ function decode(bio: string): Array<number> | null {
 
 const settings = definePluginSettings({
     nitroFirst: {
-        description: "Default color source if both are present",
+        description: "兩種顏色同時存在時優先使用的來源",
         type: OptionType.SELECT,
         options: [
-            { label: "Nitro colors", value: true, default: true },
-            { label: "Fake colors", value: false },
+            { label: "Nitro 顏色", value: true, default: true },
+            { label: "模擬顏色", value: false },
         ]
     }
 });
@@ -116,13 +116,13 @@ function SettingsAboutComponent() {
 
     return (
         <section>
-            <Heading className={Margins.bottom8}>Usage</Heading>
+            <Heading className={Margins.bottom8}>使用方式</Heading>
             <Paragraph>
                 After enabling this plugin, you will see custom colors in
                 the profiles of other people using compatible plugins.{" "}
             </Paragraph>
             <Text size="sm" className={Margins.top8}>
-                <strong>To set your own profile theme colors:</strong>
+                <strong>設定自己的個人資料主題顏色：</strong>
                 <ul>
                     <li>&mdash; use the color pickers below to choose your colors</li>
                     <li>&mdash; click the "Copy 3y3" button</li>
@@ -131,7 +131,7 @@ function SettingsAboutComponent() {
                 <Divider
                     className={classes(Margins.top8, Margins.bottom8)}
                 />
-                <Heading className={Margins.bottom8}>Color pickers</Heading>
+                <Heading className={Margins.bottom8}>顏色選擇器</Heading>
                 <Flex gap="1em">
                     <ColorPicker
                         color={color1}
@@ -175,7 +175,7 @@ function SettingsAboutComponent() {
                 <Divider
                     className={classes(Margins.top8, Margins.bottom8)}
                 />
-                <Heading className={Margins.bottom8}>Preview</Heading>
+                <Heading className={Margins.bottom8}>預覽</Heading>
                 <div className="vc-fpt-preview">
                     <ProfileModal
                         user={UserStore.getCurrentUser()}

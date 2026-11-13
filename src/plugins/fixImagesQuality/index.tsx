@@ -16,7 +16,7 @@ import definePlugin, { OptionType } from "@utils/types";
 const settings = definePluginSettings({
     originalImagesInChat: {
         type: OptionType.BOOLEAN,
-        description: "Also load the original image in Chat. WARNING: Read the caveats above",
+        description: "在聊天中也載入原始圖片。警告：請先閱讀上方的注意事項",
         default: false,
     }
 });
@@ -42,14 +42,14 @@ export default definePlugin({
         return (
             <Card variant="normal">
                 <Flex flexDirection="column" gap="4px">
-                    <Paragraph size="md" weight="semibold">The default behaviour is the following:</Paragraph>
+                    <Paragraph size="md" weight="semibold">預設行為如下：</Paragraph>
                     <Paragraph>
                         <ul>
                             <li>&mdash; In chat, optimised but full resolution images will be loaded.</li>
                             <li>&mdash; In the image modal, the original image will be loaded.</li>
                         </ul>
                     </Paragraph>
-                    <Paragraph size="md" weight="semibold" className={Margins.top8}>You can also enable original image in chat, but beware of the following caveats:</Paragraph>
+                    <Paragraph size="md" weight="semibold" className={Margins.top8}>也可以在聊天中啟用原始圖片，但請注意以下事項：</Paragraph>
                     <Paragraph>
                         <ul>
                             <li>&mdash; Animated images (GIF, WebP, etc.) in chat will always animate, regardless of if the App is focused.</li>

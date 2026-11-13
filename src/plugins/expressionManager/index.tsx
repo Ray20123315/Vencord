@@ -44,17 +44,17 @@ export const logger = new Logger("ExpressionManager");
 export const settings = definePluginSettings({
     editAndDelete: {
         type: OptionType.BOOLEAN,
-        description: 'Add "Edit" and "Delete" options to the expression picker context menu',
+        description: '在表情符號選擇器右鍵選單中加入「編輯」與「刪除」選項',
         default: true
     },
     stickerCopyAndOpen: {
         type: OptionType.BOOLEAN,
-        description: 'Add "Copy Sticker Link" and "Open Sticker Link" options to the sticker context menu',
+        description: '在貼圖右鍵選單加入「複製貼圖連結」和「開啟貼圖連結」選項',
         default: true
     },
     recents: {
         type: OptionType.BOOLEAN,
-        description: 'Add "Remove from Recents" option to the context menu of frequently used expressions',
+        description: '在常用表情的右鍵選單加入「從最近使用中移除」',
         default: true
     }
 });
@@ -117,7 +117,7 @@ function buildManageExpressionItems(id: string, type: string) {
                 color="danger"
                 action={() => {
                     confirmAction({
-                        title: `Delete ${expression.name}`,
+                        title: `刪除 ${expression.name}`,
                         subtitle: `Are you sure you want to delete this ${type}?`,
                         confirmText: "Delete",
                         async onConfirm() {
@@ -126,8 +126,8 @@ function buildManageExpressionItems(id: string, type: string) {
                                 : Constants.Endpoints.GUILD_STICKER(guild.id, id);
 
                             await RestAPI.del(url).then(
-                                () => showToast({ text: `${expressionName} deleted successfully.`, variant: "success" }),
-                                () => showToast({ text: `Failed to delete ${expressionName}`, variant: "critical" })
+                                () => showToast({ text: `已成功刪除 ${expressionName}。`, variant: "success" }),
+                                () => showToast({ text: `刪除 ${expressionName} 失敗`, variant: "critical" })
                             );
                         }
                     });
@@ -182,7 +182,7 @@ function buildRemoveFrecentItem({ type, id, name }: Record<"type" | "id" | "name
         <Menu.MenuItem
             id="vc-em-remove-frecent"
             key="vc-em-remove-frecent"
-            label="Remove From Recents"
+            label="從最近使用中移除"
             leadingAccessory={{ type: "icon", icon: HistoryIcon }}
             action={async e => {
                 const onConfirm = () => {
@@ -196,7 +196,7 @@ function buildRemoveFrecentItem({ type, id, name }: Record<"type" | "id" | "name
                 // The confirm modal closes the reaction popup, so skip confirmation
                 const confirmed = e.shiftKey || isReaction ||
                     await confirmAction({
-                        title: "Remove From Recents",
+                        title: "從最近使用中移除",
                         subtitle: `This will reset all usage history for this ${type} and cannot be undone. Are you sure?`,
                         confirmText: "Do it"
                     });
@@ -320,7 +320,7 @@ const patchMessageContextMenu: NavContextMenuPatchCallback = (children, props: R
             <Menu.MenuItem
                 key="vc-em-upload-as-emoji"
                 id="vc-em-upload-as-emoji"
-                label="Upload as Emoji"
+                label="上傳為表情符號"
                 leadingAccessory={{ type: "icon", icon: PlusIcon }}
                 action={() => openEmojiUploadModal(mediaItem.url)}
             />
