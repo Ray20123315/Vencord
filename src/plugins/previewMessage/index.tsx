@@ -97,7 +97,7 @@ const PreviewButton: ChatBarButtonFactory = ({ isAnyChat, isEmpty, type: { attac
 
     return (
         <ChatBarButton
-            tooltip="Preview Message"
+            tooltip="預覽訊息"
             onClick={async () => {
                 const attachments = hasAttachments ? await getAttachments(channelId) : undefined;
                 const message = sendBotMessage(

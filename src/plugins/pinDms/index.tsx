@@ -40,22 +40,22 @@ export const enum PinOrder {
 export const settings = definePluginSettings({
     pinOrder: {
         type: OptionType.SELECT,
-        description: "Which order should pinned DMs be displayed in?",
+        description: "已釘選私訊的顯示順序",
         options: [
-            { label: "Most recent message", value: PinOrder.LastMessage, default: true },
-            { label: "Custom (right click channels to reorder)", value: PinOrder.Custom }
+            { label: "最近的訊息", value: PinOrder.LastMessage, default: true },
+            { label: "自訂（在頻道上按右鍵重新排序）", value: PinOrder.Custom }
         ]
     },
     canCollapseDmSection: {
         type: OptionType.BOOLEAN,
         displayName: "Can Collapse DM Section",
-        description: "Allow uncategorised DMs section to be collapsable",
+        description: "允許收合未分類的私訊區塊",
         default: false
     },
     dmSectionCollapsed: {
         type: OptionType.BOOLEAN,
         displayName: "DM Section Collapsed",
-        description: "Collapse DM section",
+        description: "收合私訊區塊",
         default: false,
         hidden: true
     },
@@ -270,11 +270,11 @@ export default definePlugin({
                             navId="vc-pindms-header-menu"
                             onClose={() => FluxDispatcher.dispatch({ type: "CONTEXT_MENU_CLOSE" })}
                             color="danger"
-                            aria-label="Pin DMs Category Menu"
+                            aria-label="釘選私訊分類選單"
                         >
                             <Menu.MenuItem
                                 id="vc-pindms-edit-category"
-                                label="Edit Category"
+                                label="編輯分類"
                                 action={() => openCategoryModal(category.id, null)}
                             />
 
@@ -284,14 +284,14 @@ export default definePlugin({
                                         {
                                             canMoveCategoryInDirection(category.id, -1) && <Menu.MenuItem
                                                 id="vc-pindms-move-category-up"
-                                                label="Move Up"
+                                                label="上移"
                                                 action={() => moveCategory(category.id, -1)}
                                             />
                                         }
                                         {
                                             canMoveCategoryInDirection(category.id, 1) && <Menu.MenuItem
                                                 id="vc-pindms-move-category-down"
-                                                label="Move Down"
+                                                label="下移"
                                                 action={() => moveCategory(category.id, 1)}
                                             />
                                         }
@@ -304,7 +304,7 @@ export default definePlugin({
                             <Menu.MenuItem
                                 id="vc-pindms-delete-category"
                                 color="danger"
-                                label="Delete Category"
+                                label="刪除分類"
                                 action={() => removeCategory(category.id)}
                             />
 

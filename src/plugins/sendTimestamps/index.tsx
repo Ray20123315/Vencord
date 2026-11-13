@@ -34,7 +34,7 @@ import { Modal, openModal, Parser, useState } from "@webpack/common";
 
 const settings = definePluginSettings({
     replaceMessageContents: {
-        description: "Replace timestamps in message contents",
+        description: "替換訊息內容中的時間戳記",
         type: OptionType.BOOLEAN,
         default: true,
     },
@@ -69,7 +69,7 @@ function PickerModal(props: RenderModalProps) {
     return (
         <Modal
             {...props}
-            title="Timestamp Picker"
+            title="時間戳記選擇器"
             actions={[
                 {
                     text: "Copy",
@@ -98,7 +98,7 @@ function PickerModal(props: RenderModalProps) {
                 }}
             />
 
-            <Heading className={cl("format-heading")}>Format</Heading>
+            <Heading className={cl("format-heading")}>格式</Heading>
             <Grid columns={3} className={cl("format-grid")}>
                 {Formats.map(m =>
                     <Button
@@ -143,7 +143,7 @@ const SendTimestampButton: ChatBarButtonFactory = ({ isAnyChat }) => {
 
     return (
         <ChatBarButton
-            tooltip="Insert Timestamp"
+            tooltip="插入時間戳記"
             onClick={() => openModal(props => <PickerModal {...props} />)}
             buttonProps={{ "aria-haspopup": "dialog" }}
         >
@@ -190,7 +190,7 @@ export default definePlugin({
                     If you need anything more specific, use the Date button in the chat bar!
                 </Paragraph>
                 <Paragraph>
-                    <Heading className={cl("desc-heading")}>Examples</Heading>
+                    <Heading className={cl("desc-heading")}>範例</Heading>
                     <ul>
                         {samples.map(s => (
                             <li key={s}>

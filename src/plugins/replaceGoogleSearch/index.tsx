@@ -32,22 +32,22 @@ const enum ReplacementEngineValue {
 
 const settings = definePluginSettings({
     customEngineName: {
-        description: "Name of the custom search engine",
+        description: "自訂搜尋引擎的名稱",
         type: OptionType.STRING,
         placeholder: "Google"
     },
     customEngineURL: {
         displayName: "Custom Engine URL",
-        description: "The URL of your Engine",
+        description: "搜尋引擎的網址",
         type: OptionType.STRING,
         placeholder: "https://google.com/search?q="
     },
     replacementEngine: {
-        description: "Replace with a specific search engine instead of adding a menu",
+        description: "直接替換成指定的搜尋引擎，而不是新增選單",
         type: OptionType.SELECT,
         options: [
-            { label: "Off", value: ReplacementEngineValue.OFF, default: true },
-            { label: "Custom Engine", value: ReplacementEngineValue.CUSTOM },
+            { label: "關閉", value: ReplacementEngineValue.OFF, default: true },
+            { label: "自訂搜尋引擎", value: ReplacementEngineValue.CUSTOM },
             ...Object.keys(DefaultEngines).map(engine => ({ label: engine, value: engine }))
         ]
     }
@@ -86,7 +86,7 @@ function makeSearchItem(src: string) {
 
     return (
         <Menu.MenuItem
-            label="Search Text"
+            label="搜尋文字"
             key="search-text"
             id="vc-search-text"
             leadingAccessory={{ type: "icon", icon: SearchIcon }}

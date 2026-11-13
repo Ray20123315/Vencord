@@ -59,17 +59,17 @@ const badge: ProfileBadge = {
 
 const indicatorLocations = {
     list: {
-        description: "In the member list",
+        description: "在成員清單中",
         onEnable: () => addMemberListDecorator("platform-indicator", ({ user }) => renderPlatformIndicators(user, true)),
         onDisable: () => removeMemberListDecorator("platform-indicator")
     },
     badges: {
-        description: "In user profiles, as badges",
+        description: "在個人資料中顯示為徽章",
         onEnable: () => addProfileBadge(badge),
         onDisable: () => removeProfileBadge(badge)
     },
     messages: {
-        description: "Inside messages",
+        description: "在訊息中",
         onEnable: () => addMessageDecoration("platform-indicator", props => renderPlatformIndicators(props.message?.author, false)),
         onDisable: () => removeMessageDecoration("platform-indicator")
     }
@@ -88,7 +88,7 @@ const settings = definePluginSettings({
         Object.entries(indicatorLocations).map(([key, value]) => {
             return [key, {
                 type: OptionType.BOOLEAN,
-                description: `Show indicators ${value.description.toLowerCase()}`,
+                description: `顯示指示標記：${value.description.toLowerCase()}`,
                 // onChange doesn't give any way to know which setting was changed, so restart required
                 restartNeeded: true,
                 default: true
@@ -97,7 +97,7 @@ const settings = definePluginSettings({
     ),
     colorMobileIndicator: {
         type: OptionType.BOOLEAN,
-        description: "Whether to make the mobile indicator match the color of the user status.",
+        description: "手機指示標記是否使用與使用者狀態相同的顏色。",
         default: true,
         restartNeeded: true
     }

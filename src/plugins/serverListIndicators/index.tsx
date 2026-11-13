@@ -34,12 +34,12 @@ const UserGuildJoinRequestStore = findStoreLazy("UserGuildJoinRequestStore");
 
 const settings = definePluginSettings({
     mode: {
-        description: "Mode",
+        description: "模式",
         type: OptionType.SELECT,
         options: [
-            { label: "Only online friend count", value: IndicatorType.FRIEND, default: true },
-            { label: "Only server count", value: IndicatorType.SERVER },
-            { label: "Both server and online friend counts", value: IndicatorType.BOTH },
+            { label: "僅顯示上線好友數量", value: IndicatorType.FRIEND, default: true },
+            { label: "僅顯示伺服器數量", value: IndicatorType.SERVER },
+            { label: "同時顯示伺服器與上線好友數量", value: IndicatorType.BOTH },
         ]
     }
 });

@@ -50,7 +50,7 @@ export default definePlugin({
             if (channel.guild_id && !PermissionStore.can(PermissionsBits.SEND_MESSAGES, channel)) return null;
 
             return {
-                label: "Quick Mention",
+                label: "快速提及",
                 icon: Icon,
                 onClick: () => insertTextIntoChatInputBox(`<@${msg.author.id}> `)
             };
