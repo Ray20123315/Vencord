@@ -70,26 +70,26 @@ const EmojiParser = findByPropsLazy("convertSurrogateToName");
 const EmojiUtils = findByPropsLazy("getURL", "getEmojiColors");
 
 const ChannelTypesToChannelNames = {
-    [ChannelTypes.GUILD_TEXT]: "text",
-    [ChannelTypes.GUILD_ANNOUNCEMENT]: "announcement",
-    [ChannelTypes.GUILD_FORUM]: "forum",
-    [ChannelTypes.GUILD_VOICE]: "voice",
-    [ChannelTypes.GUILD_STAGE_VOICE]: "stage"
+    [ChannelTypes.GUILD_TEXT]: "文字",
+    [ChannelTypes.GUILD_ANNOUNCEMENT]: "公告",
+    [ChannelTypes.GUILD_FORUM]: "論壇",
+    [ChannelTypes.GUILD_VOICE]: "語音",
+    [ChannelTypes.GUILD_STAGE_VOICE]: "舞台"
 };
 
 const SortOrderTypesToNames = {
-    [SortOrderTypes.LATEST_ACTIVITY]: "Latest activity",
-    [SortOrderTypes.CREATION_DATE]: "Creation date"
+    [SortOrderTypes.LATEST_ACTIVITY]: "最近活動",
+    [SortOrderTypes.CREATION_DATE]: "建立日期"
 };
 
 const ForumLayoutTypesToNames = {
-    [ForumLayoutTypes.DEFAULT]: "Not set",
-    [ForumLayoutTypes.LIST]: "List view",
-    [ForumLayoutTypes.GRID]: "Gallery view"
+    [ForumLayoutTypes.DEFAULT]: "未設定",
+    [ForumLayoutTypes.LIST]: "清單檢視",
+    [ForumLayoutTypes.GRID]: "圖庫檢視"
 };
 
 const VideoQualityModesToNames = {
-    [VideoQualityModes.AUTO]: "Automatic",
+    [VideoQualityModes.AUTO]: "自動",
     [VideoQualityModes.FULL]: "720p"
 };
 
@@ -156,7 +156,7 @@ function HiddenChannelLockScreen({ channel }: { channel: Channel; }) {
                 <img className={cl("logo")} src={HiddenChannelLogo} />
 
                 <div className={cl("heading-container")}>
-                    <Heading tag="h1" size="xxl">This is a {!PermissionStore.can(PermissionsBits.VIEW_CHANNEL, channel) ? "hidden" : "locked"} {ChannelTypesToChannelNames[type]} channel</Heading>
+                    <Heading tag="h1" size="xxl">這是{!PermissionStore.can(PermissionsBits.VIEW_CHANNEL, channel) ? "隱藏" : "鎖定"}的{ChannelTypesToChannelNames[type]}頻道</Heading>
                     {channel.isNSFW() &&
                         <Tooltip text="NSFW">
                             {({ onMouseLeave, onMouseEnter }) => (
@@ -179,7 +179,7 @@ function HiddenChannelLockScreen({ channel }: { channel: Channel; }) {
 
                 {(!channel.isGuildVoice() && !channel.isGuildStageVoice()) && (
                     <Paragraph size="lg">
-                        You can not see the {channel.isForumChannel() ? "posts" : "messages"} of this channel.
+                        你無法查看此頻道的{channel.isForumChannel() ? "貼文" : "訊息"}。
                         {channel.isForumChannel() && topic && topic.length > 0 && " However you may see its guidelines:"}
                     </Paragraph>
                 )}
@@ -197,10 +197,10 @@ function HiddenChannelLockScreen({ channel }: { channel: Channel; }) {
                     </Paragraph>
                 }
                 {lastPinTimestamp &&
-                    <Paragraph size="md">Last message pin: <Timestamp timestamp={new Date(lastPinTimestamp)} /></Paragraph>
+                    <Paragraph size="md">最近的釘選訊息時間： <Timestamp timestamp={new Date(lastPinTimestamp)} /></Paragraph>
                 }
                 {(rateLimitPerUser ?? 0) > 0 &&
-                    <Paragraph size="md">Slowmode: {formatDurationVerbose(rateLimitPerUser!, "seconds")}</Paragraph>
+                    <Paragraph size="md">慢速模式： {formatDurationVerbose(rateLimitPerUser!, "seconds")}</Paragraph>
                 }
                 {(defaultThreadRateLimitPerUser ?? 0) > 0 &&
                     <Paragraph size="md">
@@ -208,29 +208,29 @@ function HiddenChannelLockScreen({ channel }: { channel: Channel; }) {
                     </Paragraph>
                 }
                 {((channel.isGuildVoice() || channel.isGuildStageVoice()) && bitrate != null) &&
-                    <Paragraph size="md">Bitrate: {bitrate} bits</Paragraph>
+                    <Paragraph size="md">位元率： {bitrate} bits</Paragraph>
                 }
                 {rtcRegion !== undefined &&
-                    <Paragraph size="md">Region: {rtcRegion ?? "Automatic"}</Paragraph>
+                    <Paragraph size="md">地區： {rtcRegion ?? "自動"}</Paragraph>
                 }
                 {(channel.isGuildVoice() || channel.isGuildStageVoice()) &&
-                    <Paragraph size="md">Video quality mode: {VideoQualityModesToNames[videoQualityMode ?? VideoQualityModes.AUTO]}</Paragraph>
+                    <Paragraph size="md">視訊畫質模式： {VideoQualityModesToNames[videoQualityMode ?? VideoQualityModes.AUTO]}</Paragraph>
                 }
                 {(defaultAutoArchiveDuration ?? 0) > 0 &&
                     <Paragraph size="md">
-                        Default inactivity duration before archiving {channel.isForumChannel() ? "posts" : "threads"}:
+                        閒置後自動封存的預設時間： {channel.isForumChannel() ? "貼文" : "討論串"}:
                         {" " + formatDurationVerbose(defaultAutoArchiveDuration!, "minutes")}
                     </Paragraph>
                 }
                 {defaultForumLayout != null &&
-                    <Paragraph size="md">Default layout: {ForumLayoutTypesToNames[defaultForumLayout]}</Paragraph>
+                    <Paragraph size="md">預設版面： {ForumLayoutTypesToNames[defaultForumLayout]}</Paragraph>
                 }
                 {defaultSortOrder != null &&
-                    <Paragraph size="md">Default sort order: {SortOrderTypesToNames[defaultSortOrder]}</Paragraph>
+                    <Paragraph size="md">預設排序： {SortOrderTypesToNames[defaultSortOrder]}</Paragraph>
                 }
                 {defaultReactionEmoji != null &&
                     <div className={cl("default-emoji-container")}>
-                        <Paragraph size="md">Default reaction emoji:</Paragraph>
+                        <Paragraph size="md">預設表情回應：</Paragraph>
                         {Parser.defaultRules[defaultReactionEmoji.emojiName ? "emoji" : "customEmoji"].react({
                             name: defaultReactionEmoji.emojiName
                                 ? EmojiParser.convertSurrogateToName(defaultReactionEmoji.emojiName)
@@ -244,11 +244,11 @@ function HiddenChannelLockScreen({ channel }: { channel: Channel; }) {
                     </div>
                 }
                 {channel.hasFlag(ChannelFlags.REQUIRE_TAG) &&
-                    <Paragraph size="md">Posts on this forum require a tag to be set.</Paragraph>
+                    <Paragraph size="md">此論壇的貼文必須設定標籤。</Paragraph>
                 }
                 {availableTags && availableTags.length > 0 &&
                     <div className={cl("tags-container")}>
-                        <Heading tag="h2">Available tags:</Heading>
+                        <Heading tag="h2">可用標籤：</Heading>
                         <div className={cl("tags")}>
                             {availableTags.map(tag => <TagComponent tag={tag} key={tag.id} />)}
                         </div>
@@ -276,8 +276,8 @@ function HiddenChannelLockScreen({ channel }: { channel: Channel; }) {
                                 )}
                             </Tooltip>
                         )}
-                        <Heading tag="h2">Allowed users and roles:</Heading>
-                        <Tooltip text={defaultAllowedUsersAndRolesDropdownState ? "Hide Allowed Users and Roles" : "View Allowed Users and Roles"}>
+                        <Heading tag="h2">允許的使用者與身分組：</Heading>
+                        <Tooltip text={defaultAllowedUsersAndRolesDropdownState ? "隱藏允許的使用者與身分組" : "查看允許的使用者與身分組"}>
                             {({ onMouseLeave, onMouseEnter }) => (
                                 <button
                                     onMouseLeave={onMouseLeave}

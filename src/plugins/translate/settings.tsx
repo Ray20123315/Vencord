@@ -25,25 +25,25 @@ import { openTranslateModal } from "./TranslateModal";
 export const settings = definePluginSettings({
     receivedInput: {
         type: OptionType.STRING,
-        description: "Language incoming messages are translated from",
+        description: "收到的訊息原始語言",
         default: "auto",
         hidden: true
     },
     receivedOutput: {
         type: OptionType.STRING,
-        description: "Language incoming messages are translated to",
+        description: "收到的訊息要翻譯成的語言",
         default: "en",
         hidden: true
     },
     sentInput: {
         type: OptionType.STRING,
-        description: "Language your messages are translated from",
+        description: "自己訊息的原始語言",
         default: "auto",
         hidden: true
     },
     sentOutput: {
         type: OptionType.STRING,
-        description: "Language your messages are translated to",
+        description: "自己訊息要翻譯成的語言",
         default: "en",
         hidden: true
     },
@@ -53,31 +53,31 @@ export const settings = definePluginSettings({
         hidden: IS_WEB,
         options: [
             { label: "Google Translate", value: "google", default: true },
-            { label: "DeepL Free — API key required", value: "deepl" },
-            { label: "DeepL Pro — API key required", value: "deepl-pro" },
-            { label: "Kagi Translate — API key required", value: "kagi" }
+            { label: "DeepL 免費版（需要 API 金鑰）", value: "deepl" },
+            { label: "DeepL Pro（需要 API 金鑰）", value: "deepl-pro" },
+            { label: "Kagi 翻譯（需要 API 金鑰）", value: "kagi" }
         ] as const,
         onChange: resetLanguageDefaults
     },
     deeplApiKey: {
         type: OptionType.STRING,
         displayName: "DeepL API Key",
-        description: "Your DeepL API key (from deepl.com/your-account)",
+        description: "你的 DeepL API 金鑰（在 deepl.com/your-account 取得）",
         default: ""
     },
     kagiSession: {
         type: OptionType.STRING,
-        description: "Your Kagi session token (from kagi.com/settings?p=user_details)",
+        description: "你的 Kagi 工作階段 Token（在 kagi.com/settings?p=user_details 取得）",
         default: ""
     },
     autoTranslate: {
         type: OptionType.BOOLEAN,
-        description: "Automatically translate your messages before sending. You can also Shift+click or right-click the translate button to toggle this",
+        description: "傳送訊息前自動翻譯。也可按住 Shift 點擊或右鍵點選翻譯按鈕切換此功能",
         default: false
     },
     showAutoTranslateTooltip: {
         type: OptionType.BOOLEAN,
-        description: "Show a tooltip on the chat bar button when a message is auto-translated",
+        description: "訊息自動翻譯時，在聊天輸入列按鈕顯示工具提示",
         default: true
     },
     manageTranslateSettings: {

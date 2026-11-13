@@ -188,7 +188,7 @@ function SpotifySeekBar() {
                 size="xs"
                 weight="medium"
                 className={cl("progress-time") + " " + cl("time-left")}
-                aria-label="Progress"
+                aria-label="播放進度"
             >
                 {formatDuration(position)}
             </Span>
@@ -204,7 +204,7 @@ function SpotifySeekBar() {
                 size="xs"
                 weight="medium"
                 className={cl("progress-time") + " " + cl("time-right")}
-                aria-label="Total Duration"
+                aria-label="總時長"
             >
                 {formatDuration(duration)}
             </Span>
@@ -220,12 +220,12 @@ function AlbumContextMenu({ track }: { track: Track; }) {
         <Menu.Menu
             navId="spotify-album-menu"
             onClose={() => FluxDispatcher.dispatch({ type: "CONTEXT_MENU_CLOSE" })}
-            aria-label="Spotify Album Menu"
+            aria-label="Spotify 專輯選單"
         >
             <Menu.MenuItem
                 key="open-album"
                 id="open-album"
-                label="Open Album"
+                label="開啟專輯"
                 action={() => SpotifyStore.openExternal(`/album/${track.album.id}`)}
                 icon={OpenExternalIcon}
                 leadingAccessory={{ type: "icon", icon: OpenExternalIcon }}
@@ -233,7 +233,7 @@ function AlbumContextMenu({ track }: { track: Track; }) {
             <Menu.MenuItem
                 key="view-cover"
                 id="view-cover"
-                label="View Album Cover"
+                label="查看專輯封面"
                 // trolley
                 action={() => openImageModal(track.album.image)}
                 icon={ImageIcon}
@@ -242,7 +242,7 @@ function AlbumContextMenu({ track }: { track: Track; }) {
             <Menu.MenuControlItem
                 id="spotify-volume"
                 key="spotify-volume"
-                label="Volume"
+                label="音量"
                 control={(props, ref) => (
                     <Menu.MenuSliderControl
                         {...props}
@@ -312,7 +312,7 @@ function Info({ track }: { track: Track; }) {
                 </Paragraph>
                 {track.artists.some(a => a.name) && (
                     <Paragraph className={cl(["ellipoverflow", "secondary-song-info"])}>
-                        <span className={cl("song-info-prefix")}>by&nbsp;</span>
+                        <span className={cl("song-info-prefix")}>由&nbsp;</span>
                         {track.artists.map((a, i) => (
                             <React.Fragment key={a.name}>
                                 <span
@@ -330,7 +330,7 @@ function Info({ track }: { track: Track; }) {
                 )}
                 {track.album.name && (
                     <Paragraph className={cl(["ellipoverflow", "secondary-song-info"])}>
-                        <span className={cl("song-info-prefix")}>on&nbsp;</span>
+                        <span className={cl("song-info-prefix")}>收錄於&nbsp;</span>
                         <span
                             id={cl("album-title")}
                             className={cl("album")}

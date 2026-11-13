@@ -99,10 +99,10 @@ function TimingSection({ title, logs, traceEnd }: TimingSectionProps) {
                     </div>
                 )}
                 <div style={{ color: "var(--text-strong)", display: "grid", gridTemplateColumns: "repeat(3, auto) 1fr", gap: "2px 10px", userSelect: "text" }}>
-                    <span>Start</span>
-                    <span>Interval</span>
-                    <span>Delta</span>
-                    <span style={{ marginBottom: 5 }}>Event</span>
+                    <span>開始</span>
+                    <span>間隔</span>
+                    <span>差值</span>
+                    <span style={{ marginBottom: 5 }}>事件</span>
                     {AppStartPerformance.logs.map((log, i) => (
                         <TimerItem key={i} {...log} instance={timings[i]} />
                     ))}
@@ -121,7 +121,7 @@ function ServerTrace({ trace }: ServerTraceProps) {
 
     return (
         <section>
-            <Heading className={Margins.bottom8}>Server Trace</Heading>
+            <Heading className={Margins.bottom8}>伺服器追蹤紀錄</Heading>
             <code>
                 <Flex flexDirection="column" gap="5px" style={{ color: "var(--text-strong)", userSelect: "text" }}>
                     {lines.map((line, idx) => (
@@ -134,14 +134,14 @@ function ServerTrace({ trace }: ServerTraceProps) {
 }
 
 function StartupTimingPage() {
-    if (!AppStartPerformance?.logs) return <div>Loading...</div>;
+    if (!AppStartPerformance?.logs) return <div>載入中…</div>;
 
     const serverTrace = AppStartPerformance.logGroups.find(g => g.serverTrace)?.serverTrace;
 
     return (
         <React.Fragment>
             <TimingSection
-                title="Startup Timings"
+                title="啟動耗時"
                 logs={AppStartPerformance.logs}
                 traceEnd={AppStartPerformance.endTime_}
             />

@@ -50,7 +50,7 @@ function LanguageSelect({ settingsKey, includeAuto }: { settingsKey: typeof Lang
             <SearchableSelect
                 options={options}
                 value={options.find(o => o.value === currentValue)?.value}
-                placeholder="Select a language"
+                placeholder="選擇語言"
                 maxVisibleItems={5}
                 closeOnSelect={true}
                 onChange={v => settings.store[settingsKey] = v}
@@ -64,7 +64,7 @@ function AutoTranslateToggle() {
 
     return (
         <FormSwitch
-            title="Auto Translate"
+            title="自動翻譯"
             description={settings.def.autoTranslate.description}
             value={value}
             onChange={v => settings.store.autoTranslate = v}
@@ -78,7 +78,7 @@ function TranslateModal({ rootProps }: { rootProps: RenderModalProps; }) {
     return (
         <Modal
             {...rootProps}
-            title="Translate"
+            title="翻譯"
         >
             {LanguageSettingKeys.map(s => (
                 <LanguageSelect
