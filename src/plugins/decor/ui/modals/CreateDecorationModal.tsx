@@ -58,7 +58,7 @@ function CreateDecorationModal(props: RenderModalProps) {
     return <Modal
         {...props}
         size="lg"
-        title="Create Decoration"
+        title="建立裝飾品"
         actions={[
             {
                 text: "Cancel",
@@ -90,12 +90,12 @@ function CreateDecorationModal(props: RenderModalProps) {
                     <div className={cl("create-decoration-modal-form")}>
                         {error !== null && <Paragraph size="xs" style={{ color: "var(--text-danger, var(--text-default))" }}>{error.message}</Paragraph>}
                         <section>
-                            <Heading className={Margins.bottom8}>File</Heading>
+                            <Heading className={Margins.bottom8}>檔案</Heading>
                             <FileUpload
                                 filename={file?.name}
-                                placeholder="Choose a file"
-                                buttonText="Browse"
-                                filters={[{ name: "Decoration file", extensions: ["png", "apng"] }]}
+                                placeholder="選擇檔案"
+                                buttonText="瀏覽"
+                                filters={[{ name: "裝飾品檔案", extensions: ["png", "apng"] }]}
                                 onFileSelect={setFile}
                             />
                             <Paragraph className={Margins.top8}>
@@ -103,7 +103,7 @@ function CreateDecorationModal(props: RenderModalProps) {
                             </Paragraph>
                         </section>
                         <section>
-                            <Heading className={Margins.bottom8}>Name</Heading>
+                            <Heading className={Margins.bottom8}>名稱</Heading>
                             <TextInput
                                 placeholder="Companion Cube"
                                 value={name}

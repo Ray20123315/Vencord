@@ -32,14 +32,14 @@ export const settings = definePluginSettings({
                             closePluginSettings();
                             SettingsRouter.openUserSettings("profile_panel");
                         }}
-                    >Profiles</TextButton> page.
+                    >個人資料</TextButton> page.
                 </Paragraph>
             </div>;
         }
     },
     agreedToGuidelines: {
         type: OptionType.BOOLEAN,
-        description: "Agreed to guidelines",
+        description: "已同意使用規範",
         hidden: true,
         default: false
     }

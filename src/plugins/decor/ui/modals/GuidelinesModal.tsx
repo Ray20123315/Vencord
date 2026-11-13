@@ -17,7 +17,7 @@ function GuidelinesModal(props: RenderModalProps) {
     return (
         <ConfirmModal
             {...props}
-            title="Hold on"
+            title="請注意"
             confirmText="Continue"
             variant="primary"
             onConfirm={() => {

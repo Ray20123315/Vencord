@@ -69,8 +69,8 @@ export function ThemeSettingsComponent() {
         <div className={cl("settings")}>
             <div className={cl("container")}>
                 <div className={cl("settings-labels")}>
-                    <Heading className={Margins.bottom8}>Theme Color</Heading>
-                    <Paragraph>Add a color to your Discord client theme</Paragraph>
+                    <Heading className={Margins.bottom8}>主題顏色</Heading>
+                    <Paragraph>為 Discord 客戶端主題加入顏色</Paragraph>
                 </div>
                 <ColorPicker
                     color={parseInt(settings.store.color, 16)}
@@ -81,14 +81,14 @@ export function ThemeSettingsComponent() {
             </div>
             {(contrastWarning || nitroThemeEnabled) && (<>
                 <ErrorCard className={Margins.top8}>
-                    <Heading className={Margins.bottom8}>Your theme won't look good!</Heading>
+                    <Heading className={Margins.bottom8}>你的主題顯示效果可能不佳！</Heading>
 
                     {contrastWarning && <Paragraph>{">"} Selected color won't contrast well with text</Paragraph>}
                     {nitroThemeEnabled && <Paragraph>{">"} Nitro themes aren't supported</Paragraph>}
 
                     <div className={cl("buttons-container")}>
-                        {(contrastWarning && fixableContrast) && <Button onClick={() => setDiscordTheme(oppositeTheme)} variant="dangerPrimary">Switch to {oppositeTheme} mode</Button>}
-                        {(nitroThemeEnabled) && <Button onClick={() => setDiscordTheme(currentTheme)} variant="dangerPrimary">Disable Nitro Theme</Button>}
+                        {(contrastWarning && fixableContrast) && <Button onClick={() => setDiscordTheme(oppositeTheme)} variant="dangerPrimary">切換至 {oppositeTheme} 模式</Button>}
+                        {(nitroThemeEnabled) && <Button onClick={() => setDiscordTheme(currentTheme)} variant="dangerPrimary">停用 Nitro 主題</Button>}
                     </div>
                 </ErrorCard>
             </>)}

@@ -44,7 +44,7 @@ function CreateTagDialog({ initialValue, modalProps }: { initialValue: Tag; moda
     return (
         <Modal
             {...modalProps}
-            title={isEdit ? "Edit Tag" : "Create New Tag"}
+            title={isEdit ? "編輯標籤" : "建立新標籤"}
             subtitle={isEdit ? "Edit your custom command." : "Create a new tag which will be registered as a slash command."}
             actions={[
                 {
@@ -71,18 +71,18 @@ function CreateTagDialog({ initialValue, modalProps }: { initialValue: Tag; moda
         >
             <Flex flexDirection="column" gap={12}>
                 <section>
-                    <Heading className={Margins.bottom8}>Name</Heading>
+                    <Heading className={Margins.bottom8}>名稱</Heading>
                     <TextInput value={name} onChange={setName} placeholder="greet" />
                 </section>
 
                 <section>
-                    <Heading className={Margins.bottom8}>Response</Heading>
+                    <Heading className={Margins.bottom8}>回覆內容</Heading>
                     <TextArea value={message} onChange={setMessage} placeholder={EXAMPLE_RESPONSE} autosize />
                 </section>
 
                 {detectedArguments.length > 0 && (
                     <section>
-                        <Heading className={Margins.bottom8}>Detected Arguments</Heading>
+                        <Heading className={Margins.bottom8}>偵測到的參數</Heading>
                         <Paragraph>
                             <ul>
                                 {detectedArguments.map(arg => (
@@ -106,9 +106,9 @@ function CreateTagDialog({ initialValue, modalProps }: { initialValue: Tag; moda
                             </Paragraph>
 
                             <section>
-                                <Paragraph><b>Example Command response:</b> <InlineCode>{EXAMPLE_RESPONSE}</InlineCode></Paragraph>
-                                <Paragraph><b>Example usage:</b> <InlineCode>{"/greet user:@Clyde"}</InlineCode></Paragraph>
-                                <Paragraph><b>Example output:</b> <InlineCode>{"Hello @Clyde! I am feeling great."}</InlineCode></Paragraph>
+                                <Paragraph><b>指令回覆範例：</b> <InlineCode>{EXAMPLE_RESPONSE}</InlineCode></Paragraph>
+                                <Paragraph><b>使用方式範例：</b> <InlineCode>{"/greet user:@Clyde"}</InlineCode></Paragraph>
+                                <Paragraph><b>輸出範例：</b> <InlineCode>{"Hello @Clyde! I am feeling great."}</InlineCode></Paragraph>
                             </section>
                         </Flex>
                     )}

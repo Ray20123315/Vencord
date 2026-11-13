@@ -121,7 +121,7 @@ function SingleSetting<T>({ settingsKey, label, disabled, isValid, transform }: 
             <Heading>{label}</Heading>
             <TextInput
                 type="text"
-                placeholder={"Enter a value"}
+                placeholder={"輸入內容"}
                 value={state}
                 onChange={handleChange}
                 disabled={disabled}
@@ -136,7 +136,7 @@ function SelectSetting<T>({ settingsKey, label, options, disabled }: SelectOptio
         <div className={cl("single", { disabled })}>
             <Heading>{label}</Heading>
             <Select
-                placeholder={"Select an option"}
+                placeholder={"選擇選項"}
                 options={options}
                 maxVisibleItems={5}
                 closeOnSelect={true}
@@ -159,50 +159,50 @@ export function RPCSettings() {
         <div className={cl("root")}>
             <SelectSetting
                 settingsKey="type"
-                label="Activity Type"
+                label="活動類型"
                 options={[
                     {
-                        label: "Playing",
+                        label: "正在遊玩",
                         value: ActivityType.PLAYING,
                         default: true
                     },
                     {
-                        label: "Streaming",
+                        label: "正在直播",
                         value: ActivityType.STREAMING
                     },
                     {
-                        label: "Listening",
+                        label: "正在聆聽",
                         value: ActivityType.LISTENING
                     },
                     {
-                        label: "Watching",
+                        label: "正在觀看",
                         value: ActivityType.WATCHING
                     },
                     {
-                        label: "Competing",
+                        label: "正在競賽",
                         value: ActivityType.COMPETING
                     }
                 ]}
             />
 
             <PairSetting data={[
-                { settingsKey: "appID", label: "Application ID", isValid: isAppIdValid },
-                { settingsKey: "appName", label: "Application Name", isValid: makeValidator(128, true) },
+                { settingsKey: "appID", label: "應用程式 ID", isValid: isAppIdValid },
+                { settingsKey: "appName", label: "應用程式名稱", isValid: makeValidator(128, true) },
             ]} />
 
             <PairSetting data={[
-                { settingsKey: "details", label: "Detail (line 1)", isValid: maxLength128 },
-                { settingsKey: "detailsURL", label: "Detail URL", isValid: isUrlValid },
+                { settingsKey: "details", label: "詳細資訊（第 1 行）", isValid: maxLength128 },
+                { settingsKey: "detailsURL", label: "詳細資訊網址", isValid: isUrlValid },
             ]} />
 
             <PairSetting data={[
-                { settingsKey: "state", label: "State (line 2)", isValid: maxLength128 },
-                { settingsKey: "stateURL", label: "State URL", isValid: isUrlValid },
+                { settingsKey: "state", label: "狀態（第 2 行）", isValid: maxLength128 },
+                { settingsKey: "stateURL", label: "狀態網址", isValid: isUrlValid },
             ]} />
 
             <SingleSetting
                 settingsKey="streamLink"
-                label="Stream Link (Twitch or YouTube, only if activity type is Streaming)"
+                label="直播連結（Twitch 或 YouTube，僅適用於直播活動類型）"
                 disabled={s.type !== ActivityType.STREAMING}
                 isValid={isStreamLinkValid}
             />
@@ -210,14 +210,14 @@ export function RPCSettings() {
             <PairSetting data={[
                 {
                     settingsKey: "partySize",
-                    label: "Party Size",
+                    label: "隊伍人數",
                     transform: parseNumber,
                     isValid: isNumberValid,
                     disabled: s.type !== ActivityType.PLAYING,
                 },
                 {
                     settingsKey: "partyMaxSize",
-                    label: "Maximum Party Size",
+                    label: "隊伍人數上限",
                     transform: parseNumber,
                     isValid: isNumberValid,
                     disabled: s.type !== ActivityType.PLAYING,
@@ -227,49 +227,49 @@ export function RPCSettings() {
             <Divider />
 
             <PairSetting data={[
-                { settingsKey: "imageBig", label: "Large Image URL/Key", isValid: isImageKeyValid },
-                { settingsKey: "imageBigTooltip", label: "Large Image Text", isValid: maxLength128 },
+                { settingsKey: "imageBig", label: "大型圖片網址／金鑰", isValid: isImageKeyValid },
+                { settingsKey: "imageBigTooltip", label: "大型圖片文字", isValid: maxLength128 },
             ]} />
-            <SingleSetting settingsKey="imageBigURL" label="Large Image clickable URL" isValid={isUrlValid} />
+            <SingleSetting settingsKey="imageBigURL" label="大型圖片點擊連結" isValid={isUrlValid} />
 
             <PairSetting data={[
-                { settingsKey: "imageSmall", label: "Small Image URL/Key", isValid: isImageKeyValid },
-                { settingsKey: "imageSmallTooltip", label: "Small Image Text", isValid: maxLength128 },
+                { settingsKey: "imageSmall", label: "小型圖片網址／金鑰", isValid: isImageKeyValid },
+                { settingsKey: "imageSmallTooltip", label: "小型圖片文字", isValid: maxLength128 },
             ]} />
-            <SingleSetting settingsKey="imageSmallURL" label="Small Image clickable URL" isValid={isUrlValid} />
+            <SingleSetting settingsKey="imageSmallURL" label="小型圖片點擊連結" isValid={isUrlValid} />
 
             <Divider />
 
             <PairSetting data={[
-                { settingsKey: "buttonOneText", label: "Button1 Text", isValid: makeValidator(31) },
-                { settingsKey: "buttonOneURL", label: "Button1 URL", isValid: isUrlValid },
+                { settingsKey: "buttonOneText", label: "按鈕 1 文字", isValid: makeValidator(31) },
+                { settingsKey: "buttonOneURL", label: "按鈕 1 網址", isValid: isUrlValid },
             ]} />
             <PairSetting data={[
-                { settingsKey: "buttonTwoText", label: "Button2 Text", isValid: makeValidator(31) },
-                { settingsKey: "buttonTwoURL", label: "Button2 URL", isValid: isUrlValid },
+                { settingsKey: "buttonTwoText", label: "按鈕 2 文字", isValid: makeValidator(31) },
+                { settingsKey: "buttonTwoURL", label: "按鈕 2 網址", isValid: isUrlValid },
             ]} />
 
             <Divider />
 
             <SelectSetting
                 settingsKey="timestampMode"
-                label="Timestamp Mode"
+                label="時間戳記模式"
                 options={[
                     {
-                        label: "None",
+                        label: "無",
                         value: TimestampMode.NONE,
                         default: true
                     },
                     {
-                        label: "Since discord open",
+                        label: "自 Discord 啟動以來",
                         value: TimestampMode.NOW
                     },
                     {
-                        label: "Same as your current time (not reset after 24h)",
+                        label: "使用目前時間（24 小時後不會重設）",
                         value: TimestampMode.TIME
                     },
                     {
-                        label: "Custom",
+                        label: "自訂",
                         value: TimestampMode.CUSTOM
                     }
                 ]}
@@ -278,14 +278,14 @@ export function RPCSettings() {
             <PairSetting data={[
                 {
                     settingsKey: "startTime",
-                    label: "Start Timestamp (in milliseconds)",
+                    label: "開始時間戳記（毫秒）",
                     transform: parseNumber,
                     isValid: isNumberValid,
                     disabled: s.timestampMode !== TimestampMode.CUSTOM,
                 },
                 {
                     settingsKey: "endTime",
-                    label: "End Timestamp (in milliseconds)",
+                    label: "結束時間戳記（毫秒）",
                     transform: parseNumber,
                     isValid: isNumberValid,
                     disabled: s.timestampMode !== TimestampMode.CUSTOM,

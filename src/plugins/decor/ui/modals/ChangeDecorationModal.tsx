@@ -122,8 +122,8 @@ function ChangeDecorationModal(props: RenderModalProps) {
 
     const data = [
         {
-            title: "Your Decorations",
-            subtitle: "You can delete your own decorations by right clicking on them.",
+            title: "你的裝飾品",
+            subtitle: "在自己的裝飾品上按右鍵即可刪除。",
             sectionKey: "ownDecorations",
             items: ["none", ...ownDecorations, "create"]
         },
@@ -138,7 +138,7 @@ function ChangeDecorationModal(props: RenderModalProps) {
 
     return <Modal
         {...props}
-        title="Change Decoration"
+        title="變更裝飾品"
         size="lg"
         actions={[
             {
@@ -181,8 +181,8 @@ function ChangeDecorationModal(props: RenderModalProps) {
                 <Button
                     onClick={() => {
                         confirmAction({
-                            title: "Log Out",
-                            subtitle: "Are you sure you want to log out of Decor?",
+                            title: "登出",
+                            subtitle: "確定要登出 Decor 嗎？",
                             confirmText: "Log Out",
                             cancelText: "Cancel",
                             onConfirm() {
@@ -219,7 +219,7 @@ function ChangeDecorationModal(props: RenderModalProps) {
                                 </Tooltip>;
                         }
                     } else {
-                        return <Tooltip text={"Pending review"} shouldShow={item.reviewed === false}>
+                        return <Tooltip text={"審核中"} shouldShow={item.reviewed === false}>
                             {tooltipProps => (
                                 <DecorDecorationGridDecoration
                                     {...tooltipProps}

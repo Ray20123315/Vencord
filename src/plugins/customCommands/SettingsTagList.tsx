@@ -20,21 +20,21 @@ export function SettingsTagList() {
 
     return (
         <section className={Margins.top8}>
-            <Heading tag="h4">Registered Tags</Heading>
+            <Heading tag="h4">已註冊的標籤</Heading>
             <Flex flexDirection="column" gap="0.5em" className={Margins.top8}>
                 {Object.values(tagsList).map(tag => (
                     <Card key={tag.name} className="vc-customCommands-card">
                         <Paragraph size="md" weight="medium">{tag.name}</Paragraph>
 
                         <Button variant="secondary" size="iconOnly" onClick={() => openCreateTagModal(tag)}>
-                            <PencilIcon aria-label="Edit Tag" width={20} height={20} />
+                            <PencilIcon aria-label="編輯標籤" width={20} height={20} />
                         </Button>
                         <Button variant="dangerSecondary" size="iconOnly" onClick={() => removeTag(tag.name)}>
-                            <DeleteIcon aria-label="Delete Tag" width={20} height={20} />
+                            <DeleteIcon aria-label="刪除標籤" width={20} height={20} />
                         </Button>
                     </Card>
                 ))}
-                <Button onClick={() => openCreateTagModal()}>Create Tag</Button>
+                <Button onClick={() => openCreateTagModal()}>建立標籤</Button>
             </Flex>
         </section>
     );
