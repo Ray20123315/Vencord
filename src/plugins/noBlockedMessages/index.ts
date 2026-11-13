@@ -33,13 +33,13 @@ interface MessageDeleteProps {
 migratePluginSetting("NoBlockedMessages", "ignoreBlockedMessages", "ignoreMessages");
 const settings = definePluginSettings({
     ignoreMessages: {
-        description: "Completely ignores incoming messages from blocked and ignored (if enabled) users",
+        description: "完全忽略已封鎖或已忽略（若啟用）的使用者傳來的訊息",
         type: OptionType.BOOLEAN,
         default: false,
         restartNeeded: true
     },
     applyToIgnoredUsers: {
-        description: "Additionally apply to 'ignored' users",
+        description: "同時套用至已忽略的使用者",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: false

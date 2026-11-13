@@ -24,19 +24,19 @@ import { MessageRequestStore } from "@webpack/common";
 const settings = definePluginSettings({
     hideFriendRequestsCount: {
         type: OptionType.BOOLEAN,
-        description: "Hide incoming friend requests count",
+        description: "隱藏收到的好友邀請數量",
         default: true,
         restartNeeded: true
     },
     hideMessageRequestsCount: {
         type: OptionType.BOOLEAN,
-        description: "Hide message requests count",
+        description: "隱藏訊息請求數量",
         default: true,
         restartNeeded: true
     },
     hidePremiumOffersCount: {
         type: OptionType.BOOLEAN,
-        description: "Hide nitro offers count",
+        description: "隱藏 Nitro 優惠數量",
         default: true,
         restartNeeded: true
     }

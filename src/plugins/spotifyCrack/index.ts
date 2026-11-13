@@ -22,13 +22,13 @@ import definePlugin, { OptionType } from "@utils/types";
 
 const settings = definePluginSettings({
     noSpotifyAutoPause: {
-        description: "Disable Spotify auto-pause",
+        description: "停用 Spotify 自動暫停",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true
     },
     keepSpotifyActivityOnIdle: {
-        description: "Keep Spotify activity playing when idling",
+        description: "閒置時仍繼續播放 Spotify 活動",
         type: OptionType.BOOLEAN,
         default: false,
         restartNeeded: true

@@ -11,13 +11,13 @@ import type { Channel, Emoji } from "@vencord/discord-types";
 
 const settings = definePluginSettings({
     shownEmojis: {
-        description: "The types of emojis to show in the autocomplete menu.",
+        description: "自動完成選單中要顯示的表情符號類型。",
         type: OptionType.SELECT,
         default: "onlyUnicode",
         options: [
-            { label: "Only unicode emojis", value: "onlyUnicode" },
-            { label: "Unicode emojis and server emojis from current server", value: "currentServer" },
-            { label: "Unicode emojis and all server emojis (Discord default)", value: "all" }
+            { label: "僅顯示 Unicode 表情符號", value: "onlyUnicode" },
+            { label: "Unicode 表情符號及目前伺服器的表情符號", value: "currentServer" },
+            { label: "Unicode 表情符號及所有伺服器表情符號（Discord 預設）", value: "all" }
         ]
     }
 });

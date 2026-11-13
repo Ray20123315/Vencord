@@ -36,32 +36,32 @@ const UrlReplacementRules: Record<string, URLReplacementRule> = {
     spotify: {
         match: /^https:\/\/open\.spotify\.com\/(?:intl-[a-z]{2}\/)?(track|album|artist|playlist|user|episode|prerelease)\/(.+)(?:\?.+?)?$/,
         replace: (_, type, id) => `spotify://${type}/${id}`,
-        description: "Open Spotify links in the Spotify app",
+        description: "使用 Spotify 應用程式開啟 Spotify 連結",
         shortlinkMatch: /^https:\/\/spotify\.link\/.+$/,
         accountViewReplace: userId => `spotify:user:${userId}`,
     },
     steam: {
         match: /^https:\/\/(steamcommunity\.com|(?:help|store)\.steampowered\.com)\/.+$/,
         replace: match => `steam://openurl/${match}`,
-        description: "Open Steam links in the Steam app",
+        description: "使用 Steam 應用程式開啟 Steam 連結",
         shortlinkMatch: /^https:\/\/s.team\/.+$/,
         accountViewReplace: userId => `steam://openurl/https://steamcommunity.com/profiles/${userId}`,
     },
     epic: {
         match: /^https:\/\/store\.epicgames\.com\/(.+)$/,
         replace: (_, id) => `com.epicgames.launcher://store/${id}`,
-        description: "Open Epic Games links in the Epic Games Launcher",
+        description: "使用 Epic Games Launcher 開啟 Epic Games 連結",
     },
     tidal: {
         match: /^https:\/\/(?:listen\.)?tidal\.com\/(?:browse\/)?(track|album|artist|playlist|user|video|mix)\/([a-f0-9-]+).*/,
         replace: (_, type, id) => `tidal://${type}/${id}`,
-        description: "Open Tidal links in the Tidal app",
+        description: "使用 Tidal 應用程式開啟 Tidal 連結",
     },
     itunes: {
         match: /^https:\/\/(?:geo\.)?music\.apple\.com\/([a-z]{2}\/)?(album|artist|playlist|song|curator)\/([^/?#]+)\/?([^/?#]+)?(?:\?.*)?(?:#.*)?$/,
         replace: (_, lang, type, name, id) => id ? `itunes://music.apple.com/us/${type}/${name}/${id}` : `itunes://music.apple.com/us/${type}/${name}`,
         displayName: "iTunes",
-        description: "Open Apple Music links in the iTunes app"
+        description: "使用 iTunes 應用程式開啟 Apple Music 連結"
     },
 };
 
@@ -135,7 +135,7 @@ export default definePlugin({
             }
 
             if (rule.match.test(url)) {
-                showToast({ text: "Opened link in native app", variant: "success" });
+                showToast({ text: "已在對應應用程式中開啟連結", variant: "success" });
 
                 const newUrl = url.replace(rule.match, rule.replace);
                 VencordNative.native.openExternal(newUrl);

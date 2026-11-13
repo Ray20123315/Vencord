@@ -114,36 +114,36 @@ export default definePlugin({
         {
             inputType: ApplicationCommandInputType.BUILT_IN,
             name: "petpet",
-            description: "Create a petpet gif. You can only specify one of the image options",
+            description: "建立摸頭 GIF。只能指定一種圖片來源",
             options: [
                 {
                     name: "delay",
-                    description: "The delay between each frame in ms. Rounded to nearest 10ms. Defaults to the minimum value of 20.",
+                    description: "每個影格之間的延遲（毫秒），四捨五入至最接近的 10 毫秒，預設最小值為 20。",
                     type: ApplicationCommandOptionType.INTEGER
                 },
                 {
                     name: "resolution",
-                    description: "Resolution for the gif. Defaults to 120. If you enter an insane number and it freezes Discord that's your fault.",
+                    description: "GIF 解析度，預設為 120。輸入過大的數值可能導致 Discord 凍結。",
                     type: ApplicationCommandOptionType.INTEGER
                 },
                 {
                     name: "image",
-                    description: "Image attachment to use",
+                    description: "使用的圖片附件",
                     type: ApplicationCommandOptionType.ATTACHMENT
                 },
                 {
                     name: "url",
-                    description: "URL to fetch image from",
+                    description: "取得圖片的網址",
                     type: ApplicationCommandOptionType.STRING
                 },
                 {
                     name: "user",
-                    description: "User whose avatar to use as image",
+                    description: "將哪位使用者的頭像當作圖片",
                     type: ApplicationCommandOptionType.USER
                 },
                 {
                     name: "no-server-pfp",
-                    description: "Use the normal avatar instead of the server specific one when using the 'user' option",
+                    description: "使用 user 選項時，改用一般頭像而非伺服器專屬頭像",
                     type: ApplicationCommandOptionType.BOOLEAN
                 }
             ],

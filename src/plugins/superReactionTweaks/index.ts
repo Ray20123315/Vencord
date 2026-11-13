@@ -12,17 +12,17 @@ import { UserStore } from "@webpack/common";
 export const settings = definePluginSettings({
     superReactByDefault: {
         type: OptionType.BOOLEAN,
-        description: "Reaction picker will default to Super Reactions",
+        description: "表情回應選擇器預設使用超級表情回應",
         default: true,
     },
     unlimitedSuperReactionPlaying: {
         type: OptionType.BOOLEAN,
-        description: "Remove the limit on Super Reactions playing at once",
+        description: "移除同時播放超級表情回應的數量限制",
         default: false,
     },
 
     superReactionPlayingLimit: {
-        description: "Max Super Reactions to play at once. 0 to disable playing Super Reactions",
+        description: "同時播放的超級表情回應數量上限，0 表示停用超級表情回應播放",
         type: OptionType.SLIDER,
         default: 20,
         markers: [0, 5, 10, 20, 40, 60, 80, 100],

@@ -11,7 +11,7 @@ import definePlugin, { OptionType } from "@utils/types";
 const settings = definePluginSettings({
     onlySnow: {
         type: OptionType.BOOLEAN,
-        description: "Only play the Snow Halation Theme",
+        description: "只播放 Snow Halation 主題鈴聲",
         default: false,
         restartNeeded: true
     }

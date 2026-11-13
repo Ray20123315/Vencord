@@ -26,7 +26,7 @@ import { FluxDispatcher, MessageActions, PendingReplyStore, SpotifyStore } from 
 function makeCommand(name: string, formatUrl: (track: SpotifyTrack) => string): Command {
     return {
         name,
-        description: `Share your current Spotify ${name} in chat`,
+        description: `在聊天中分享目前的 Spotify ${name}`,
         inputType: ApplicationCommandInputType.BUILT_IN,
         options: [OptionalMessageOption],
         execute(options, { channel }) {

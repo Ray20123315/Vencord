@@ -38,20 +38,20 @@ const enum MentionOptions {
 const settings = definePluginSettings({
     shouldMention: {
         type: OptionType.SELECT,
-        description: "Ping reply by default",
+        description: "預設在回覆時提及對方",
         options: [
             {
-                label: "Follow NoReplyMention plugin (if enabled)",
+                label: "遵循 NoReplyMention 插件設定（若已啟用）",
                 value: MentionOptions.NO_REPLY_MENTION_PLUGIN,
                 default: true
             },
-            { label: "Enabled", value: MentionOptions.ENABLED },
-            { label: "Disabled", value: MentionOptions.DISABLED },
+            { label: "啟用", value: MentionOptions.ENABLED },
+            { label: "停用", value: MentionOptions.DISABLED },
         ]
     },
     ignoreBlockedAndIgnored: {
         type: OptionType.BOOLEAN,
-        description: "Ignore messages by blocked/ignored users when navigating",
+        description: "瀏覽訊息時略過已封鎖或忽略的使用者訊息",
         default: true
     }
 });

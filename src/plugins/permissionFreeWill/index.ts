@@ -12,13 +12,13 @@ const settings = definePluginSettings({
     lockout: {
         type: OptionType.BOOLEAN,
         default: true,
-        description: 'Bypass the permission lockout prevention ("Pretty sure you don\'t want to do this")',
+        description: '略過權限鎖定防護 ("Pretty sure you don\'t want to do this")',
         restartNeeded: true
     },
     onboarding: {
         type: OptionType.BOOLEAN,
         default: true,
-        description: 'Bypass the onboarding requirements ("Making this change will make your server incompatible [...]")',
+        description: '略過新手引導要求 ("Making this change will make your server incompatible [...]")',
         restartNeeded: true
     }
 });

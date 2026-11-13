@@ -14,21 +14,21 @@ import { ChannelStore, ReadStateStore, UserStore } from "@webpack/common";
 const settings = definePluginSettings({
     channelToAffect: {
         type: OptionType.SELECT,
-        description: "Select the type of DM for the plugin to affect",
+        description: "選擇此插件要套用的私訊類型",
         options: [
-            { label: "Both", value: "both_dms", default: true },
-            { label: "User DMs", value: "user_dm" },
-            { label: "Group DMs", value: "group_dm" },
+            { label: "兩者皆是", value: "both_dms", default: true },
+            { label: "個人私訊", value: "user_dm" },
+            { label: "群組私訊", value: "group_dm" },
         ]
     },
     allowMentions: {
         type: OptionType.BOOLEAN,
-        description: "Receive audio pings for @mentions",
+        description: "被 @ 提及時仍播放提示音",
         default: false,
     },
     allowEveryone: {
         type: OptionType.BOOLEAN,
-        description: "Receive audio pings for @everyone and @here in group DMs",
+        description: "群組私訊中使用 @everyone 或 @here 時仍播放提示音",
         default: false,
     },
 });
