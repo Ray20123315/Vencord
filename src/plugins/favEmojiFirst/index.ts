@@ -36,7 +36,7 @@ interface EmojiAutocompleteState {
 export default definePlugin({
     name: "FavoriteEmojiFirst",
     authors: [Devs.Aria, Devs.Ven],
-    description: "Puts your favorite emoji first in the emoji autocomplete.",
+    description: "在表情符號自動完成清單中優先顯示最愛表情符號。",
     tags: ["Emotes", "Customisation"],
     patches: [
         {

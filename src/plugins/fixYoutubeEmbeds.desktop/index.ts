@@ -9,7 +9,7 @@ import definePlugin from "@utils/types";
 
 export default definePlugin({
     name: "FixYoutubeEmbeds",
-    description: "Bypasses youtube videos being blocked from display on Discord (for example by UMG)",
+    description: "繞過 YouTube 影片在 Discord 中遭封鎖顯示的限制（例如 UMG 限制）。",
     tags: ["Media", "Utility"],
     authors: [Devs.coolelectronics]
 });

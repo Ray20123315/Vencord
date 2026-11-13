@@ -21,7 +21,7 @@ import definePlugin from "@utils/types";
 
 export default definePlugin({
     name: "ColorSighted",
-    description: "Removes the colorblind-friendly icons from statuses, just like 2015-2017 Discord",
+    description: "移除狀態旁為色覺障礙者設計的圖示，恢復 2015～2017 年的 Discord 外觀。",
     authors: [Devs.lewisakura],
     tags: ["Appearance", "Accessibility"],
     patches: [

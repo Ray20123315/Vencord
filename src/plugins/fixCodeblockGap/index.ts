@@ -21,7 +21,7 @@ import definePlugin from "@utils/types";
 
 export default definePlugin({
     name: "FixCodeblockGap",
-    description: "Removes the gap between codeblocks and text below it",
+    description: "移除程式碼區塊與下方文字之間的空隙。",
     tags: ["Appearance"],
     authors: [Devs.Grzesiek11],
     patches: [

@@ -90,7 +90,7 @@ export function registerTagCommand(tag: Tag) {
 migratePluginSettings("CustomCommands", "MessageTags");
 export default definePlugin({
     name: "CustomCommands",
-    description: "Allows you to create custom slash commands / tags",
+    description: "建立自訂斜線指令或文字標籤。",
     searchTerms: ["MessageTags"],
     authors: [Devs.Ven, Devs.Luna,],
     tags: ["Commands", "Customisation", "Utility"],

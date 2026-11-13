@@ -240,7 +240,7 @@ const webpackModulesProbablyLoaded = Webpack.onceReady.then(() => sleep(1000));
 
 export default definePlugin({
     name: "ConsoleShortcuts",
-    description: "Adds shorter Aliases for many things on the window. Run `shortcutList` for a list.",
+    description: "在 window 物件中加入多種簡短別名，可執行 `shortcutList` 查看清單。",
     authors: [Devs.Ven],
     tags: ["Developers", "Console", "Shortcuts", "Utility"],
     startAt: StartAt.Init,

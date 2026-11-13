@@ -23,7 +23,7 @@ import { moment } from "@webpack/common";
 export default definePlugin({
     name: "DontRoundMyTimestamps",
     authors: [Devs.Lexi],
-    description: "Always rounds relative timestamps down, so 7.6y becomes 7y instead of 8y",
+    description: "相對時間戳記一律向下取整，例如 7.6 年顯示為 7 年而非 8 年。",
     tags: ["Appearance", "Utility"],
 
     start() {

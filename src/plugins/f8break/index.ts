@@ -21,7 +21,7 @@ import definePlugin from "@utils/types";
 
 export default definePlugin({
     name: "F8Break",
-    description: "Pause the client when you press F8 with DevTools (+ breakpoints) open.",
+    description: "開啟開發者工具與中斷點時，按 F8 可暫停客戶端執行。",
     tags: ["Developers", "Shortcuts"],
     authors: [Devs.lewisakura],
 
