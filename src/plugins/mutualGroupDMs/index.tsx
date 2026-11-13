@@ -87,7 +87,7 @@ function renderClickableGDMs(mutualDms: Channel[], onClose?: () => void) {
 
 export default definePlugin({
     name: "MutualGroupDMs",
-    description: "Shows mutual group dms in profiles",
+    description: "在個人資料中顯示共同的群組私訊。",
     tags: ["Friends", "Appearance"],
     authors: [Devs.amia],
 

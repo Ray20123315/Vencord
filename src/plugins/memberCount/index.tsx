@@ -61,7 +61,7 @@ export const cl = classNameFactory("vc-membercount-");
 
 export default definePlugin({
     name: "MemberCount",
-    description: "Shows the number of online members, total members, and users in voice channels on the server — in the member list and tooltip.",
+    description: "在成員清單與工具提示中顯示伺服器的線上人數、總成員數及語音頻道使用者數量。",
     tags: ["Servers", "Utility"],
     authors: [Devs.Ven, Devs.Commandtechno, Devs.Apexo],
     settings,

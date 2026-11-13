@@ -26,7 +26,7 @@ function jumpToTop(channelId: string) {
 
 export default definePlugin({
     name: "JumpToTop",
-    description: "Adds a button to jump to the first message in a channel",
+    description: "新增按鈕，直接跳至頻道中的第一則訊息。",
     authors: [Devs.Kaerion],
     tags: ["Chat", "Utility"],
 

@@ -53,7 +53,7 @@ async function toggleHide(channelId: string, messageId: string) {
 
 export default definePlugin({
     name: "HideMedia",
-    description: "Hide attachments and embeds for individual messages via hover button",
+    description: "在訊息懸浮按鈕中隱藏個別訊息的附件與嵌入內容。",
     tags: ["Chat", "Appearance"],
     authors: [Devs.Ven, Devs.c0nnorgg],
     dependencies: ["MessageUpdaterAPI"],

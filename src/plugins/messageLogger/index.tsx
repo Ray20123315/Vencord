@@ -258,7 +258,7 @@ export function parseEditContent(content: string, message: Message) {
 
 export default definePlugin({
     name: "MessageLogger",
-    description: "Temporarily logs deleted and edited messages.",
+    description: "暫時記錄已刪除及已編輯的訊息。",
     tags: ["Chat", "Utility"],
     authors: [Devs.rushii, Devs.Ven, Devs.AutumnVN, Devs.Nickyux, Devs.Kyuuhachi, Devs.sadan, Devs.f3tch],
     dependencies: ["MessageUpdaterAPI"],

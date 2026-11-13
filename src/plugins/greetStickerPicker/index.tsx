@@ -151,7 +151,7 @@ function GreetMenu({ channel, message }: { message: Message, channel: Channel; }
 
 export default definePlugin({
     name: "GreetStickerPicker",
-    description: "Allows you to use any greet sticker instead of only the random one by right-clicking the 'Wave to say hi!' button",
+    description: "在「揮手打招呼」按鈕上按右鍵，即可選擇任意招呼貼圖，不再隨機指定。",
     tags: ["Emotes", "Customisation"],
     authors: [Devs.Ven],
 

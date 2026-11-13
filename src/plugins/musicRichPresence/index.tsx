@@ -284,7 +284,7 @@ migratePluginSettings("MusicRichPresence", "LastFMRichPresence");
 migratePluginSetting("MusicRichPresence", "showLastFmLogo", "showLogo");
 export default definePlugin({
     name: "MusicRichPresence",
-    description: "Rich Presence for Last.FM/Listenbrainz",
+    description: "為 Last.fm／ListenBrainz 顯示 Rich Presence 活動狀態。",
     tags: ["Activity", "Media"],
     searchTerms: ["lastfm", "LastFMRichPresence"],
     authors: [Devs.Rini, Devs.Ven, Devs.angelcube, Devs.RuiNtD, Devs.blahajZip, Devs.archeruwu],
