@@ -62,8 +62,8 @@ function Switches() {
     const Switches = [
         {
             key: "useQuickCss",
-            title: "Enable Custom CSS",
-            description: "Apply your configured QuickCSS"
+            title: "啟用自訂 CSS",
+            description: "套用已設定的 QuickCSS"
         },
         {
             value: disableAnalytics,
@@ -72,36 +72,36 @@ function Switches() {
             },
             reactKey: "NoTrack::disableAnalytics",
             key: null!,
-            title: "Block Discord Analytics",
+            title: "封鎖 Discord 分析資料收集",
             description: NoTrack.settings.def.disableAnalytics.description,
             restartRequired: NoTrack.settings.def.disableAnalytics.restartNeeded,
         },
         IS_DISCORD_DESKTOP && {
             key: "nativeTitleBar",
-            title: "Enable the system's title bar in addition to Discord's custom one",
+            title: "除了 Discord 自訂標題列，也啟用系統標題列",
             restartRequired: true
         },
         !IS_WEB && {
             key: "transparent",
-            title: "Enable window transparency",
-            description: "A theme that supports transparency is required or this will do nothing. Stops the window from being resizable as a side effect",
+            title: "啟用視窗透明效果",
+            description: "必須使用支援透明效果的主題，否則此設定不會生效；啟用後視窗也將無法調整大小",
             restartRequired: true
         },
         IS_DISCORD_DESKTOP && {
             key: "disableMinSize",
-            title: "Disable minimum window size",
-            description: "Allows you to resize the window to any size, even smaller than Discord's minimum size",
+            title: "停用視窗最小尺寸限制",
+            description: "允許將視窗調整成任意大小，包括小於 Discord 預設的最小尺寸",
             restartRequired: true
         },
         !IS_WEB && IS_WINDOWS && {
             key: "winCtrlQ",
-            title: "Register Ctrl+Q as shortcut to close Discord (Alternative to Alt+F4)",
+            title: "將 Ctrl+Q 設為關閉 Discord 的快捷鍵（替代 Alt+F4）",
             restartRequired: true
         },
         !IS_WEB && {
             key: "enableReactDevtools",
-            title: "Enable React Developer Tools",
-            description: "Mainly useful for plugin developers. Ignore this if you don't know what it is",
+            title: "啟用 React 開發者工具",
+            description: "主要供插件開發者使用；若不清楚用途，可以忽略此選項",
             restartRequired: true
         },
     ] satisfies Array<false | {
@@ -153,9 +153,9 @@ function VencordSettings() {
             {isDonor(user?.id)
                 ? (
                     <SpecialCard
-                        title="Donations"
-                        subtitle="Thank you for donating!"
-                        description="You can manage your perks at any time by messaging @vending.machine."
+                        title="贊助"
+                        subtitle="感謝你的贊助！"
+                        description="隨時可以傳訊息給 @vending.machine 管理你的贊助者福利。"
                         cardImage={VENNIE_DONATOR_IMAGE}
                         backgroundImage={DONOR_BACKGROUND_IMAGE}
                         backgroundColor="#ED87A9"
@@ -165,8 +165,8 @@ function VencordSettings() {
                 )
                 : (
                     <SpecialCard
-                        title="Support the Project"
-                        description="Please consider supporting the development of Vencord by donating!"
+                        title="支持專案"
+                        description="歡迎透過贊助支持 Vencord 的開發！"
                         cardImage={donateImage}
                         backgroundImage={DONOR_BACKGROUND_IMAGE}
                         backgroundColor="#c3a3ce"
@@ -178,53 +178,53 @@ function VencordSettings() {
 
             {isPluginDev(user?.id) && (
                 <SpecialCard
-                    title="Contributions"
-                    subtitle="Thank you for contributing!"
-                    description="Since you've contributed to Vencord you now have a cool new badge!"
+                    title="貢獻紀錄"
+                    subtitle="感謝你的貢獻！"
+                    description="感謝你為 Vencord 做出貢獻！你已獲得專屬徽章。"
                     cardImage={COZY_CONTRIB_IMAGE}
                     backgroundImage={CONTRIB_BACKGROUND_IMAGE}
                     backgroundColor="#EDCC87"
-                    buttonTitle="See what you've contributed to"
+                    buttonTitle="查看你的貢獻"
                     buttonOnClick={() => openContributorModal(user)}
                 />
             )}
 
             <section>
-                <Heading className={Margins.bottom8}>Quick Actions</Heading>
+                <Heading className={Margins.bottom8}>快速操作</Heading>
 
                 <QuickActionCard>
                     <QuickAction
                         Icon={LogIcon}
-                        text="Notification Log"
+                        text="通知紀錄"
                         action={openNotificationLogModal}
                     />
                     <QuickAction
                         Icon={PaintbrushIcon}
-                        text="Edit QuickCSS"
+                        text="編輯 QuickCSS"
                         action={() => VencordNative.quickCss.openEditor()}
                     />
                     {!IS_WEB && (
                         <>
                             <QuickAction
                                 Icon={RestartIcon}
-                                text="Relaunch Discord"
+                                text="重新啟動 Discord"
                                 action={relaunch}
                             />
                             <QuickAction
                                 Icon={FolderIcon}
-                                text="Open Settings Folder"
+                                text="開啟設定資料夾"
                                 action={() => VencordNative.settings.openFolder()}
                             />
                         </>
                     )}
                     <QuickAction
                         Icon={GithubIcon}
-                        text="View Source Code"
+                        text="檢視原始碼"
                         action={() => VencordNative.native.openExternal("https://github.com/" + gitRemote)}
                     />
                     {IS_DEV && <QuickAction
                         Icon={PaintbrushIcon}
-                        text="Open Component Playground"
+                        text="開啟元件測試區"
                         action={() => openPlayground()}
                     />}
                 </QuickActionCard>
@@ -233,12 +233,12 @@ function VencordSettings() {
             <Divider />
 
             <section className={Margins.top16}>
-                <Heading className={Margins.bottom8}>Settings</Heading>
+                <Heading className={Margins.bottom8}>設定</Heading>
                 <Paragraph className={Margins.bottom20} style={{ color: "var(--text-muted)" }}>
-                    Hint: You can change the position of this settings section in the{" "}
+                    提示：你可以在{" "}
                     <a onClick={() => openPluginModal(SettingsPlugin)}>
-                        settings of the Settings plugin
-                    </a>!
+                        「Settings」插件的設定
+                    </a>中調整這個設定區塊的位置！
                 </Paragraph>
 
                 <div className="vc-settings-switches">
@@ -255,4 +255,4 @@ function VencordSettings() {
     );
 }
 
-export default wrapTab(VencordSettings, "Vencord Settings");
+export default wrapTab(VencordSettings, "Vencord 設定");

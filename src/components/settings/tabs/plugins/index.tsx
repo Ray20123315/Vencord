@@ -55,9 +55,9 @@ function ReloadRequiredCard({ required }: { required: boolean; }) {
             {required
                 ? (
                     <>
-                        <Heading tag="h4">Restart required!</Heading>
+                        <Heading tag="h4">需要重新啟動！</Heading>
                         <Paragraph className={cl("dep-text")}>
-                            Restart now to apply new plugins and their settings
+                            立即重新啟動以套用新插件及其設定
                         </Paragraph>
                         <Button onClick={() => location.reload()} className={cl("restart-button")}>
                             Restart
@@ -66,9 +66,9 @@ function ReloadRequiredCard({ required }: { required: boolean; }) {
                 )
                 : (
                     <>
-                        <Heading tag="h4">Plugin Management</Heading>
-                        <Paragraph>Press the cog wheel or info icon to get more info on a plugin</Paragraph>
-                        <Paragraph>Plugins with a cog wheel have settings you can modify!</Paragraph>
+                        <Heading tag="h4">插件管理</Heading>
+                        <Paragraph>點選齒輪或資訊圖示，查看更多插件資訊</Paragraph>
+                        <Paragraph>齒輪圖示代表此插件有可調整的設定！</Paragraph>
                     </>
                 )}
         </Card>
@@ -92,28 +92,28 @@ function ExcludedPluginsList({ search }: { search: string; }) {
         : [];
 
     const ExcludedReasons: Record<PluginTarget, string> = {
-        desktop: "Discord Desktop app or Vesktop",
-        discordDesktop: "Discord Desktop app",
+        desktop: "Discord 桌面版或 Vesktop",
+        discordDesktop: "Discord 桌面版",
         vesktop: "Vesktop app",
-        web: "Vesktop app and the Web version of Discord",
-        dev: "Developer version of Vencord",
-        browser: "Web Browser version of Vencord"
+        web: "Vesktop 與 Discord 網頁版",
+        dev: "Vencord 開發版本",
+        browser: "Vencord 瀏覽器版本"
     };
 
     return (
         <Paragraph className={Margins.top16}>
             {matchingExcludedPlugins.length
                 ? <>
-                    <Paragraph>Are you looking for:</Paragraph>
+                    <Paragraph>你要找的是：</Paragraph>
                     <ul>
                         {matchingExcludedPlugins.map(([name, reason]) => (
                             <li key={name}>
-                                <b>{name}</b>: Only available on the {ExcludedReasons[reason]}
+                                <b>{name}</b>: 僅適用於{ExcludedReasons[reason]}
                             </li>
                         ))}
                     </ul>
                 </>
-                : "No plugins meet the search criteria."
+                : "沒有符合搜尋條件的插件。"
             }
         </Paragraph>
     );
@@ -128,7 +128,7 @@ function PluginSettings() {
         if (changes.hasChanges)
             promptToRestart("reload", {
                 children: <>
-                    <Heading className={Margins.bottom8}>The following plugins require a restart:</Heading>
+                    <Heading className={Margins.bottom8}>以下插件需要重新啟動才能套用：</Heading>
                     <Paragraph>{Array.from(changes, k => k.split(".")[0]).join(", ")}</Paragraph>
                 </>
             });
@@ -228,7 +228,7 @@ function PluginSettings() {
 
         if (isRequired) {
             const tooltipText = p.required || !depMap[p.name]
-                ? "This plugin is required for Vencord to function."
+                ? "此插件是 Vencord 正常運作所必需的。"
                 : makeDependencyList(depMap[p.name]?.filter(d => settings.plugins[d].enabled));
 
             requiredPlugins.push(
@@ -265,13 +265,13 @@ function PluginSettings() {
             <UIElementsButton />
 
             <Heading tag="h4" className={classes(Margins.top20, Margins.bottom8)}>
-                Filters
+                篩選條件
             </Heading>
 
             <ErrorBoundary noop>
                 <TextInput
                     inputClassName={cl("filter-control")}
-                    placeholder="Search for a plugin..."
+                    placeholder="搜尋插件…"
                     value={searchValue.value}
                     onChange={onSearch}
                     autoFocus
@@ -282,39 +282,39 @@ function PluginSettings() {
                 <div className={classes(Margins.bottom20, Margins.top8, cl("filter-controls"))}>
                     <Select
                         options={[
-                            { label: "Show All", value: SearchStatus.ALL, default: true },
-                            { label: "Show Favorites", value: SearchStatus.FAVORITES },
-                            { label: "Show Enabled", value: SearchStatus.ENABLED },
-                            { label: "Show Disabled", value: SearchStatus.DISABLED },
-                            { label: "Show New", value: SearchStatus.NEW },
-                            hasUserPlugins && { label: "Show UserPlugins", value: SearchStatus.USER_PLUGINS },
-                            { label: "Show API Plugins", value: SearchStatus.API_PLUGINS },
+                            { label: "顯示全部", value: SearchStatus.ALL, default: true },
+                            { label: "顯示我的最愛", value: SearchStatus.FAVORITES },
+                            { label: "顯示已啟用", value: SearchStatus.ENABLED },
+                            { label: "顯示已停用", value: SearchStatus.DISABLED },
+                            { label: "顯示新增", value: SearchStatus.NEW },
+                            hasUserPlugins && { label: "顯示使用者插件", value: SearchStatus.USER_PLUGINS },
+                            { label: "顯示 API 插件", value: SearchStatus.API_PLUGINS },
                         ].filter(isTruthy)}
                         serialize={String}
                         select={status => setSearchValue(prev => ({ ...prev, status }))}
                         isSelected={v => v === searchValue.status}
                         closeOnSelect={true}
-                        placeholder="Filter by Type"
+                        placeholder="依類型篩選"
                     />
                     <SearchableSelect
                         options={PluginTags.map(tag => ({ label: tag, value: tag }))}
                         value={searchValue.tags}
                         onChange={tags => setSearchValue(prev => ({ ...prev, tags }))}
                         closeOnSelect={false}
-                        placeholder="Filter by Tags"
+                        placeholder="依標籤篩選"
                         multi
                     />
                 </div>
             </ErrorBoundary>
 
-            <Heading tag="h4" className={Margins.top20}>Plugins</Heading>
+            <Heading tag="h4" className={Margins.top20}>插件</Heading>
 
             {plugins.length || requiredPlugins.length
                 ? (
                     <div className={cl("grid")}>
                         {plugins.length
                             ? plugins
-                            : <Paragraph>No plugins meet the search criteria.</Paragraph>
+                            : <Paragraph>沒有符合搜尋條件的插件。</Paragraph>
                         }
                     </div>
                 )
@@ -325,13 +325,13 @@ function PluginSettings() {
             <Divider className={Margins.top20} />
 
             <Heading tag="h4" className={classes(Margins.top20, Margins.bottom8)}>
-                Required Plugins
+                必要插件
             </Heading>
 
             <div className={cl("grid")}>
                 {requiredPlugins.length
                     ? requiredPlugins
-                    : <Paragraph>No plugins meet the search criteria.</Paragraph>
+                    : <Paragraph>沒有符合搜尋條件的插件。</Paragraph>
                 }
             </div>
         </SettingsTab >
@@ -341,7 +341,7 @@ function PluginSettings() {
 function makeDependencyList(deps: string[]) {
     return (
         <>
-            <Paragraph>This plugin is required by:</Paragraph>
+            <Paragraph>以下插件需要此插件：</Paragraph>
             {deps.map((dep: string) => <Paragraph key={dep} className={cl("dep-text")}>{dep}</Paragraph>)}
         </>
     );
