@@ -12,13 +12,13 @@ import { classes } from "@utils/misc";
 import { Parser, TextInput, useEffect, useState } from "@webpack/common";
 
 const RegexGuide = {
-    "\\i": "Special regex escape sequence that matches identifiers (varnames, classnames, etc.)",
-    "$$": "Insert a $",
-    "$&": "Insert the entire match",
-    "$`\u200b": "Insert the substring before the match",
-    "$'": "Insert the substring after the match",
-    "$n": "Insert the nth capturing group ($1, $2...)",
-    "$self": "Insert the plugin instance",
+    "\\i": "用來比對識別字（變數名稱、類別名稱等）的特殊正規表示式跳脫序列",
+    "$$": "插入 $",
+    "$&": "插入完整的相符內容",
+    "$`\u200b": "插入相符內容前面的子字串",
+    "$'": "插入相符內容後面的子字串",
+    "$n": "插入第 n 個擷取群組（$1、$2…）",
+    "$self": "插入插件實例",
 } as const;
 
 export function ReplacementInput({ replacement, setReplacement, replacementError }) {
@@ -35,7 +35,7 @@ export function ReplacementInput({ replacement, setReplacement, replacementError
                     setReplacement(() => func);
 
                 else
-                    setError("Replacement must be a function");
+                    setError("替換內容必須是函式");
             } catch (e) {
                 setReplacement(v);
                 setError((e as Error).message);
@@ -54,7 +54,7 @@ export function ReplacementInput({ replacement, setReplacement, replacementError
 
     return (
         <>
-            <Heading className={Margins.bottom8}>Replacement</Heading>
+            <Heading className={Margins.bottom8}>替換內容</Heading>
             <TextInput
                 value={replacement?.toString()}
                 onChange={onChange}
@@ -62,7 +62,7 @@ export function ReplacementInput({ replacement, setReplacement, replacementError
             />
             {!isFunc && (
                 <div>
-                    <Heading className={classes(Margins.top8, Margins.bottom8)}>Cheat Sheet</Heading>
+                    <Heading className={classes(Margins.top8, Margins.bottom8)}>速查表</Heading>
 
                     {Object.entries(RegexGuide).map(([placeholder, desc]) => (
                         <Paragraph key={placeholder}>
@@ -76,8 +76,8 @@ export function ReplacementInput({ replacement, setReplacement, replacementError
                 className={Margins.top16}
                 value={isFunc}
                 onChange={setIsFunc}
-                title={'Treat "Replacement" as a function'}
-                description='"Replacement" will be evaluated as a function if this is enabled'
+                title={'將「替換內容」視為函式'}
+                description='啟用後，將以函式方式執行「替換內容」'
                 hideBorder
             />
         </>

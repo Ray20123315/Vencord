@@ -19,61 +19,61 @@ export function MacOSVibrancySettings() {
 
     return (
         <ErrorBoundary noop>
-            <Heading className={Margins.bottom8}>MacOS Window vibrancy style (requires restart)</Heading>
+            <Heading className={Margins.bottom8}>macOS 視窗毛玻璃效果（需要重新啟動）</Heading>
             <Select
                 className={Margins.bottom20}
-                placeholder="Window vibrancy style"
+                placeholder="視窗毛玻璃樣式"
                 options={[
                     // Sorted from most opaque to most transparent
                     {
-                        label: "No vibrancy", value: undefined
+                        label: "停用毛玻璃效果", value: undefined
                     },
                     {
-                        label: "Under Page (window tinting)",
+                        label: "頁面下方（視窗染色）",
                         value: "under-page"
                     },
                     {
-                        label: "Content",
+                        label: "內容",
                         value: "content"
                     },
                     {
-                        label: "Window",
+                        label: "視窗",
                         value: "window"
                     },
                     {
-                        label: "Selection",
+                        label: "選取範圍",
                         value: "selection"
                     },
                     {
-                        label: "Titlebar",
+                        label: "標題列",
                         value: "titlebar"
                     },
                     {
-                        label: "Header",
+                        label: "頁首",
                         value: "header"
                     },
                     {
-                        label: "Sidebar",
+                        label: "側邊欄",
                         value: "sidebar"
                     },
                     {
-                        label: "Tooltip",
+                        label: "工具提示",
                         value: "tooltip"
                     },
                     {
-                        label: "Menu",
+                        label: "選單",
                         value: "menu"
                     },
                     {
-                        label: "Popover",
+                        label: "彈出視窗",
                         value: "popover"
                     },
                     {
-                        label: "Fullscreen UI (transparent but slightly muted)",
+                        label: "全螢幕介面（透明但稍微降低亮度）",
                         value: "fullscreen-ui"
                     },
                     {
-                        label: "HUD (Most transparent)",
+                        label: "HUD（透明度最高）",
                         value: "hud"
                     },
                 ]}

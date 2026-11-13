@@ -51,12 +51,12 @@ function Match({ matchResult }: { matchResult: RegExpMatchArray | null; }) {
         ? makeCodeblock(matchResult[0], "js")
         : "";
     const groups = matchResult.length > 1
-        ? makeCodeblock(matchResult.slice(1).map((g, i) => `Group ${i + 1}: ${g}`).join("\n"), "yml")
+        ? makeCodeblock(matchResult.slice(1).map((g, i) => `群組 ${i + 1}: ${g}`).join("\n"), "yml")
         : "";
 
     return (
         <>
-            <Heading className={Margins.bottom8}>Match</Heading>
+            <Heading className={Margins.bottom8}>比對結果</Heading>
             <div style={{ userSelect: "text" }}>{Parser.parse(fullMatch)}</div>
             <div style={{ userSelect: "text" }}>{Parser.parse(groups)}</div>
         </>
@@ -86,7 +86,7 @@ function Diff({ diff }: { diff: Change[] | null; }) {
 
     return (
         <>
-            <Heading className={Margins.bottom8}>Diff</Heading>
+            <Heading className={Margins.bottom8}>差異</Heading>
             {diffLines}
         </>
     );
@@ -121,7 +121,7 @@ export function PatchPreview({ module, match, replacement, setReplacementError }
 
     return (
         <>
-            <Heading className={Margins.bottom8} style={{ userSelect: "text" }}>Module {id}</Heading>
+            <Heading className={Margins.bottom8} style={{ userSelect: "text" }}>模組 {id}</Heading>
 
             <Match matchResult={matchResult} />
             <Diff diff={diff} />
@@ -135,13 +135,13 @@ export function PatchPreview({ module, match, replacement, setReplacementError }
                             const wrappedCode = "0," + (!isArrowFunction ? "function" : "") + patchedCode.slice(patchedCode.indexOf("("));
                             Function(wrappedCode);
 
-                            setCompileResult([true, "Compiled successfully"]);
+                            setCompileResult([true, "編譯成功"]);
                         } catch (err) {
                             setCompileResult([false, (err as Error).message]);
                         }
                     }}
                 >
-                    Compile
+                    編譯
                 </Button>
             )}
 

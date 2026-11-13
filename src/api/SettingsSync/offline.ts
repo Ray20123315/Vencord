@@ -10,10 +10,10 @@ import { chooseFile, saveFile } from "@utils/web";
 import { moment, showToast } from "@webpack/common";
 
 const toastSuccess = () =>
-    showToast({ text: "Settings successfully imported. Restart to apply changes!", variant: "success" });
+    showToast({ text: "設定已成功匯入。請重新啟動以套用變更！", variant: "success" });
 
 const toastFailure = (err: any) =>
-    showToast({ text: `Failed to import settings: ${String(err)}`, variant: "critical" });
+    showToast({ text: `匯入設定失敗：${String(err)}`, variant: "critical" });
 
 const logger = new Logger("SettingsSync:Offline", "#39b7e0");
 
@@ -37,18 +37,18 @@ export async function importSettings(data: string) {
         var parsed = JSON.parse(data);
     } catch (err) {
         console.log(data);
-        throw new Error("Failed to parse JSON: " + String(err));
+        throw new Error("JSON 解析失敗：" + String(err));
     }
 
     if (!isSafeObject(parsed))
-        throw new Error("Unsafe Settings");
+        throw new Error("不安全的設定內容");
 
     if ("settings" in parsed && "quickCss" in parsed) {
         Object.assign(PlainSettings, parsed.settings);
         await VencordNative.settings.set(parsed.settings);
         await VencordNative.quickCss.set(parsed.quickCss);
     } else
-        throw new Error("Invalid Settings. Is this even a Vencord Settings file?");
+        throw new Error("設定檔無效。這真的是 Vencord 設定檔嗎？");
 }
 
 export async function exportSettings({ minify }: { minify?: boolean; } = {}) {
@@ -73,8 +73,8 @@ export async function uploadSettingsBackup(showToast = true): Promise<void> {
     if (IS_DISCORD_DESKTOP) {
         const [file] = await DiscordNative.fileManager.openFiles({
             filters: [
-                { name: "Vencord Settings Backup", extensions: ["json"] },
-                { name: "all", extensions: ["*"] }
+                { name: "Vencord 設定備份", extensions: ["json"] },
+                { name: "所有檔案", extensions: ["*"] }
             ]
         });
 

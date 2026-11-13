@@ -19,29 +19,29 @@ export function WindowsMaterialSettings() {
 
     return (
         <ErrorBoundary noop>
-            <Heading className={Margins.bottom8}>Background Material</Heading>
+            <Heading className={Margins.bottom8}>背景材質</Heading>
             <Paragraph className={Margins.bottom8}>
-                Windows transparent background effects. You need a theme that supports transparency or this will do nothing. A restart is required after changing this setting.
+                Windows 透明背景效果。必須使用支援透明效果的主題，否則此設定不會生效。變更後需要重新啟動。
             </Paragraph>
 
             <Select
-                placeholder="None"
+                placeholder="無"
                 options={[
                     {
-                        label: "None",
+                        label: "無",
                         value: "none",
                         default: true
                     },
                     {
-                        label: "Mica (incorporates system theme + desktop wallpaper to paint the background)",
+                        label: "Mica（結合系統主題與桌布繪製背景）",
                         value: "mica"
                     },
                     {
-                        label: "Tabbed (variant of Mica with stronger background tinting)",
+                        label: "Tabbed（背景染色更明顯的 Mica 變體）",
                         value: "tabbed"
                     },
                     {
-                        label: "Acrylic (blurs the window behind Vesktop for a translucent background)",
+                        label: "Acrylic（模糊 Vesktop 後方的視窗以呈現半透明背景）",
                         value: "acrylic"
                     }
                 ]}

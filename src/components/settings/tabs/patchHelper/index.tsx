@@ -41,9 +41,9 @@ const findCandidates = debounce(function ({ find, setModule, setError }) {
     const len = keys.length;
 
     if (len === 0)
-        setError("No match. Perhaps that module is lazy loaded?");
+        setError("沒有相符項目。該模組可能尚未載入？");
     else if (len !== 1)
-        setError("Multiple matches. Please refine your filter");
+        setError("找到多個相符項目，請縮小篩選範圍");
     else
         setModule([keys[0], candidates[keys[0]]]);
 });
@@ -107,7 +107,7 @@ function PatchHelper() {
 
     return (
         <SettingsTab>
-            <Heading className={Margins.bottom8}>Full patch</Heading>
+            <Heading className={Margins.bottom8}>完整修補內容</Heading>
             <FullPatchInput
                 setFind={onFindChange}
                 setParsedFind={setParsedFind}
@@ -115,7 +115,7 @@ function PatchHelper() {
                 setReplacement={setReplacement}
             />
 
-            <Heading className={classes(Margins.top8, Margins.bottom8)}>Find</Heading>
+            <Heading className={classes(Margins.top8, Margins.bottom8)}>尋找</Heading>
             <TextInput
                 type="text"
                 value={find}
@@ -123,7 +123,7 @@ function PatchHelper() {
                 error={findError}
             />
 
-            <Heading className={classes(Margins.top8, Margins.bottom8)}>Match</Heading>
+            <Heading className={classes(Margins.top8, Margins.bottom8)}>比對</Heading>
             <TextInput
                 type="text"
                 value={match}
@@ -150,14 +150,14 @@ function PatchHelper() {
 
             {!!(find && match && replacement) && (
                 <>
-                    <Heading className={classes(Margins.top20, Margins.bottom8)}>Code</Heading>
+                    <Heading className={classes(Margins.top20, Margins.bottom8)}>程式碼</Heading>
                     <CodeBlock lang="js" content={code} />
                     <Flex className={Margins.top16}>
                         <Button onClick={() => copyWithToast(code)}>
-                            Copy to Clipboard
+                            複製到剪貼簿
                         </Button>
                         <Button onClick={() => copyWithToast("```ts\n" + code + "\n```")}>
-                            Copy as Codeblock
+                            複製為程式碼區塊
                         </Button>
                     </Flex>
                 </>
@@ -166,4 +166,4 @@ function PatchHelper() {
     );
 }
 
-export default !IS_STANDALONE ? wrapTab(PatchHelper, "PatchHelper") : null;
+export default !IS_STANDALONE ? wrapTab(PatchHelper, "修補工具") : null;
