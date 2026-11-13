@@ -79,7 +79,7 @@ function VencordPopoutButton() {
 
 export default definePlugin({
     name: "VencordToolbox",
-    description: "Adds a button to the titlebar that houses Vencord quick actions",
+    description: "在標題列新增 Vencord 工具箱按鈕，集中顯示常用操作。",
     tags: ["Utility", "Developers"],
     authors: [Devs.Ven, Devs.AutumnVN],
 

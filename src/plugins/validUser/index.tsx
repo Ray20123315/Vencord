@@ -174,7 +174,7 @@ function MentionWrapper({ data, UserMention, RoleMention, parse, props }: Mentio
 
 export default definePlugin({
     name: "ValidUser",
-    description: "Fix mentions for unknown users showing up as '@unknown-user' (hover over a mention to fix it)",
+    description: "修正未知使用者的提及顯示為「@unknown-user」的問題（滑鼠停留在提及上即可修正）。",
     tags: ["Chat", "Utility"],
     authors: [Devs.Ven, Devs.Dolfies],
     searchTerms: ["MentionCacheFix"],

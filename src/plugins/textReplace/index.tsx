@@ -387,7 +387,7 @@ function applyRules(content: string): string {
 const TEXT_REPLACE_RULES_CHANNEL_ID = "1102784112584040479";
 export default definePlugin({
     name: "TextReplace",
-    description: "Replace text in your messages. You can find pre-made rules in the #textreplace-rules channel in Vencord's Server",
+    description: "替換訊息中的文字；可在 Vencord 伺服器的 #textreplace-rules 頻道找到現成規則。",
     tags: ["Chat", "Customisation", "Utility"],
     authors: [Devs.AutumnVN, Devs.TheKodeToad],
 

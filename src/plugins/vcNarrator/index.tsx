@@ -159,7 +159,7 @@ function playSample(type: string) {
 
 export default definePlugin({
     name: "VcNarrator",
-    description: "Announces when users join, leave, or move voice channels via narrator",
+    description: "透過語音朗讀播報使用者加入、離開或移動語音頻道的事件。",
     tags: ["Voice", "Accessibility"],
     authors: [Devs.Ven],
     reporterTestable: ReporterTestable.None,

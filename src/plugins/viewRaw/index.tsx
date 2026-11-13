@@ -217,7 +217,7 @@ const devContextCallback: NavContextMenuPatchCallback = (children, { id }: { id:
 
 export default definePlugin({
     name: "ViewRaw",
-    description: "Copy and view the raw content/data of any message, channel or guild",
+    description: "檢視及複製任何訊息、頻道或伺服器的原始內容與資料。",
     tags: ["Chat", "Developers"],
     authors: [Devs.KingFish, Devs.Ven, Devs.rad, Devs.ImLvna],
     settings,

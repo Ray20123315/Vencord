@@ -49,7 +49,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "UserVoiceShow",
-    description: "Shows an indicator when a user is in a Voice Channel",
+    description: "顯示使用者目前是否位於語音頻道的指示標記。",
     tags: ["Voice", "Appearance", "Friends"],
     authors: [Devs.Nuckyz, Devs.LordElias],
     dependencies: ["MemberListDecoratorsAPI", "MessageDecorationsAPI"],

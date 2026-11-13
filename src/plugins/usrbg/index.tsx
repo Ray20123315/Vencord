@@ -49,7 +49,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "USRBG",
-    description: "Displays user banners from USRBG, allowing anyone to get a banner without Nitro",
+    description: "顯示 USRBG 提供的使用者橫幅，讓沒有 Nitro 的使用者也能擁有橫幅。",
     tags: ["Appearance", "Customisation"],
     authors: [Devs.AutumnVN, Devs.katlyn, Devs.pylix, Devs.TheKodeToad],
     settings,

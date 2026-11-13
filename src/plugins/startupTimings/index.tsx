@@ -26,7 +26,7 @@ import StartupTimingPage from "./StartupTimingPage";
 
 export default definePlugin({
     name: "StartupTimings",
-    description: "Adds Startup Timings to the Settings menu",
+    description: "在設定選單中新增啟動耗時資訊。",
     tags: ["Developers"],
     authors: [Devs.Megu],
     start() {
