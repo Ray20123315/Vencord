@@ -34,7 +34,7 @@ export const settings = definePluginSettings({
     showPluginMenu: {
         type: OptionType.BOOLEAN,
         default: true,
-        description: "Show the plugins menu in the toolbox",
+        description: "在工具箱中顯示插件選單",
     }
 });
 

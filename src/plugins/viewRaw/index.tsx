@@ -122,9 +122,9 @@ function openViewRawModal(data: object, type: string, msgContent?: string) {
             >
                 {!!msgContent && (
                     <>
-                        <Heading className={Margins.bottom8}>Message Content</Heading>
+                        <Heading className={Margins.bottom8}>訊息內容</Heading>
                         <CodeBlock className="vc-viewRaw-codeBlock" content={msgContent} lang="" />
-                        <Heading className={classes(Margins.top16, Margins.bottom8)}>Message Data</Heading>
+                        <Heading className={classes(Margins.top16, Margins.bottom8)}>訊息資料</Heading>
                     </>
                 )}
                 <CodeBlock className="vc-viewRaw-codeBlock" content={json} lang="json" />
@@ -137,31 +137,31 @@ const openViewRawModalMessage = (msg: Message) => openViewRawModal(cleanMessage(
 
 const copyMessage = (msg: Message) => {
     const message = msg.messageSnapshots?.[0]?.message ?? msg;
-    if (!message.content) return showToast({ text: "Can't copy empty message.", variant: "critical" });
+    if (!message.content) return showToast({ text: "無法複製空白訊息。", variant: "critical" });
     copyWithToast(message.content);
 };
 
 const settings = definePluginSettings({
     clickMethod: {
-        description: "Change the button to view the raw content/data of any message.",
+        description: "變更查看訊息原始內容或資料的按鈕。",
         type: OptionType.SELECT,
         options: [
-            { label: "Left Click to view the raw content.", value: "Left", default: true },
-            { label: "Right click to view the raw content.", value: "Right" }
+            { label: "按左鍵查看原始內容。", value: "Left", default: true },
+            { label: "按右鍵查看原始內容。", value: "Right" }
         ]
     },
     messageContextMenu: {
-        description: "Show in message context menu",
+        description: "顯示於訊息右鍵選單",
         type: OptionType.BOOLEAN,
         default: false
     },
     sortKeys: {
-        description: "Alphabetically sort the keys of the raw data.",
+        description: "依字母順序排序原始資料的鍵。",
         type: OptionType.BOOLEAN,
         default: true
     },
     stripSensitiveData: {
-        description: "Remove sensitive data from the raw data, such as your email and phone number.",
+        description: "從原始資料中移除電子郵件與電話號碼等敏感資訊。",
         type: OptionType.BOOLEAN,
         default: true
     }
@@ -188,7 +188,7 @@ function MakeContextCallback(name: "Guild" | "Role" | "User" | "Channel" | "Mess
         (devContainer ?? children).splice(-1, 0,
             <Menu.MenuItem
                 id={id}
-                label="View Raw"
+                label="檢視原始資料"
                 action={action}
                 icon={CopyRawIcon}
                 leadingAccessory={{ type: "icon", icon: CopyRawIcon }}
@@ -207,7 +207,7 @@ const devContextCallback: NavContextMenuPatchCallback = (children, { id }: { id:
     children.push(
         <Menu.MenuItem
             id={"vc-view-role-raw"}
-            label="View Raw"
+            label="檢視原始資料"
             action={() => openViewRawModal(role, "Role")}
             icon={CopyRawIcon}
             leadingAccessory={{ type: "icon", icon: CopyRawIcon }}

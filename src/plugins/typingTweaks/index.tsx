@@ -35,17 +35,17 @@ const settings = definePluginSettings({
     showAvatars: {
         type: OptionType.BOOLEAN,
         default: true,
-        description: "Show avatars in the typing indicator"
+        description: "在輸入中指示標記中顯示頭像"
     },
     showRoleColors: {
         type: OptionType.BOOLEAN,
         default: true,
-        description: "Show role colors in the typing indicator"
+        description: "在輸入中指示標記中顯示身分組顏色"
     },
     alternativeFormatting: {
         type: OptionType.BOOLEAN,
         default: true,
-        description: "Show a more useful message when several users are typing"
+        description: "多人同時輸入時顯示更詳盡的訊息"
     }
 });
 

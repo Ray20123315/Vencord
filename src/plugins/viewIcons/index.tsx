@@ -44,7 +44,7 @@ interface GroupDMContextProps {
 const settings = definePluginSettings({
     format: {
         type: OptionType.SELECT,
-        description: "Choose the image format to use for non-animated images. Animated images will always use .webp",
+        description: "選擇靜態圖片的格式。動態圖片一律使用 .webp",
         options: [
             {
                 label: "webp",
@@ -64,7 +64,7 @@ const settings = definePluginSettings({
     imgSize: {
         type: OptionType.SELECT,
         displayName: "Image Size",
-        description: "The image size to use",
+        description: "使用的圖片尺寸",
         options: ["128", "256", "512", "1024", "2048", "4096"].map(n => ({ label: n, value: n, default: n === "1024" }))
     }
 });
@@ -114,7 +114,7 @@ const UserContext: NavContextMenuPatchCallback = (children, { user, guildId }: U
         <Menu.MenuGroup>
             <Menu.MenuItem
                 id="view-avatar"
-                label="View Avatar"
+                label="查看頭像"
                 action={() => openAvatar(IconUtils.getUserAvatarURL(user, true))}
                 icon={ImageIcon}
                 leadingAccessory={{ type: "icon", icon: ImageIcon }}
@@ -122,7 +122,7 @@ const UserContext: NavContextMenuPatchCallback = (children, { user, guildId }: U
             {memberAvatar && (
                 <Menu.MenuItem
                     id="view-server-avatar"
-                    label="View Server Avatar"
+                    label="查看伺服器頭像"
                     action={() => openAvatar(IconUtils.getGuildMemberAvatarURLSimple({
                         userId: user.id,
                         avatar: memberAvatar,
@@ -136,7 +136,7 @@ const UserContext: NavContextMenuPatchCallback = (children, { user, guildId }: U
             {avatarDecoration && (
                 <Menu.MenuItem
                     id="view-avatar-decoration"
-                    label="View Avatar Decoration"
+                    label="查看頭像裝飾"
                     action={() => openAvatar(IconUtils.getAvatarDecorationURL({
                         avatarDecoration,
                         size: 1024,
@@ -161,7 +161,7 @@ const GuildContext: NavContextMenuPatchCallback = (children, { guild }: GuildCon
             {icon ? (
                 <Menu.MenuItem
                     id="view-icon"
-                    label="View Icon"
+                    label="查看圖示"
                     action={() =>
                         openAvatar(IconUtils.getGuildIconURL({
                             id,
@@ -176,7 +176,7 @@ const GuildContext: NavContextMenuPatchCallback = (children, { guild }: GuildCon
             {banner ? (
                 <Menu.MenuItem
                     id="view-banner"
-                    label="View Banner"
+                    label="查看橫幅"
                     action={() =>
                         openBanner(IconUtils.getGuildBannerURL(guild, true)!)
                     }
@@ -195,7 +195,7 @@ const GroupDMContext: NavContextMenuPatchCallback = (children, { channel }: Grou
         <Menu.MenuGroup>
             <Menu.MenuItem
                 id="view-group-channel-icon"
-                label="View Icon"
+                label="查看圖示"
                 action={() =>
                     openAvatar(IconUtils.getChannelIconURL(channel)!)
                 }

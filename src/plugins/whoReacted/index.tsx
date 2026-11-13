@@ -120,7 +120,7 @@ function ReactionUsers({ message, users }: { message: Message, users: User[]; })
 
 const settings = definePluginSettings({
     clickableAvatars: {
-        description: "While this is enabled, clicking a reacting user's avatar will open their profile instead of adding the reaction",
+        description: "啟用後，點選表情回應使用者的頭像會開啟其個人資料，而不是加入相同的表情回應",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true

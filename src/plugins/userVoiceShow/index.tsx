@@ -29,19 +29,19 @@ import { VoiceChannelIndicator } from "./components";
 const settings = definePluginSettings({
     showInUserProfileModal: {
         type: OptionType.BOOLEAN,
-        description: "Show a user's Voice Channel indicator in their profile next to the name",
+        description: "在使用者個人資料的名稱旁顯示語音頻道指示標記",
         default: true,
         restartNeeded: true
     },
     showInMemberList: {
         type: OptionType.BOOLEAN,
-        description: "Show a user's Voice Channel indicator in the member and DMs list",
+        description: "在成員清單與私訊清單顯示語音頻道指示標記",
         default: true,
         restartNeeded: true
     },
     showInMessages: {
         type: OptionType.BOOLEAN,
-        description: "Show a user's Voice Channel indicator in messages",
+        description: "在訊息中顯示使用者的語音頻道指示標記",
         default: true,
         restartNeeded: true
     }

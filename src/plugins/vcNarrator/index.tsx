@@ -246,7 +246,7 @@ export default definePlugin({
                 : "Try installing some in the Narrator settings of your Operating System";
             errorComponent = <ErrorCard>{error}</ErrorCard>;
         } else if (!hasEnglishVoices) {
-            errorComponent = <ErrorCard>You don't have any English voices installed, so the narrator might sound weird</ErrorCard>;
+            errorComponent = <ErrorCard>尚未安裝英語語音，因此語音播報聽起來可能不太自然</ErrorCard>;
         }
 
         return (
@@ -260,7 +260,7 @@ export default definePlugin({
                 </Paragraph>
                 {hasEnglishVoices && (
                     <>
-                        <Heading className={classes(Margins.top20, Margins.bottom8)}>Play Example Sounds</Heading>
+                        <Heading className={classes(Margins.top20, Margins.bottom8)}>播放範例音效</Heading>
                         <div
                             style={{
                                 display: "grid",

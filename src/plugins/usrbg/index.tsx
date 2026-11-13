@@ -32,15 +32,15 @@ interface UsrbgApiReturn {
 
 const settings = definePluginSettings({
     nitroFirst: {
-        description: "Banner to use if both Nitro and USRBG banners are present",
+        description: "同時存在 Nitro 與 USRBG 橫幅時使用哪一個",
         type: OptionType.SELECT,
         options: [
-            { label: "Nitro banner", value: true, default: true },
-            { label: "USRBG banner", value: false },
+            { label: "Nitro 橫幅", value: true, default: true },
+            { label: "USRBG 橫幅", value: false },
         ]
     },
     voiceBackground: {
-        description: "Use USRBG banners as voice chat backgrounds",
+        description: "將 USRBG 橫幅用作語音聊天背景",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true

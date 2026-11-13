@@ -68,7 +68,7 @@ const ctxMenuPatch: NavContextMenuPatchCallback = (children, props) => {
                 type: "icon",
                 icon: Microphone
             }}
-            label="Send Voice Message"
+            label="傳送語音訊息"
             action={() =>
                 openModal(modalProps => <VoiceMessageModal modalProps={modalProps} />, {
                     onCloseCallback: () => FluxDispatcher.dispatch({ type: "VENCORD_STOP_RECORDING" })
@@ -145,7 +145,7 @@ function sendAudio(blob: Blob, meta: AudioMetadata) {
             }
         });
     });
-    upload.on("error", () => showToast({ text: "Failed to upload voice message", variant: "critical" }));
+    upload.on("error", () => showToast({ text: "上傳語音訊息失敗", variant: "critical" }));
 
     upload.upload();
 }
@@ -214,14 +214,14 @@ function VoiceMessageModal({ modalProps }: { modalProps: RenderModalProps; }) {
     return (
         <Modal
             {...modalProps}
-            title="Record Voice Message"
+            title="錄製語音訊息"
             actions={[{
                 text: "Send",
                 variant: "primary",
                 onClick: () => {
                     sendAudio(blob!, meta ?? EMPTY_META);
                     modalProps.onClose();
-                    showToast({ text: "Now sending voice message... Please be patient", icon: ClockIcon, iconColor: "var(--text-default)" });
+                    showToast({ text: "正在傳送語音訊息…", icon: ClockIcon, iconColor: "var(--text-default)" });
                 },
                 disabled: !blob
             }]}
@@ -248,9 +248,9 @@ function VoiceMessageModal({ modalProps }: { modalProps: RenderModalProps; }) {
                 </Button>
             </div>
 
-            <Heading className={Margins.bottom8}>Preview</Heading>
+            <Heading className={Margins.bottom8}>預覽</Heading>
             {metaError
-                ? <Paragraph className={cl("error")}>Failed to parse selected audio file: {metaError.message}</Paragraph>
+                ? <Paragraph className={cl("error")}>無法解析選取的音訊檔案：{metaError.message}</Paragraph>
                 : (
                     <VoicePreview
                         src={blobUrl}
@@ -261,10 +261,10 @@ function VoiceMessageModal({ modalProps }: { modalProps: RenderModalProps; }) {
 
             {isUnsupportedFormat && (
                 <Card variant="warning" className={Margins.top16} defaultPadding>
-                    <Paragraph>Voice Messages have to be OggOpus to be playable on iOS. This file is <code>{blob.type}</code> so it will not be playable on iOS.</Paragraph>
+                    <Paragraph>語音訊息必須使用 OggOpus 格式才能在 iOS 播放。目前檔案格式為 <code>{blob.type}</code> ，因此無法在 iOS 上播放。</Paragraph>
 
                     <Paragraph className={Margins.top8}>
-                        To fix it, first convert it to OggOpus, for example using the <Link href="https://convertio.co/mp3-opus/">convertio web converter</Link>
+                        若要修正，請先轉換成 OggOpus，例如使用 <Link href="https://convertio.co/mp3-opus/">Convertio 網頁轉換工具</Link>
                     </Paragraph>
                 </Card>
             )}

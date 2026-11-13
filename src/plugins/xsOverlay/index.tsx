@@ -94,7 +94,7 @@ const notificationsShouldNotify = findByCodeLazy(".SUPPRESS_NOTIFICATIONS))retur
 const settings = definePluginSettings({
     webSocketPort: {
         type: OptionType.NUMBER,
-        description: "Websocket port",
+        description: "WebSocket 連接埠",
         default: 42070,
         min: 1,
         max: 65535,
@@ -105,72 +105,72 @@ const settings = definePluginSettings({
     preferUDP: {
         type: OptionType.BOOLEAN,
         displayName: "Prefer UDP",
-        description: "Enable if you use an older build of XSOverlay unable to connect through websockets. This setting is ignored on web.",
+        description: "如果使用無法透過 WebSocket 連線的舊版 XSOverlay，請啟用此設定。網頁版會忽略此設定。",
         default: false,
         disabled: () => IS_WEB
     },
     botNotifications: {
         type: OptionType.BOOLEAN,
-        description: "Allow bot notifications",
+        description: "允許機器人通知",
         default: false
     },
     serverNotifications: {
         type: OptionType.BOOLEAN,
-        description: "Allow server notifications",
+        description: "允許伺服器通知",
         default: true
     },
     dmNotifications: {
         type: OptionType.BOOLEAN,
         displayName: "DM Notifications",
-        description: "Allow Direct Message notifications",
+        description: "允許個人私訊通知",
         default: true
     },
     groupDmNotifications: {
         type: OptionType.BOOLEAN,
         displayName: "Group DM Notifications",
-        description: "Allow Group DM notifications",
+        description: "允許群組私訊通知",
         default: true
     },
     callNotifications: {
         type: OptionType.BOOLEAN,
-        description: "Allow call notifications",
+        description: "允許通話通知",
         default: true
     },
     pingColor: {
         type: OptionType.STRING,
-        description: "User mention color",
+        description: "使用者提及顏色",
         default: "#7289da"
     },
     channelPingColor: {
         type: OptionType.STRING,
-        description: "Channel mention color",
+        description: "頻道提及顏色",
         default: "#8a2be2"
     },
     soundPath: {
         type: OptionType.STRING,
-        description: "Notification sound (default/warning/error)",
+        description: "通知音效（預設／警告／錯誤）",
         default: "default"
     },
     timeout: {
         type: OptionType.NUMBER,
-        description: "Notification duration (secs)",
+        description: "通知顯示時間（秒）",
         default: 3,
         min: 0
     },
     lengthBasedTimeout: {
         type: OptionType.BOOLEAN,
-        description: "Extend duration with message length",
+        description: "依訊息長度延長顯示時間",
         default: true
     },
     opacity: {
         type: OptionType.SLIDER,
-        description: "Notif opacity",
+        description: "通知透明度",
         default: 1,
         markers: makeRange(0, 1, 0.1)
     },
     volume: {
         type: OptionType.SLIDER,
-        description: "Volume",
+        description: "音量",
         default: 0.2,
         markers: makeRange(0, 1, 0.1)
     },

@@ -154,7 +154,7 @@ function ModalComponent({ modalProps, submit, close, options }: {
                             <span className={cl("ellipsis")}>•</span>
                             <span>{liveSettings.frameRate}fps</span>
                             {liveSettings.systemAudio ? <span className={cl("ellipsis")}>•</span> : ""}
-                            {liveSettings.systemAudio ? <span>Stream Muted</span> : ""}
+                            {liveSettings.systemAudio ? <span>直播音訊已靜音</span> : ""}
                         </Paragraph>
                     </div>
                 }
@@ -170,7 +170,7 @@ function ModalComponent({ modalProps, submit, close, options }: {
                 <div>
                     <div className={cl("flex", "padding")}>
                         <section className={cl("quality-section")}>
-                            <Heading tag="h4">Resolution</Heading>
+                            <Heading tag="h4">解析度</Heading>
                             <OptionRadio
                                 options={StreamResolution}
                                 settings={liveSettings}
@@ -180,7 +180,7 @@ function ModalComponent({ modalProps, submit, close, options }: {
                         </section>
 
                         <section className={cl("quality-section")}>
-                            <Heading tag="h4">Frame Rate</Heading>
+                            <Heading tag="h4">影格率</Heading>
                             <OptionRadio
                                 options={StreamFps}
                                 settings={liveSettings}
@@ -190,7 +190,7 @@ function ModalComponent({ modalProps, submit, close, options }: {
                         </section>
                     </div>
                     <div>
-                        <Heading tag="h4">Stream Mode</Heading>
+                        <Heading tag="h4">直播模式</Heading>
                         <div>
                             <OptionRadio
                                 options={StreamContentHint}
@@ -209,8 +209,8 @@ function ModalComponent({ modalProps, submit, close, options }: {
                             shape="box"
                             reverse={true}>
                             <div className={cl("control-content")}>
-                                <Heading tag="h4">Mute Stream Audio</Heading>
-                                <Paragraph style={{ color: "var(--text-subtle, var(--text-default))" }}>Prevents system audio from being included in your stream.</Paragraph>
+                                <Heading tag="h4">將直播音訊靜音</Heading>
+                                <Paragraph style={{ color: "var(--text-subtle, var(--text-default))" }}>避免在直播中傳送系統音訊。</Paragraph>
                             </div>
                         </Checkbox>
                     </div>
@@ -221,8 +221,8 @@ function ModalComponent({ modalProps, submit, close, options }: {
                             shape="box"
                             reverse={true}>
                             <div className={cl("control-content")}>
-                                <Heading tag="h4">Show Stream Previews</Heading>
-                                <Paragraph style={{ color: "var(--text-subtle, var(--text-default))" }}>Allows others to see a preview of your stream before they join.</Paragraph>
+                                <Heading tag="h4">顯示直播預覽</Heading>
+                                <Paragraph style={{ color: "var(--text-subtle, var(--text-default))" }}>允許其他人在加入前預覽你的直播。</Paragraph>
                             </div>
                         </Checkbox>
                     </div>
@@ -241,25 +241,25 @@ const StreamContentHint = ["motion", "detail", ""] as const;
 const settings = definePluginSettings({
     resolution: {
         type: OptionType.SELECT,
-        description: "Resolution",
+        description: "解析度",
         hidden: true,
         options: StreamResolution.map(res => ({ label: res, value: res, default: res === "1080" }))
     },
     frameRate: {
         type: OptionType.SELECT,
-        description: "Frame Rate",
+        description: "影格率",
         hidden: true,
         options: StreamFps.map(fps => ({ label: fps, value: fps, default: fps === "60" }))
     },
     contentHint: {
         type: OptionType.SELECT,
-        description: "Content Hint",
+        description: "內容提示",
         hidden: true,
         options: StreamContentHint.map(hint => ({ label: hint, value: hint, default: hint === "motion" }))
     },
     systemAudio: {
         type: OptionType.BOOLEAN,
-        description: "Mute system audio",
+        description: "將系統音訊靜音",
         hidden: true
     }
 });
