@@ -41,7 +41,7 @@ function validateUrl(url: string) {
         new URL(url);
         return true;
     } catch {
-        return "Invalid URL";
+        return "無效的網址";
     }
 }
 
@@ -65,18 +65,18 @@ function CloudSetupSection() {
 
     return (
         <section>
-            <SectionHeading text="Cloud Integrations" />
+            <SectionHeading text="雲端整合" />
 
             <Paragraph size="md" className={Margins.bottom20}>
-                Vencord comes with a cloud integration that adds goodies like settings sync across devices.
-                It <Link href="https://vencord.dev/cloud/privacy">respects your privacy</Link>, and
-                the <Link href="https://github.com/Vencord/Backend">source code</Link> is AGPL 3.0 licensed so you
-                can host it yourself.
+                Vencord 提供雲端整合功能，包含跨裝置同步設定等實用功能。
+                It <Link href="https://vencord.dev/cloud/privacy">尊重你的隱私</Link>, and
+                the <Link href="https://github.com/Vencord/Backend">原始碼</Link> 採用 AGPL 3.0 授權，你
+                也可以自行架設服務。
             </Paragraph>
             <FormSwitch
                 key="backend"
-                title="Enable Cloud Integrations"
-                description="This will request authorization if you have not yet set up cloud integrations."
+                title="啟用雲端整合"
+                description="如果尚未設定雲端整合，啟用時會要求授權。"
                 value={cloud.authenticated}
                 onChange={v => {
                     if (v)
@@ -85,9 +85,9 @@ function CloudSetupSection() {
                         cloud.authenticated = v;
                 }}
             />
-            <Heading className={classes(Margins.top16, Margins.bottom8)}>Backend URL</Heading>
+            <Heading className={classes(Margins.top16, Margins.bottom8)}>後端服務網址</Heading>
             <Paragraph className={Margins.bottom8}>
-                Which backend to use when using cloud integrations.
+                指定雲端整合功能使用的後端服務。
             </Paragraph>
             <CheckedTextInput
                 key="backendUrl"
@@ -111,7 +111,7 @@ function CloudSetupSection() {
                     }}
                     Icon={RestartIcon}
                 >
-                    Reauthorise
+                    重新授權
                 </ButtonWithIcon>
             </Grid>
         </section>
@@ -125,12 +125,12 @@ function SettingsSyncSection() {
 
     return (
         <section>
-            <SectionHeading text="Settings Sync" />
+            <SectionHeading text="設定同步" />
             <Flex flexDirection="column" gap="1em">
                 <FormSwitch
                     key="cloud-sync"
-                    title="Enable Settings Sync"
-                    description="Save your Vencord settings to the cloud so you can easily keep them the same on all your devices"
+                    title="啟用設定同步"
+                    description="將 Vencord 設定儲存到雲端，方便在所有裝置保持一致"
                     value={cloud.settingsSync}
                     onChange={v => { cloud.settingsSync = v; }}
                     disabled={!cloud.authenticated}
@@ -139,29 +139,29 @@ function SettingsSyncSection() {
 
                 <div>
                     <Heading className={Margins.bottom8}>
-                        Sync Rules for This Device
+                        此裝置的同步規則
                     </Heading>
                     <Paragraph className={Margins.bottom8}>
-                        This setting controls how settings move between <strong>this device</strong> and the cloud.
-                        You can let changes flow both ways, or choose one place to be the main source of truth.
+                        此設定決定<strong>這台裝置</strong>與雲端之間的同步方式。
+                        你可以選擇雙向同步，也可以指定其中一方為主要設定來源。
                     </Paragraph>
                     <Select
                         options={[
                             {
-                                label: "Two-way sync (changes go both directions)",
+                                label: "雙向同步（雙方的變更都會同步）",
                                 value: "both",
                                 default: true,
                             },
                             {
-                                label: "This device is the source (upload only)",
+                                label: "以此裝置為準（僅上傳）",
                                 value: "push",
                             },
                             {
-                                label: "The cloud is the source (download only)",
+                                label: "以雲端為準（僅下載）",
                                 value: "pull",
                             },
                             {
-                                label: "Do not sync automatically (manual sync via buttons below only)",
+                                label: "不自動同步（僅透過下方按鈕手動同步）",
                                 value: "manual",
                             }
                         ]}
@@ -182,9 +182,9 @@ function SettingsSyncSection() {
                         onClick={() => putCloudSettings(true)}
                         Icon={CloudUploadIcon}
                     >
-                        Upload Settings
+                        上傳設定
                     </ButtonWithIcon>
-                    <Tooltip text="This will replace your current settings with the ones saved in the cloud. Be careful!">
+                    <Tooltip text="這會以雲端儲存的設定覆蓋目前設定，請小心操作！">
                         {({ onMouseLeave, onMouseEnter }) => (
                             <ButtonWithIcon
                                 variant="dangerPrimary"
@@ -194,7 +194,7 @@ function SettingsSyncSection() {
                                 onClick={() => getCloudSettings(true, true)}
                                 Icon={CloudDownloadIcon}
                             >
-                                Download Settings
+                                下載設定
                             </ButtonWithIcon>
                         )}
                     </Tooltip>
@@ -209,7 +209,7 @@ function ResetSection() {
 
     return (
         <section>
-            <SectionHeading text="Reset Cloud Data" />
+            <SectionHeading text="重設雲端資料" />
 
             <Grid columns={2} gap="1em">
                 <ButtonWithIcon
@@ -218,23 +218,23 @@ function ResetSection() {
                     onClick={() => deleteCloudSettings()}
                     Icon={DeleteIcon}
                 >
-                    Delete Settings from Cloud
+                    刪除雲端設定
                 </ButtonWithIcon>
                 <ButtonWithIcon
                     variant="dangerPrimary"
                     disabled={!authenticated}
                     onClick={() =>
                         confirmAction({
-                            title: "Are you sure?",
-                            subtitle: "Once your data is erased, we cannot recover it. There's no going back!",
-                            confirmText: "Erase it!",
-                            cancelText: "Nevermind",
+                            title: "確定要繼續嗎？",
+                            subtitle: "資料刪除後無法復原，請確認！",
+                            confirmText: "確認刪除",
+                            cancelText: "取消",
                             onConfirm: eraseAllCloudData,
                         })
                     }
                     Icon={DeleteIcon}
                 >
-                    Delete your Cloud Account
+                    刪除雲端帳號
                 </ButtonWithIcon>
             </Grid>
         </section>
@@ -255,4 +255,4 @@ function CloudTab() {
     );
 }
 
-export default wrapTab(CloudTab, "Cloud");
+export default wrapTab(CloudTab, "雲端");

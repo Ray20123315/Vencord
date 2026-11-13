@@ -45,18 +45,18 @@ function VesktopSection() {
         <Flex className={Margins.bottom20} flexDirection="column" gap="1em">
             <Card variant="info">
                 <Heading className={Margins.bottom8}>Vesktop & Vencord</Heading>
-                <Paragraph>Vesktop and Vencord are two separate things. This updater is for Vencord.</Paragraph>
+                <Paragraph>Vesktop 與 Vencord 是不同的程式。這個更新工具僅用於更新 Vencord。</Paragraph>
                 <Paragraph className={Margins.top8}>
-                    You receive separate popups for Vesktop updates. You can also manually update by installing the <Link href="https://vesktop.dev/install">latest version</Link>.
+                    Vesktop 更新時會另外顯示通知。你也可以安裝 <Link href="https://vesktop.dev/install">最新版本</Link>.
                 </Paragraph>
             </Card>
 
             {isVesktopOutdated && (
                 <Card variant="warning">
-                    <Heading className={Margins.bottom8}>Vesktop Outdated</Heading>
+                    <Heading className={Margins.bottom8}>Vesktop 版本過舊</Heading>
                     <Flex flexDirection="column" gap="0.5em">
-                        <Paragraph>Your version of Vesktop is outdated!</Paragraph>
-                        <Button variant="link" onClick={() => VesktopNative.app.openUpdater()}>Open Vesktop Updater</Button>
+                        <Paragraph>你的 Vesktop 版本已過舊！</Paragraph>
+                        <Button variant="link" onClick={() => VesktopNative.app.openUpdater()}>開啟 Vesktop 更新工具</Button>
                     </Flex>
                 </Card>
             )}
@@ -68,7 +68,7 @@ function Updater() {
     const settings = useSettings(["autoUpdate", "autoUpdateNotification"]);
 
     const [repo, err, repoPending] = useAwaiter(getRepo, {
-        fallbackValue: "Loading...",
+        fallbackValue: "載入中…",
         onError: e => UpdateLogger.error("Failed to retrieve repo", err)
     });
 
@@ -83,15 +83,15 @@ function Updater() {
 
             <div className="vc-settings-switches">
                 <FormSwitch
-                    title="Automatically update"
-                    description="Automatically update Vencord without confirmation prompt"
+                    title="自動更新"
+                    description="不經確認提示，自動更新 Vencord"
                     value={settings.autoUpdate}
                     onChange={(v: boolean) => settings.autoUpdate = v}
                     hideBorder
                 />
                 <FormSwitch
-                    title="Get notified when an automatic update completes"
-                    description="Show a notification when Vencord automatically updates"
+                    title="自動更新完成時通知我"
+                    description="Vencord 自動更新完成後顯示通知"
                     value={settings.autoUpdateNotification}
                     onChange={(v: boolean) => settings.autoUpdateNotification = v}
                     disabled={!settings.autoUpdate}
@@ -99,13 +99,13 @@ function Updater() {
                 />
             </div>
 
-            <Heading className={classes(Margins.top20, Margins.bottom8)}>Repo</Heading>
+            <Heading className={classes(Margins.top20, Margins.bottom8)}>儲存庫</Heading>
 
             <Paragraph>
                 {repoPending
                     ? repo
                     : err
-                        ? "Failed to retrieve - check console"
+                        ? "取得失敗，請查看主控台"
                         : (
                             <Link href={repo}>
                                 {repo.split("/").slice(-2).join("/")}
@@ -118,7 +118,7 @@ function Updater() {
 
             <Divider className={classes(Margins.top16, Margins.bottom16)} />
 
-            <Heading className={Margins.bottom8}>Updates</Heading>
+            <Heading className={Margins.bottom8}>更新</Heading>
 
             {isNewer
                 ? <Newer {...commonProps} />
@@ -130,4 +130,4 @@ function Updater() {
 
 export default IS_UPDATER_DISABLED
     ? null
-    : wrapTab(Updater, "Updater");
+    : wrapTab(Updater, "更新工具");

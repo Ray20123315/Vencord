@@ -107,7 +107,7 @@ export default function PluginModal({ plugin, onRestartNeeded, onClose, transiti
     function renderSettings() {
         const { settings } = plugin;
         if (!hasSettings || !settings)
-            return <Paragraph>There are no settings for this plugin.</Paragraph>;
+            return <Paragraph>此插件沒有可調整的設定。</Paragraph>;
 
         const options = Object.entries(settings.def).map(([key, setting]) => {
             if (setting.type === OptionType.CUSTOM) return null;
@@ -182,11 +182,11 @@ export default function PluginModal({ plugin, onRestartNeeded, onClose, transiti
                                 onClick={() => pluginSettings.isFavorite = !pluginSettings.isFavorite}
                             />
                             <WebsiteButton
-                                text="View more info"
+                                text="查看更多資訊"
                                 href={`https://vencord.dev/plugins/${plugin.name}`}
                             />
                             <GithubButton
-                                text="View source code"
+                                text="檢視原始碼"
                                 href={`https://github.com/${gitRemote}/tree/main/src/plugins/${pluginMeta.folderName}`}
                             />
                         </div>
@@ -204,7 +204,7 @@ export default function PluginModal({ plugin, onRestartNeeded, onClose, transiti
         >
             <div className={"vc-settings-modal-content"}>
                 <section>
-                    <Heading tag="h3" className={classes(Margins.top8, Margins.bottom8)}>Authors</Heading>
+                    <Heading tag="h3" className={classes(Margins.top8, Margins.bottom8)}>作者</Heading>
                     <div style={{ width: "fit-content" }}>
                         <ErrorBoundary noop>
                             <UserSummaryItem
@@ -235,7 +235,7 @@ export default function PluginModal({ plugin, onRestartNeeded, onClose, transiti
                 {!!plugin.settingsAboutComponent && (
                     <div className={Margins.top16}>
                         <section>
-                            <ErrorBoundary message="An error occurred while rendering this plugin's custom Info Component">
+                            <ErrorBoundary message="顯示此插件的自訂資訊元件時發生錯誤">
                                 <plugin.settingsAboutComponent />
                             </ErrorBoundary>
                         </section>
@@ -243,7 +243,7 @@ export default function PluginModal({ plugin, onRestartNeeded, onClose, transiti
                 )}
 
                 <section>
-                    <Heading tag="h3" className={classes(Margins.top16, Margins.bottom8)}>Settings</Heading>
+                    <Heading tag="h3" className={classes(Margins.top16, Margins.bottom8)}>設定</Heading>
                     {renderSettings()}
                 </section>
             </div>

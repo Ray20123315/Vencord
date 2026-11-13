@@ -36,7 +36,7 @@ export function PluginCard({ plugin, disabled, onRestartNeeded, onMouseEnter, on
 
             if (failures.length) {
                 logger.error(`Failed to start dependencies for ${plugin.name}: ${failures.join(", ")}`);
-                showNotice("Failed to start dependencies: " + failures.join(", "), "Close", () => null);
+                showNotice("無法啟動相依插件：" + failures.join(", "), "關閉", () => null);
                 return;
             }
 
@@ -66,7 +66,7 @@ export function PluginCard({ plugin, disabled, onRestartNeeded, onMouseEnter, on
         if (!result) {
             settings.enabled = false;
 
-            const msg = `Error while ${wasEnabled ? "stopping" : "starting"} plugin ${plugin.name}`;
+            const msg = `插件 ${plugin.name} ${wasEnabled ? "停止" : "啟動"}時發生錯誤`;
             showToast({ text: msg, variant: "critical", position: "bottom" });
 
             return;
