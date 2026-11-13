@@ -34,7 +34,7 @@ const altKey = IS_MAC ? "opt" : "alt";
 
 export default definePlugin({
     name: "Experiments",
-    description: "Enable Access to Experiments & other dev-only features in Discord!",
+    description: "開放 Discord 的實驗功能及其他僅供開發者使用的選項。",
     tags: ["Developers", "Utility"],
     authors: [
         Devs.Megu,

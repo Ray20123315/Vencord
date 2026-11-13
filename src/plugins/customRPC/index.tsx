@@ -220,7 +220,7 @@ export async function setRpc(disable?: boolean) {
 
 export default definePlugin({
     name: "CustomRPC",
-    description: "Add a fully customisable Rich Presence (Game status) to your Discord profile",
+    description: "為 Discord 個人資料新增完全可自訂的 Rich Presence（遊戲狀態）。",
     tags: ["Activity", "Customisation"],
     authors: [Devs.captain, Devs.AutumnVN, Devs.nin0dev, Devs.c0nnorgg],
     dependencies: ["UserSettingsAPI"],

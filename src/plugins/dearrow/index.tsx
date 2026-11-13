@@ -169,7 +169,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "Dearrow",
-    description: "Makes YouTube embed titles and thumbnails less sensationalist, powered by Dearrow",
+    description: "透過 Dearrow 將 YouTube 嵌入影片的標題及縮圖改得不那麼聳動。",
     tags: ["Media", "Utility"],
     authors: [Devs.Ven],
     settings,

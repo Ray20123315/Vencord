@@ -23,7 +23,7 @@ function saveAttachment(downloadURL: string) {
 
 export default definePlugin({
     name: "DirectFileDownload",
-    description: "Directly download files from Discord instead of opening them in the browser",
+    description: "直接從 Discord 下載檔案，而不必先在瀏覽器開啟。",
     authors: [Devs.imnotplayinginreallife],
 
     patches: [
