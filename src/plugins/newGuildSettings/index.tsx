@@ -118,7 +118,7 @@ function applyDefaultSettings(guildId: string | null) {
 
 export default definePlugin({
     name: "NewGuildSettings",
-    description: "Automatically mute new servers and change various other settings upon joining",
+    description: "加入新伺服器時自動靜音，並套用其他指定設定。",
     tags: ["Servers", "Customisation"],
     searchTerms: ["MuteNewGuild", "mute", "server"],
     authors: [Devs.Glitch, Devs.Nuckyz, Devs.carince, Devs.Mopi, Devs.GabiRP],

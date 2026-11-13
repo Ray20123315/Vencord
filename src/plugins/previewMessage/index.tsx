@@ -126,7 +126,7 @@ const PreviewButton: ChatBarButtonFactory = ({ isAnyChat, isEmpty, type: { attac
 
 export default definePlugin({
     name: "PreviewMessage",
-    description: "Lets you preview your message before sending it.",
+    description: "傳送訊息前先預覽內容。",
     tags: ["Chat", "Utility"],
     authors: [Devs.Aria],
     // start early to ensure we're the first plugin to add our button

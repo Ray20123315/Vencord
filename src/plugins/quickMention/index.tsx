@@ -40,7 +40,7 @@ function Icon({ height = 24, width = 24, className = "icon" }: { height?: number
 export default definePlugin({
     name: "QuickMention",
     authors: [Devs.kemo],
-    description: "Adds a quick mention button to the message actions bar",
+    description: "在訊息操作列新增快速提及按鈕。",
     tags: ["Chat", "Shortcuts"],
 
     messagePopoverButton: {

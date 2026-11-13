@@ -29,7 +29,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "OverrideForumDefaults",
-    description: "Allows you to override default forum layout/sort order. you can still change it on a per-channel basis",
+    description: "自訂論壇頻道的預設版面與排序方式，也能針對各頻道另外調整。",
     tags: ["Servers", "Organisation", "Customisation"],
     authors: [Devs.Inbestigator],
     patches: [

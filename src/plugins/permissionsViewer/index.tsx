@@ -161,7 +161,7 @@ function makeContextMenuPatch(childId: string | string[], type?: MenuItemParentT
 
 export default definePlugin({
     name: "PermissionsViewer",
-    description: "View the permissions a user or channel has, and the roles of a server",
+    description: "查看使用者或頻道的權限，以及伺服器中的身分組。",
     tags: ["Servers", "Roles", "Utility"],
     authors: [Devs.Nuckyz, Devs.Ven],
     settings,

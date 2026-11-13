@@ -219,7 +219,7 @@ function OtherUserPlatformIndicators({ user, small = false }: { user: User; smal
 
 export default definePlugin({
     name: "PlatformIndicators",
-    description: "Adds platform indicators (Desktop, Mobile, Web...) to users",
+    description: "在使用者旁顯示平台標記（桌面版、手機版、網頁版等）。",
     tags: ["Appearance"],
     authors: [Devs.kemo, Devs.TheSun, Devs.Nuckyz, Devs.Ven],
     dependencies: ["MessageDecorationsAPI", "MemberListDecoratorsAPI"],

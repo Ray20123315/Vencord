@@ -65,7 +65,7 @@ const ReadAllButton = () => (
 
 export default definePlugin({
     name: "ReadAllNotificationsButton",
-    description: "Read all server notifications with a single button click!",
+    description: "按一下即可將所有伺服器通知標為已讀！",
     tags: ["Notifications", "Shortcuts"],
     authors: [Devs.kemo],
     dependencies: ["ServerListAPI"],

@@ -57,7 +57,7 @@ function ReplyTimestamp({
 
 export default definePlugin({
     name: "ReplyTimestamp",
-    description: "Shows a timestamp on replied-message previews",
+    description: "在回覆訊息的預覽上顯示時間戳記。",
     tags: ["Chat", "Appearance"],
     authors: [Devs.Kyuuhachi],
 

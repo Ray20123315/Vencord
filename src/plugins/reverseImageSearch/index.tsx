@@ -85,7 +85,7 @@ const imageContextMenuPatch: NavContextMenuPatchCallback = (children, props) => 
 
 export default definePlugin({
     name: "ReverseImageSearch",
-    description: "Adds ImageSearch to image context menus",
+    description: "在圖片右鍵選單中新增以圖搜圖功能。",
     tags: ["Media", "Utility"],
     authors: [Devs.Ven, Devs.Nuckyz],
     searchTerms: ["ImageUtilities"],
