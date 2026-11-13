@@ -43,22 +43,22 @@ const CONNECT = 1n << 20n;
 
 export const settings = definePluginSettings({
     hideUnreads: {
-        description: "Hide Unreads",
+        description: "隱藏未讀提示",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true
     },
     showMode: {
-        description: "The mode used to display hidden channels.",
+        description: "隱藏頻道的顯示模式。",
         type: OptionType.SELECT,
         options: [
-            { label: "Plain style with Lock Icon instead", value: ShowMode.LockIcon, default: true },
-            { label: "Muted style with hidden eye icon on the right", value: ShowMode.HiddenIconWithMutedStyle },
+            { label: "一般樣式，改為顯示鎖頭圖示", value: ShowMode.LockIcon, default: true },
+            { label: "靜音樣式，在右側顯示隱藏的眼睛圖示", value: ShowMode.HiddenIconWithMutedStyle },
         ],
         restartNeeded: true
     },
     defaultAllowedUsersAndRolesDropdownState: {
-        description: "Whether the allowed users and roles dropdown on hidden channels should be open by default",
+        description: "隱藏頻道中允許使用者與身分組的下拉清單是否預設展開",
         type: OptionType.BOOLEAN,
         default: true
     }

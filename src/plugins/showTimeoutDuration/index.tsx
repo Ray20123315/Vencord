@@ -29,11 +29,11 @@ const enum DisplayStyle {
 
 const settings = definePluginSettings({
     displayStyle: {
-        description: "How to display the timeout duration",
+        description: "禁言剩餘時間的顯示方式",
         type: OptionType.SELECT,
         options: [
-            { label: "In the Tooltip", value: DisplayStyle.Tooltip },
-            { label: "Next to the timeout icon", value: DisplayStyle.Inline, default: true },
+            { label: "在工具提示中", value: DisplayStyle.Tooltip },
+            { label: "顯示於禁言圖示旁", value: DisplayStyle.Inline, default: true },
         ],
     }
 });

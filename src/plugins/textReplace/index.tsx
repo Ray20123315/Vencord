@@ -75,13 +75,13 @@ const settings = definePluginSettings({
                 <>
                     <TextReplaceTesting />
                     <TextReplace
-                        title="Simple Replacements"
-                        description="Simple find and replace rules. For example, find 'brb' and replace it with 'be right back'"
+                        title="簡易替換"
+                        description="簡單的尋找與替換規則，例如將 'brb' 替換成 'be right back'"
                         rulesArray={stringRules}
                     />
                     <TextReplace
-                        title="Regex Replacements"
-                        description="More powerful replacements using Regular Expressions. This section is for advanced users. If you don't understand it, just ignore it"
+                        title="正規表示式替換"
+                        description="使用正規表示式進行進階替換。此功能適合進階使用者，不熟悉可略過"
                         rulesArray={regexRules}
                         isRegex
                     />
@@ -92,12 +92,12 @@ const settings = definePluginSettings({
     stringRules: {
         type: OptionType.CUSTOM,
         default: makeEmptyRuleArray(),
-        description: "Rules for replacing text using string matching."
+        description: "使用字串比對來替換文字的規則。"
     },
     regexRules: {
         type: OptionType.CUSTOM,
         default: makeEmptyRuleArray(),
-        description: "Rules for replacing text using regular expressions."
+        description: "使用正規表示式來替換文字的規則。"
     }
 });
 
@@ -241,7 +241,7 @@ function TextReplace({ title, description, rulesArray, isRegex = false }: TextRe
                 <Paragraph>{description}</Paragraph>
                 <div className={cl("search-input")}>
                     <TextInput
-                        placeholder="Search for a rule..."
+                        placeholder="搜尋規則…"
                         value={searchQuery}
                         onChange={setSearchQuery}
                     />
@@ -249,7 +249,7 @@ function TextReplace({ title, description, rulesArray, isRegex = false }: TextRe
             </div>
             <Flex flexDirection="column" style={{ gap: "0.5em", paddingBottom: "1.25em" }}>
                 {!filteredRules.length && searchQuery && (
-                    <Paragraph>No rules match your search criteria.</Paragraph>
+                    <Paragraph>沒有符合搜尋條件的規則。</Paragraph>
                 )}
                 {filteredRules.map(({ rule, index }) =>
                     <div
@@ -269,26 +269,26 @@ function TextReplace({ title, description, rulesArray, isRegex = false }: TextRe
                                 <>
                                     <div className={cl("input-grid")}>
                                         <TextRow
-                                            label="Name"
-                                            description="An optional name to help you identify this rule."
+                                            label="名稱"
+                                            description="可選填名稱，方便辨識這項規則。"
                                             value={rule.name ?? ""}
                                             onChange={e => onChange(e, index, "name")}
                                         />
                                         <TextRow
-                                            label="Find"
+                                            label="尋找"
                                             description={isRegex ? "The regex pattern" : "The text to replace"}
                                             value={rule.find}
                                             onChange={e => onChange(e, index, "find")}
                                         />
                                         <TextRow
-                                            label="Replace"
-                                            description="The text to replace the found text with"
+                                            label="替換為"
+                                            description="用來取代相符文字的內容"
                                             value={rule.replace}
                                             onChange={e => onChange(e, index, "replace")}
                                         />
                                         <TextRow
-                                            label="Only if includes"
-                                            description="Optionally, only apply this rule if the message includes this text."
+                                            label="僅當包含以下內容"
+                                            description="可選擇僅在訊息包含此文字時套用規則。"
                                             value={rule.onlyIfIncludes}
                                             onChange={e => onChange(e, index, "onlyIfIncludes")}
                                         />
@@ -347,10 +347,10 @@ function TextReplaceTesting() {
 
     return (
         <div>
-            <Heading className={Margins.bottom8}>Rule Tester</Heading>
+            <Heading className={Margins.bottom8}>規則測試器</Heading>
             <Flex flexDirection="column" gap={6}>
-                <TextInput placeholder="Type a message to test rules on" onChange={setValue} />
-                <TextInput placeholder="Message with rules applied" editable={false} value={applyRules(value)} style={{ opacity: 0.7 }} />
+                <TextInput placeholder="輸入訊息以測試規則" onChange={setValue} />
+                <TextInput placeholder="套用規則後的訊息" editable={false} value={applyRules(value)} style={{ opacity: 0.7 }} />
             </Flex>
         </div>
     );

@@ -47,18 +47,18 @@ const getSpacingPx = (spacing: Spacing | undefined) => (spacing ?? Spacing.COMPA
 const settings = definePluginSettings({
     iconSize: {
         type: OptionType.NUMBER,
-        description: "Icon size (px)",
+        description: "圖示尺寸（像素）",
         default: 32,
         min: 1
     },
     iconSpacing: {
         type: OptionType.SELECT,
-        description: "Icon margin",
+        description: "圖示間距",
         default: Spacing.COZY,
         options: [
-            { label: "Compact", value: Spacing.COMPACT },
-            { label: "Cozy", value: Spacing.COZY }, // US Spelling :/
-            { label: "Roomy", value: Spacing.ROOMY }
+            { label: "緊湊", value: Spacing.COMPACT },
+            { label: "舒適", value: Spacing.COZY }, // US Spelling :/
+            { label: "寬鬆", value: Spacing.ROOMY }
         ]
     }
 });

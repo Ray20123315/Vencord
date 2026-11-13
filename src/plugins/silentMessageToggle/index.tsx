@@ -28,7 +28,7 @@ let lastState = false;
 const settings = definePluginSettings({
     persistState: {
         type: OptionType.BOOLEAN,
-        description: "Whether to persist the state of the silent message toggle when changing channels",
+        description: "切換頻道時是否保留靜音訊息開關的狀態",
         default: false,
         onChange(newValue: boolean) {
             if (newValue === false) lastState = false;
@@ -36,7 +36,7 @@ const settings = definePluginSettings({
     },
     autoDisable: {
         type: OptionType.BOOLEAN,
-        description: "Automatically disable the silent message toggle again after sending one",
+        description: "傳送一則靜音訊息後自動關閉靜音訊息模式",
         default: true
     }
 });

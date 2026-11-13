@@ -28,22 +28,22 @@ const settings = definePluginSettings({
     showIcon: {
         type: OptionType.BOOLEAN,
         default: false,
-        description: "Show an icon for toggling the plugin",
+        description: "顯示切換此插件的圖示",
         restartNeeded: true,
     },
     contextMenu: {
         type: OptionType.BOOLEAN,
-        description: "Add option to toggle the functionality in the chat input context menu",
+        description: "在聊天輸入框右鍵選單新增切換此功能的選項",
         default: true
     },
     isEnabled: {
         type: OptionType.BOOLEAN,
-        description: "Toggle functionality",
+        description: "切換功能",
         default: true,
     },
     showTypingIn: {
         type: OptionType.STRING,
-        description: "Comma-separated list of channel IDs to always show typing in",
+        description: "一律顯示輸入中狀態的頻道 ID 清單（以逗號分隔）",
         default: ""
     },
 });
@@ -105,7 +105,7 @@ const ChatBarContextCheckbox: NavContextMenuPatchCallback = children => {
     group.splice(idx + 1, 0,
         <Menu.MenuCheckboxItem
             id="vc-silent-typing"
-            label="Enable Silent Typing"
+            label="啟用隱藏輸入狀態"
             checked={isEnabled}
             action={() => settings.store.isEnabled = !settings.store.isEnabled}
         />
@@ -136,12 +136,12 @@ export default definePlugin({
 
     commands: [{
         name: "silenttype",
-        description: "Toggle whether you're hiding that you're typing or not.",
+        description: "切換是否隱藏自己的輸入中狀態。",
         inputType: ApplicationCommandInputType.BUILT_IN,
         options: [
             {
                 name: "value",
-                description: "Whether to hide or not that you're typing (default is toggle)",
+                description: "是否隱藏自己的輸入中狀態（預設為切換）",
                 required: false,
                 type: ApplicationCommandOptionType.BOOLEAN,
             },

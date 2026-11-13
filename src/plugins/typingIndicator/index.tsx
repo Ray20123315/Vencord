@@ -135,31 +135,31 @@ function TypingIndicator({ channelId, guildId }: { channelId: string; guildId: s
 const settings = definePluginSettings({
     includeCurrentChannel: {
         type: OptionType.BOOLEAN,
-        description: "Whether to show the typing indicator for the currently selected channel",
+        description: "目前選取的頻道是否顯示輸入中指示標記",
         default: true
     },
     includeMutedChannels: {
         type: OptionType.BOOLEAN,
-        description: "Whether to show the typing indicator for muted channels.",
+        description: "靜音頻道是否顯示輸入中指示標記。",
         default: false
     },
     includeIgnoredUsers: {
         type: OptionType.BOOLEAN,
-        description: "Whether to show the typing indicator for ignored users.",
+        description: "被忽略的使用者是否顯示輸入中指示標記。",
         default: false
     },
     includeBlockedUsers: {
         type: OptionType.BOOLEAN,
-        description: "Whether to show the typing indicator for blocked users.",
+        description: "已封鎖的使用者是否顯示輸入中指示標記。",
         default: false
     },
     indicatorMode: {
         type: OptionType.SELECT,
-        description: "How should the indicator be displayed?",
+        description: "輸入中指示標記的顯示方式",
         options: [
-            { label: "Avatars and animated dots", value: IndicatorMode.Dots | IndicatorMode.Avatars, default: true },
-            { label: "Animated dots", value: IndicatorMode.Dots },
-            { label: "Avatars", value: IndicatorMode.Avatars },
+            { label: "頭像與動態圓點", value: IndicatorMode.Dots | IndicatorMode.Avatars, default: true },
+            { label: "動態圓點", value: IndicatorMode.Dots },
+            { label: "頭像", value: IndicatorMode.Avatars },
         ],
     }
 });

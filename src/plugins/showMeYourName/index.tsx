@@ -25,32 +25,32 @@ interface UsernameProps {
 const settings = definePluginSettings({
     mode: {
         type: OptionType.SELECT,
-        description: "How to display usernames and nicks",
+        description: "使用者名稱及暱稱的顯示方式",
         options: [
-            { label: "Username then nickname", value: "user-nick", default: true },
-            { label: "Nickname then username", value: "nick-user" },
-            { label: "Username only", value: "user" },
-            { label: "Nickname only", value: "nick" },
+            { label: "使用者名稱在前、暱稱在後", value: "user-nick", default: true },
+            { label: "暱稱在前、使用者名稱在後", value: "nick-user" },
+            { label: "僅顯示使用者名稱", value: "user" },
+            { label: "僅顯示暱稱", value: "nick" },
         ],
     },
     friendNicknames: {
         type: OptionType.SELECT,
-        description: "How to prioritise friend nicknames over server nicknames",
+        description: "好友暱稱相對於伺服器暱稱的優先順序",
         options: [
-            { label: "Show friend nicknames only in direct messages", value: "dms", default: true },
-            { label: "Prefer friend nicknames over server nicknames", value: "always" },
-            { label: "Prefer server nicknames over friend nicknames", value: "fallback" }
+            { label: "僅在私訊中顯示好友暱稱", value: "dms", default: true },
+            { label: "優先使用好友暱稱", value: "always" },
+            { label: "優先使用伺服器暱稱", value: "fallback" }
         ]
     },
     displayNames: {
         type: OptionType.BOOLEAN,
-        description: "Use display names in place of usernames",
+        description: "以顯示名稱取代使用者名稱",
         default: false
     },
     inReplies: {
         type: OptionType.BOOLEAN,
         default: false,
-        description: "Also apply functionality to reply previews",
+        description: "也套用至回覆預覽",
     },
 });
 

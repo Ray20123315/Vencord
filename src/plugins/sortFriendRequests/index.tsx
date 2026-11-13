@@ -44,7 +44,7 @@ function getSince(user: User) {
 const settings = definePluginSettings({
     showDates: {
         type: OptionType.BOOLEAN,
-        description: "Show dates on friend requests",
+        description: "顯示好友邀請的收到日期",
         default: false,
         restartNeeded: true
     }

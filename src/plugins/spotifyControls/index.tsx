@@ -27,19 +27,19 @@ import { Player } from "./PlayerComponent";
 
 export const settings = definePluginSettings({
     hoverControls: {
-        description: "Show controls on hover",
+        description: "滑鼠移至上方時顯示控制按鈕",
         type: OptionType.BOOLEAN,
         default: false,
         onChange: v => toggleHoverControls(v)
     },
     useSpotifyUris: {
         type: OptionType.BOOLEAN,
-        description: "Open Spotify URIs instead of Spotify URLs. Will only work if you have Spotify installed and might not work on all platforms",
+        description: "使用 Spotify URI 而非 Spotify 網址開啟連結。必須已安裝 Spotify，且部分平台可能不支援",
         default: false
     },
     previousButtonRestartsTrack: {
         type: OptionType.BOOLEAN,
-        description: "Restart currently playing track when pressing the previous button if playtime is >3s",
+        description: "目前歌曲已播放超過 3 秒時，按上一首會從頭播放目前歌曲",
         default: true
     }
 });
@@ -102,8 +102,8 @@ export default definePlugin({
                 <ErrorBoundary
                     fallback={() => (
                         <div className="vc-spotify-fallback">
-                            <p>Failed to render Spotify Modal :(</p>
-                            <p >Check the console for errors</p>
+                            <p>無法顯示 Spotify 視窗</p>
+                            <p >請查看主控台的錯誤訊息</p>
                         </div>
                     )}
                 >
