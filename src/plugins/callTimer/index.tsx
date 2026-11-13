@@ -48,7 +48,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "CallTimer",
-    description: "Adds a timer to vcs",
+    description: "在語音聊天中加入通話計時器。",
     tags: ["Voice", "Utility"],
     authors: [Devs.Ven],
     managedStyle: alignedChatInputFix,

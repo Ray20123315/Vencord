@@ -42,7 +42,7 @@ async function lookupApp(applicationId: string): Promise<string> {
 let ws: WebSocket;
 export default definePlugin({
     name: "WebRichPresence (arRPC)",
-    description: "Client plugin for arRPC to enable RPC on Discord Web (experimental)",
+    description: "讓 Discord 網頁版能透過 arRPC 使用 Rich Presence 的客戶端插件（實驗性功能）。",
     tags: ["Activity", "Utility"],
     authors: [Devs.Ducko],
     reporterTestable: ReporterTestable.None,

@@ -33,7 +33,7 @@ function getCounterColor(percentage: number) {
 
 export default definePlugin({
     name: "CharacterCounter",
-    description: "Adds a character counter to the chat input",
+    description: "在聊天輸入框中顯示字元數量。",
     authors: [Devs.thororen, Devs.creations],
     tags: ["Utility"],
     settings,
