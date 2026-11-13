@@ -10,7 +10,7 @@ import definePlugin from "@utils/types";
 export default definePlugin({
     name: "NoMaskedUrlPaste",
     authors: [Devs.CatNoir],
-    description: "Pasting a link while having text selected will not paste as masked URL",
+    description: "選取文字時貼上連結，不會自動將選取內容轉成隱藏網址的連結。",
     tags: ["Chat", "Utility"],
     patches: [
         {

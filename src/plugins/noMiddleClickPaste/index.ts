@@ -15,7 +15,7 @@ function preventMiddleClick(e: MouseEvent) {
 
 export default definePlugin({
     name: "NoMiddleClickPaste",
-    description: "Disable Linux middle-click paste - Linux only",
+    description: "停用 Linux 滑鼠中鍵貼上功能（僅限 Linux）。",
     authors: [Devs.Darxoon],
     hidden: !IS_LINUX,
 

@@ -21,7 +21,7 @@ import definePlugin from "@utils/types";
 
 export default definePlugin({
     name: "NoSystemBadge",
-    description: "Disables the taskbar and system tray unread count badge.",
+    description: "停用工作列與系統匣的未讀數量徽章。",
     tags: ["Notifications", "Appearance"],
     authors: [Devs.rushii],
     patches: [

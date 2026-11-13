@@ -21,7 +21,7 @@ import definePlugin from "@utils/types";
 
 export default definePlugin({
     name: "NoUnblockToJump",
-    description: "Allows you to jump to messages of blocked or ignored users and likely spammers without unblocking them",
+    description: "無須解除封鎖，即可跳至已封鎖、已忽略或疑似垃圾訊息使用者的訊息。",
     tags: ["Utility"],
     authors: [Devs.Rini],
     patches: [

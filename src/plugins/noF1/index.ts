@@ -21,7 +21,7 @@ import definePlugin from "@utils/types";
 
 export default definePlugin({
     name: "NoF1",
-    description: "Disables F1 help bind.",
+    description: "停用 F1 說明快捷鍵。",
     tags: ["Utility"],
     authors: [Devs.Cyn],
     patches: [
