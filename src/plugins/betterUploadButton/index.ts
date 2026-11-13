@@ -22,7 +22,7 @@ import definePlugin from "@utils/types";
 export default definePlugin({
     name: "BetterUploadButton",
     authors: [Devs.fawn, Devs.Ven],
-    description: "Upload with a single click, open menu with right click",
+    description: "按一下即可上傳，按右鍵可開啟選單。",
     tags: ["Utility", "Shortcuts"],
     patches: [
         {

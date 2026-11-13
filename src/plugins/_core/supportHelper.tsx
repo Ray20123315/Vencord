@@ -165,7 +165,7 @@ function DevBuildConfirmModal(props: RenderModalProps) {
 export default definePlugin({
     name: "SupportHelper",
     required: true,
-    description: "Helps us provide support to you",
+    description: "協助我們為你提供技術支援。",
     authors: [Devs.Ven],
     dependencies: ["UserSettingsAPI"],
 

@@ -136,7 +136,7 @@ const customAutocompleteEntries = customFilters.map(filter => ({
 export default definePlugin({
     name: "BetterSearch",
     authors: [Devs.theo],
-    description: "Allows you to use channel message search options that aren't normally available",
+    description: "使用一般情況下無法使用的頻道訊息搜尋選項。",
 
     patches: [
         {

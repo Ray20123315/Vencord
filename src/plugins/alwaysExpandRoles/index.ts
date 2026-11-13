@@ -23,7 +23,7 @@ import definePlugin from "@utils/types";
 migratePluginSettings("AlwaysExpandRoles", "ShowAllRoles");
 export default definePlugin({
     name: "AlwaysExpandRoles",
-    description: "Always expands the role list in profile popouts",
+    description: "在個人資料彈出視窗中一律展開身分組清單。",
     tags: ["Appearance", "Roles"],
     authors: [Devs.surgedevs],
     patches: [

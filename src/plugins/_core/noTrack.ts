@@ -44,7 +44,7 @@ const streamEvents = new Set(["media_session_joined", "video_stream_started", "v
 
 export default definePlugin({
     name: "NoTrack",
-    description: "Disable Discord's tracking (analytics/'science'), metrics and Sentry crash reporting",
+    description: "停用 Discord 的追蹤（分析／實驗）、使用指標與 Sentry 當機回報。",
     authors: [Devs.Cyn, Devs.Ven, Devs.Nuckyz, Devs.Arrow, Devs.Cramber],
     required: true,
 

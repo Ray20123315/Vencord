@@ -37,7 +37,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "AlwaysTrust",
-    description: "Removes the annoying untrusted domain and suspicious file popup",
+    description: "移除煩人的不受信任網域及可疑檔案警告視窗。",
     tags: ["Utility"],
     authors: [Devs.zt, Devs.Trwy],
     patches: [

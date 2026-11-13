@@ -43,7 +43,7 @@ function handleNode(node: Node) {
 
 export default definePlugin({
     name: "FixDiscordCss",
-    description: "Fixes Discord's css lag",
+    description: "修正 Discord 的 CSS 效能延遲問題。",
     authors: [Devs.Ven],
     required: true,
 
